@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uras Tech | Dijital Sağ Kolunuzla Tanışın</title>
+<meta name="description" content="Uras Tech — 7/24 AI Chatbot, Operasyonel Otomasyon ve Fonksiyonel Web Tasarım ile işletmenizin dijital sağ kolu. Karmaşayı emekli edin, zamanı özgürleştirin.">
+<meta property="og:title" content="Uras Tech | Dijital Sağ Kolunuzla Tanışın">
+<meta property="og:description" content="İşinizi büyütürken rutin operasyonların içinde boğulmayın. Uras Tech akıllı otomasyonlarla dijital sağ kolunuz olur.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   TOKENS & RESET
+======================================== */
+:root {
+  --c-primary: #0A192F;
+  --c-primary-mid: #112240;
+  --c-accent: #FF5733;
+  --c-accent-dim: rgba(255,87,51,0.12);
+  --c-bg: #F8F9FA;
+  --c-text: #2D3436;
+  --c-muted: #636e72;
+  --c-white: #ffffff;
+  --c-border: rgba(10,25,47,0.09);
+  --c-border-light: rgba(255,255,255,0.1);
+
+  --f-display: 'Syne', sans-serif;
+  --f-body: 'Plus Jakarta Sans', sans-serif;
+
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 48px;
+  --sp-2xl: 80px;
+  --sp-3xl: 120px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-card:
+    0 1px 2px rgba(10,25,47,0.04),
+    0 4px 12px rgba(10,25,47,0.07),
+    0 16px 40px rgba(10,25,47,0.09);
+  --shadow-card-hover:
+    0 2px 4px rgba(10,25,47,0.06),
+    0 8px 24px rgba(10,25,47,0.12),
+    0 32px 64px rgba(10,25,47,0.14);
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.63;
+  color: var(--c-text);
+  background: var(--c-bg);
+  cursor: none;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; border: none; background: none; cursor: none; }
+input, textarea, select { font-family: inherit; }
+
+/* ========================================
+   CUSTOM CURSOR
+======================================== */
+.cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s var(--ease-out), width 0.25s var(--ease-spring), height 0.25s var(--ease-spring), opacity 0.2s;
+}
+.cursor-ring {
+  position: fixed;
+  width: 34px; height: 34px;
+  border: 1.5px solid rgba(255,87,51,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s var(--ease-out), width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), opacity 0.2s, border-color 0.2s;
+}
+body.cursor-hover .cursor-dot { width: 14px; height: 14px; }
+body.cursor-hover .cursor-ring { width: 50px; height: 50px; border-color: rgba(255,87,51,0.35); }
+
+/* ========================================
+   SCROLL PROGRESS
+======================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--c-accent), #ff8a65);
+  z-index: 10000;
+  transition: width 0.1s linear;
+  transform-origin: left;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: var(--sp-md) var(--sp-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.35s var(--ease-out), box-shadow 0.35s;
+}
+nav.scrolled {
+  background: rgba(10,25,47,0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+}
+.nav-logo svg { flex-shrink: 0; }
+.nav-logo span.logo-tech { font-weight: 400; opacity: 0.65; }
+
+.nav-links {
+  display: flex;
+  gap: var(--sp-xl);
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--c-accent);
+  transition: width 0.3s var(--ease-out);
+}
+.nav-links a:hover { color: var(--c-white); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--f-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
+}
+.btn:active { transform: scale(0.96) !important; }
+.btn-primary {
+  background: var(--c-accent);
+  color: var(--c-white);
+  box-shadow: 0 2px 8px rgba(255,87,51,0.3), 0 6px 20px rgba(255,87,51,0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255,87,51,0.4), 0 10px 32px rgba(255,87,51,0.22);
+}
+.btn-ghost {
+  color: rgba(255,255,255,0.75);
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover {
+  color: var(--c-white);
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-1px);
+}
+.btn-dark {
+  background: var(--c-primary);
+  color: var(--c-white);
+  box-shadow: var(--shadow-card);
+}
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+.btn-outline-dark {
+  color: var(--c-primary);
+  border: 1.5px solid var(--c-border);
+}
+.btn-outline-dark:hover {
+  border-color: var(--c-primary);
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-sm);
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--c-white);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,25,47,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-xl);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  color: var(--c-white);
+  font-family: var(--f-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transition: color 0.2s;
+}
+.nav-mobile a:hover { color: var(--c-accent); }
+
+/* ========================================
+   HERO
+======================================== */
+#hero {
+  min-height: 100vh;
+  background: var(--c-primary);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--sp-2xl);
+}
+
+/* Gradient mesh blobs */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 70% at 80% 20%, rgba(17,34,64,0.8) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(255,87,51,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 60% 90%, rgba(100,149,237,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* Noise grain */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3xl);
+  align-items: center;
+  padding: var(--sp-3xl) 0;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,87,51,0.12);
+  border: 1px solid rgba(255,87,51,0.25);
+  color: var(--c-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-lg);
+  opacity: 0;
+  animation: fadeSlideUp 0.7s 0.2s var(--ease-out) forwards;
+}
+.hero-label::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  animation: pulse-dot 1.8s infinite;
+}
+
+.hero-heading {
+  font-family: var(--f-display);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--c-white);
+  margin-bottom: var(--sp-lg);
+  opacity: 0;
+  animation: fadeSlideUp 0.7s 0.35s var(--ease-out) forwards;
+}
+.hero-heading .accent {
+  color: var(--c-accent);
+  position: relative;
+  display: inline-block;
+}
+.hero-heading .accent::after {
+  content: '';
+  position: absolute;
+  bottom: 3px; left: 0; right: 0;
+  height: 3px;
+  background: var(--c-accent);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.62);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: var(--sp-xl);
+  opacity: 0;
+  animation: fadeSlideUp 0.7s 0.5s var(--ease-out) forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  opacity: 0;
+  animation: fadeSlideUp 0.7s 0.65s var(--ease-out) forwards;
+}
+.btn-hero-primary {
+  background: var(--c-accent);
+  color: var(--c-white);
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(255,87,51,0.35);
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
+}
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(255,87,51,0.45);
+}
+.btn-hero-secondary {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-hero-secondary:hover { color: var(--c-white); border-color: rgba(255,255,255,0.4); }
+
+/* Hero visual — floating UI cards */
+.hero-visual {
+  position: relative;
+  opacity: 0;
+  animation: fadeSlideIn 0.8s 0.55s var(--ease-out) forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+.h-orb-1 {
+  width: 280px; height: 280px;
+  background: rgba(255,87,51,0.12);
+  top: 30px; right: 40px;
+}
+.h-orb-2 {
+  width: 200px; height: 200px;
+  background: rgba(100,149,237,0.1);
+  bottom: 40px; left: 20px;
+}
+
+.h-visual-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  width: 100%;
+  max-width: 360px;
+}
+
+.h-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg) var(--sp-xl);
+  color: var(--c-white);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.h-card-main {
+  animation: float-card 6s ease-in-out infinite;
+}
+.h-card-main .card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-md);
+}
+.card-status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse-dot 2s infinite;
+}
+.h-card-main .card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+.h-card-main .card-msg {
+  font-size: 0.87rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  padding: var(--sp-sm) var(--sp-md);
+  margin-bottom: var(--sp-sm);
+  border-left: 2px solid var(--c-accent);
+}
+.h-card-main .card-reply {
+  font-size: 0.82rem;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.h-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--sp-sm);
+}
+
+.h-stat {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: var(--sp-md) var(--sp-sm);
+  color: var(--c-white);
+  text-align: center;
+}
+.h-stat strong {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--c-accent);
+  line-height: 1;
+}
+.h-stat small { font-size: 0.7rem; opacity: 0.55; letter-spacing: 0.01em; display: block; margin-top: 4px; }
+
+.h-stat-1 { animation: float-card 5.5s 1s ease-in-out infinite; }
+.h-stat-2 { animation: float-card 6.5s 2s ease-in-out infinite; }
+.h-stat-3 { animation: float-card 5s 0.5s ease-in-out infinite; }
+
+.h-connector {
+  display: none; /* removed, no longer needed */
+}
+.h-connector::before {
+  content: '';
+  display: none;
+}
+.h-connector::after {
+  content: '';
+  display: none;
+  width: 1px; height: 80px;
+  background: linear-gradient(180deg, transparent, var(--c-accent));
+  opacity: 0.3;
+  top: 20px; left: -80px;
+}
+
+/* Scroll hint */
+.hero-scroll {
+  position: absolute;
+  bottom: var(--sp-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-sm);
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 2;
+  animation: fadeSlideUp 0.7s 1.2s var(--ease-out) both;
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+  animation: scroll-bounce 2s infinite;
+}
+
+/* ========================================
+   STATS STRIP
+======================================== */
+#stats {
+  background: var(--c-primary-mid);
+  padding: var(--sp-xl) var(--sp-2xl);
+  position: relative;
+  overflow: hidden;
+}
+#stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.stats-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-xl);
+  position: relative;
+}
+.stat-item {
+  text-align: center;
+  padding: var(--sp-xl) var(--sp-md);
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: var(--f-display);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--c-accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: var(--sp-sm);
+  display: block;
+}
+.stat-label {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.83rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+/* ========================================
+   SECTION COMMON
+======================================== */
+section { position: relative; }
+.section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--sp-3xl) var(--sp-2xl);
+}
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-md);
+}
+.section-tag::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--c-accent);
+}
+.section-heading {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-md);
+}
+.section-sub {
+  color: var(--c-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ========================================
+   SERVICES
+======================================== */
+#hizmetler { background: var(--c-bg); }
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--sp-2xl);
+  gap: var(--sp-xl);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-lg);
+}
+.service-card {
+  position: relative;
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s;
+  border: 1px solid var(--c-border);
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--c-accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s var(--ease-spring);
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+.service-card:hover::before { transform: scaleY(1); }
+
+.service-num {
+  font-family: var(--f-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(10,25,47,0.06);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: var(--sp-md);
+  display: block;
+  transition: color 0.3s;
+}
+.service-card:hover .service-num { color: rgba(255,87,51,0.1); }
+
+.service-icon {
+  width: 48px; height: 48px;
+  background: var(--c-accent-dim);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-lg);
+  transition: background 0.25s, transform 0.3s var(--ease-spring);
+}
+.service-card:hover .service-icon {
+  background: var(--c-accent);
+  transform: scale(1.1) rotate(-5deg);
+}
+.service-icon svg { transition: stroke 0.25s; }
+.service-card:hover .service-icon svg { stroke: white !important; }
+
+.service-title {
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-md);
+}
+.service-desc {
+  color: var(--c-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: var(--sp-xl);
+}
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--c-accent);
+  transition: gap 0.2s;
+}
+.service-card:hover .service-link { gap: 10px; }
+
+/* ========================================
+   PROCESS
+======================================== */
+#nasil-calisir {
+  background: var(--c-white);
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-xl);
+  margin-top: var(--sp-2xl);
+  position: relative;
+}
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: calc(16.666% + var(--sp-xl));
+  right: calc(16.666% + var(--sp-xl));
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-accent), rgba(255,87,51,0.2), var(--c-accent));
+  opacity: 0.4;
+}
+.process-step {
+  text-align: center;
+  position: relative;
+}
+.step-num {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--c-accent-dim);
+  border: 2px solid rgba(255,87,51,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--c-accent);
+  margin: 0 auto var(--sp-lg);
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, transform 0.3s var(--ease-spring);
+}
+.process-step:hover .step-num {
+  background: var(--c-accent);
+  color: white;
+  transform: scale(1.1);
+}
+.step-title {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-sm);
+}
+.step-desc {
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   VALUE PROP
+======================================== */
+#deger {
+  background: var(--c-bg);
+  overflow: hidden;
+}
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3xl);
+  align-items: center;
+}
+.value-content { padding-right: var(--sp-xl); }
+.value-quote {
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-lg);
+}
+.value-quote .hl {
+  color: var(--c-accent);
+  background: var(--c-accent-dim);
+  border-radius: var(--radius-sm);
+  padding: 0 6px;
+}
+.value-body {
+  color: var(--c-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: var(--sp-xl);
+}
+.value-checks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-xl);
+}
+.value-checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+  font-size: 0.92rem;
+  color: var(--c-text);
+  line-height: 1.5;
+}
+.check-icon {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--c-accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.value-image-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card-hover);
+  aspect-ratio: 4/3;
+}
+.value-image-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition: transform 0.6s var(--ease-out), filter 0.6s;
+}
+.value-image-wrap:hover img { transform: scale(1.03); filter: saturate(1); }
+.value-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,25,47,0.35) 0%, transparent 60%);
+  pointer-events: none;
+}
+.value-badge {
+  position: absolute;
+  bottom: var(--sp-lg);
+  left: var(--sp-lg);
+  background: rgba(10,25,47,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: var(--sp-md) var(--sp-lg);
+  color: var(--c-white);
+  z-index: 2;
+}
+.value-badge strong {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--c-accent);
+}
+.value-badge span { font-size: 0.8rem; opacity: 0.65; }
+
+/* ========================================
+   TESTIMONIALS
+======================================== */
+#referanslar { background: var(--c-primary); position: relative; overflow: hidden; }
+#referanslar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+#referanslar .section-heading { color: var(--c-white); }
+#referanslar .section-sub { color: rgba(255,255,255,0.5); }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-lg);
+  margin-top: var(--sp-2xl);
+  position: relative;
+  z-index: 1;
+}
+.testi-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  transition: background 0.3s, transform 0.35s var(--ease-spring), border-color 0.3s;
+}
+.testi-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,87,51,0.3);
+  transform: translateY(-6px);
+}
+.testi-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: var(--sp-lg);
+}
+.star { color: var(--c-accent); font-size: 0.95rem; }
+
+.testi-quote {
+  font-size: 2.5rem;
+  font-family: Georgia, serif;
+  color: var(--c-accent);
+  line-height: 1;
+  margin-bottom: var(--sp-md);
+  opacity: 0.7;
+}
+.testi-text {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.93rem;
+  line-height: 1.7;
+  margin-bottom: var(--sp-xl);
+  font-style: italic;
+}
+.testi-author { display: flex; align-items: center; gap: var(--sp-md); }
+.testi-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.12);
+}
+.testi-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--c-white);
+}
+.testi-role { font-size: 0.78rem; color: rgba(255,255,255,0.42); }
+
+/* ========================================
+   FAQ
+======================================== */
+#sss { background: var(--c-white); }
+.faq-wrap {
+  max-width: 760px;
+  margin: var(--sp-2xl) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+.faq-item {
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.faq-item.open { border-color: rgba(255,87,51,0.3); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  padding: var(--sp-lg) var(--sp-xl);
+  background: var(--c-white);
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--c-primary);
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s;
+}
+.faq-q:hover { background: #fafafa; }
+.faq-item.open .faq-q { background: rgba(255,87,51,0.04); }
+.faq-chevron {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.35s var(--ease-spring);
+}
+.faq-item.open .faq-chevron {
+  background: var(--c-accent);
+  transform: rotate(45deg);
+}
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out), padding 0.4s;
+}
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a-inner {
+  padding: 0 var(--sp-xl) var(--sp-lg);
+  color: var(--c-muted);
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+
+/* ========================================
+   CONTACT
+======================================== */
+#iletisim {
+  background: var(--c-primary);
+  position: relative;
+  overflow: hidden;
+}
+#iletisim::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 90% 50%, rgba(255,87,51,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(100,149,237,0.06) 0%, transparent 60%);
+}
+#iletisim::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.contact-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--sp-3xl) var(--sp-2xl);
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3xl);
+  align-items: start;
+}
+.contact-left .section-heading { color: var(--c-white); font-size: clamp(1.8rem, 3vw, 2.8rem); }
+.contact-left .section-sub { color: rgba(255,255,255,0.52); max-width: 420px; }
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  margin-top: var(--sp-xl);
+}
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+}
+.c-info-icon {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,87,51,0.15);
+  border: 1px solid rgba(255,87,51,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-form {
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+.form-group { display: flex; flex-direction: column; gap: var(--sp-sm); margin-bottom: var(--sp-md); }
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-primary);
+  letter-spacing: 0.01em;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  color: var(--c-text);
+  background: var(--c-white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23636e72' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(255,87,51,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--c-accent);
+  color: var(--c-white);
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(255,87,51,0.3);
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s, background 0.2s;
+  margin-top: var(--sp-sm);
+}
+.form-submit:hover {
+  background: #e84e2d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255,87,51,0.4);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+footer {
+  background: #060f1e;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: var(--sp-2xl) var(--sp-2xl) var(--sp-xl);
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: var(--sp-xl);
+  margin-bottom: var(--sp-xl);
+  padding-bottom: var(--sp-xl);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand { max-width: 280px; }
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-md);
+}
+.footer-tagline {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.87rem;
+  line-height: 1.6;
+  margin-bottom: var(--sp-lg);
+}
+.footer-social { display: flex; gap: var(--sp-sm); }
+.social-link {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, transform 0.25s var(--ease-spring);
+}
+.social-link:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  font-family: var(--f-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-white);
+  margin-bottom: var(--sp-md);
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: var(--sp-sm); }
+.footer-links a {
+  color: rgba(255,255,255,0.42);
+  font-size: 0.87rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--c-accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,0.28);
+  font-size: 0.82rem;
+}
+.footer-bottom a { transition: color 0.2s; }
+.footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+/* ========================================
+   SERVICE MODALS
+======================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,12,24,0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out);
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal {
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s var(--ease-spring);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(10,25,47,0.15) transparent;
+}
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
+.modal-header {
+  padding: var(--sp-xl) var(--sp-xl) var(--sp-lg);
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  position: sticky;
+  top: 0;
+  background: var(--c-white);
+  z-index: 1;
+}
+.modal-header-left { display: flex; align-items: center; gap: var(--sp-md); }
+.modal-icon {
+  width: 52px; height: 52px;
+  background: var(--c-accent-dim);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.modal-title {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--c-primary);
+  line-height: 1.2;
+}
+.modal-subtitle {
+  font-size: 0.82rem;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--c-bg);
+  border: 1.5px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.25s var(--ease-spring);
+}
+.modal-close:hover {
+  background: #fee2dc;
+  border-color: rgba(255,87,51,0.3);
+  transform: rotate(90deg);
+}
+.modal-body {
+  padding: var(--sp-xl);
+}
+.modal-lead {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--c-text);
+  margin-bottom: var(--sp-xl);
+  padding-bottom: var(--sp-xl);
+  border-bottom: 1px solid var(--c-border);
+}
+.modal-lead strong { color: var(--c-primary); }
+
+.modal-section-title {
+  font-family: var(--f-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-md);
+}
+.modal-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: var(--sp-xl);
+}
+.modal-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+  font-size: 0.92rem;
+  color: var(--c-text);
+  line-height: 1.55;
+}
+.mf-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--c-accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.modal-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  padding: var(--sp-lg);
+  background: var(--c-bg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-xl);
+  border: 1px solid var(--c-border);
+}
+.ms-item { text-align: center; }
+.ms-num {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--c-accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.ms-label { font-size: 0.75rem; color: var(--c-muted); margin-top: 4px; display: block; }
+
+.modal-footer {
+  padding: var(--sp-lg) var(--sp-xl);
+  background: var(--c-bg);
+  border-top: 1px solid var(--c-border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
+}
+.modal-footer p { font-size: 0.85rem; color: var(--c-muted); }
+.modal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  background: var(--c-accent);
+  color: var(--c-white);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(255,87,51,0.3);
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
+  white-space: nowrap;
+}
+.modal-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255,87,51,0.4);
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+@keyframes scroll-bounce {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ========================================
+   RESPONSIVE — TABLET
+======================================== */
+@media (max-width: 1024px) {
+  nav { padding: var(--sp-md) var(--sp-xl); }
+  .section-inner { padding: var(--sp-2xl) var(--sp-xl); }
+  .hero-inner { gap: var(--sp-xl); padding: var(--sp-2xl) 0; }
+  #hero { padding: 0 var(--sp-xl); }
+  .services-header { flex-direction: column; align-items: flex-start; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.07); }
+  #stats { padding: var(--sp-xl); }
+  footer { padding: var(--sp-xl) var(--sp-xl) var(--sp-lg); }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: var(--sp-xl); }
+  .contact-inner { gap: var(--sp-xl); }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta .btn { display: none; }
+  .nav-hamburger { display: flex; }
+  nav { padding: var(--sp-md) var(--sp-lg); }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-xl);
+    text-align: center;
+    padding: var(--sp-xl) 0;
+  }
+  #hero { padding: 100px var(--sp-lg) var(--sp-xl); min-height: auto; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; flex-wrap: wrap; }
+  .h-visual-inner { max-width: 100%; }
+  .h-stats-row { grid-template-columns: 1fr 1fr 1fr; }
+  .hero-scroll { display: none; }
+
+  .section-inner { padding: var(--sp-xl) var(--sp-lg); }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-header { gap: var(--sp-md); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-md); }
+  .stat-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07); padding: var(--sp-lg) var(--sp-md); }
+  .stat-item:last-child { border-bottom: none; }
+  #stats { padding: var(--sp-lg); }
+
+  .process-grid { grid-template-columns: 1fr; gap: var(--sp-xl); }
+  .process-grid::before { display: none; }
+
+  .value-grid { grid-template-columns: 1fr; gap: var(--sp-xl); }
+  .value-content { padding-right: 0; }
+  .value-image-wrap { aspect-ratio: 16/9; }
+
+  .testi-grid { grid-template-columns: 1fr; }
+
+  .contact-inner { grid-template-columns: 1fr; gap: var(--sp-xl); padding: var(--sp-xl) var(--sp-lg); }
+  .form-row { grid-template-columns: 1fr; }
+
+  .footer-top { grid-template-columns: 1fr; }
+  footer { padding: var(--sp-xl) var(--sp-lg) var(--sp-lg); }
+  .footer-bottom { flex-direction: column; gap: var(--sp-sm); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ====== NAVIGATION ====== -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>URAS <span class="logo-tech">Tech</span></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
+    <li><a href="#referanslar">Referanslar</a></li>
+    <li><a href="#sss">SSS</a></li>
+  </ul>
+
+  <div class="nav-cta">
+    <a href="#iletisim" class="btn btn-primary">Teklif Al</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="mobileNav">
+  <a href="#hizmetler" onclick="closeMobile()">Hizmetler</a>
+  <a href="#nasil-calisir" onclick="closeMobile()">Nasıl Çalışır</a>
+  <a href="#referanslar" onclick="closeMobile()">Referanslar</a>
+  <a href="#sss" onclick="closeMobile()">SSS</a>
+  <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Teklif Al</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">Dijital Dönüşüm Ortağınız</div>
+      <h1 class="hero-heading">
+        Dijital <span class="accent">Sağ Kolunuzla</span><br>Tanışın.
+      </h1>
+      <p class="hero-sub">
+        İşinizi büyütmek isterken rutin operasyonların içinde mi boğuluyorsunuz? Vaktinizi çalan tüm o tekrarlayan işleri akıllı otomasyonlarla üstleniyoruz. Siz stratejinize odaklanın, arka planı biz tıkır tıkır işletelim.
+      </p>
+      <div class="hero-actions">
+        <a href="#iletisim" class="btn-hero-primary">
+          Hemen Tanışalım
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#hizmetler" class="btn-hero-secondary">
+          Hizmetleri Keşfet
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="h-orb h-orb-1"></div>
+      <div class="h-orb h-orb-2"></div>
+
+      <div class="h-visual-inner">
+        <div class="h-card h-card-main">
+          <div class="card-header">
+            <div class="card-status-dot"></div>
+            <span class="card-label">AI Asistan — Aktif</span>
+          </div>
+          <div class="card-msg">"Yeni sipariş geldi, müşteriye otomatik onay gönderildi ✓"</div>
+          <div class="card-reply">3 saniyede yanıt verildi · Kesintisiz 7/24</div>
+        </div>
+
+        <div class="h-stats-row">
+          <div class="h-stat h-stat-1">
+            <strong>1.247</strong>
+            <small>Bu ay yanıtlanan soru</small>
+          </div>
+          <div class="h-stat h-stat-2">
+            <strong>%99.8</strong>
+            <small>Çalışma süresi</small>
+          </div>
+          <div class="h-stat h-stat-3">
+            <strong>3s</strong>
+            <small>Ort. yanıt süresi</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Keşfet
+  </div>
+</section>
+
+<!-- ====== STATS ====== -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="50" data-suffix="+">0+</span>
+      <span class="stat-label">Aktif İşletme<br>Müşterisi</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-number" data-target="10000" data-suffix="+">0+</span>
+      <span class="stat-label">Aylık Otomatik<br>İşlem</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-number" data-prefix="7/" data-target="24" data-suffix="">7/0</span>
+      <span class="stat-label">Kesintisiz<br>Destek</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-number" data-target="98" data-suffix="%">0%</span>
+      <span class="stat-label">Müşteri<br>Memnuniyeti</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section id="hizmetler">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-tag reveal">Hizmetlerimiz</div>
+        <h2 class="section-heading reveal">İşletmenizin<br>İhtiyacı Olan Her Şey</h2>
+      </div>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">Üç temel alanda işletmenizi güçlendiriyoruz. Teknoloji sizin için çalışsın, siz işinize odaklanın.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3 class="service-title">7/24 AI Chatbot</h3>
+        <p class="service-desc">Müşterilerinize robot gibi değil, markanızın en bilgili personeli gibi cevap veren asistanlar kuruyoruz. Siz uyurken bile satış ve destek devam eder.</p>
+        <button class="service-link" onclick="openModal('chatbot')">
+          Keşfet
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-num">02</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Operasyonel Otomasyon</h3>
+        <p class="service-desc">Siparişten faturaya, stoktan rapora kadar tüm veri trafiğini otomatikleştiriyoruz. Manuel hatalara veda edin, hızın keyfini çıkarın.</p>
+        <button class="service-link" onclick="openModal('otomasyon')">
+          Keşfet
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-num">03</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Fonksiyonel Web Tasarım</h3>
+        <p class="service-desc">Sadece vitrin değil, işletmenizin motoru olacak web siteleri inşa ediyoruz. Arka planda otomasyonla konuşan, size iş getiren dijital bir merkez.</p>
+        <button class="service-link" onclick="openModal('web')">
+          Keşfet
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section id="nasil-calisir">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-tag reveal" style="justify-content:center;">Nasıl Çalışır</div>
+    <h2 class="section-heading reveal" style="text-align:center;max-width:560px;margin:0 auto var(--sp-sm);">3 Adımda Dijital<br>Dönüşüm</h2>
+    <p class="section-sub reveal" style="margin:0 auto;">Karmaşık süreçleri üç basit adıma indirgedik. Siz karar verin, gerisini biz halledelim.</p>
+
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Analiz & Planlama</h3>
+        <p class="step-desc">İşletmenizi, süreçlerinizi ve hedeflerinizi dinliyoruz. Hangi alanlarda zaman ve kaynak kaybettiğinizi tespit edip bir yol haritası çıkarıyoruz.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Kurulum & Entegrasyon</h3>
+        <p class="step-desc">Belirlenen çözümleri mevcut sistemlerinize entegre ediyoruz. Süreç boyunca sizi bilgilendiriyor, test ediyor ve sorunsuz bir geçiş sağlıyoruz.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <h3 class="step-title">İzleme & Destek</h3>
+        <p class="step-desc">Kurulum sonrası 7/24 izleme ve destek sunuyoruz. Sistemleriniz büyüdükçe çözümlerimizi de genişletiyoruz — daima yanınızdayız.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VALUE PROP ====== -->
+<section id="deger">
+  <div class="section-inner">
+    <div class="value-grid">
+      <div class="value-content reveal">
+        <div class="section-tag">Neden Uras Tech</div>
+        <h2 class="value-quote">
+          Bir Yazılım Değil,<br><span class="hl">Ekip Arkadaşı</span><br>Kazanıyorsunuz.
+        </h2>
+        <p class="value-body">
+          Bizim işimiz sadece kod yazmak değil; işletmenizin üzerindeki o görünmez yükü alıp size nefes alacak alan açmak. Uras Tech ile tanıştığınızda, teknoloji bir yük olmaktan çıkar, işinizi büyüten en sadık yardımcınız haline gelir.
+        </p>
+        <ul class="value-checks">
+          <li>
+            <div class="check-icon">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Tekrarlayan görevler otomatikleşir, siz yüksek değerli işlere odaklanırsınız</span>
+          </li>
+          <li>
+            <div class="check-icon">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Sistemler sizden bağımsız çalışır — tatilde bile işler yürür</span>
+          </li>
+          <li>
+            <div class="check-icon">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Proje sonrası 7/24 destek — sorununuz bizim sorununuzdur</span>
+          </li>
+          <li>
+            <div class="check-icon">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Ölçülebilir sonuçlar — her çözüm için net hedefler ve metrikler</span>
+          </li>
+        </ul>
+        <a href="#iletisim" class="btn btn-dark" style="display:inline-flex;">
+          Ücretsiz Keşif Görüşmesi
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="value-image-wrap reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Uras Tech ekip çalışması — profesyonel iş görüşmesi" loading="lazy">
+        <div class="value-badge">
+          <strong>+40 saat</strong>
+          <span>Haftalık tasarruf ortalaması</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<section id="referanslar">
+  <div class="section-inner">
+    <div class="section-tag reveal">Müşteri Yorumları</div>
+    <h2 class="section-heading reveal">Onlar Anlatsın</h2>
+    <p class="section-sub reveal">Uras Tech ile çalışan işletmelerin deneyimlerinden birkaçı.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Chatbot kurulumu öncesinde müşteri sorularının %70'ini manuel yanıtlıyorduk. Şimdi sistem bunları otomatik hallediyor, biz sadece gerçekten karmaşık sorunlara odaklanıyoruz. Haftalık 15 saatimizi geri kazandık.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&crop=faces&fit=crop" alt="Mehmet Yıldız" class="testi-avatar" loading="lazy">
+          <div>
+            <div class="testi-name">Mehmet Yıldız</div>
+            <div class="testi-role">Kurucu, YıldızPet E-Ticaret</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Fatura ve stok entegrasyonumuzu manuel yönetiyorduk, hatalar kaçınılmazdı. Uras Tech'in kurduğu otomasyon ile bu süreç artık sıfır hatayla işliyor. Geçen ay 3 farklı insan hatasından kaynaklanan müşteri şikayetini sıfıra indirdik.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&q=80&crop=faces&fit=crop" alt="Selin Kara" class="testi-avatar" loading="lazy">
+          <div>
+            <div class="testi-name">Selin Kara</div>
+            <div class="testi-role">Operasyon Müdürü, Kara Lojistik</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Yeni web sitemiz sadece güzel değil, gerçekten iş getiriyor. Arka planda randevu otomasyonu, müşteri bildirimleri ve CRM entegrasyonu var. Açılıştan bu yana online randevu talebimiz 3 katına çıktı.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&crop=faces&fit=crop" alt="Burak Demir" class="testi-avatar" loading="lazy">
+          <div>
+            <div class="testi-name">Burak Demir</div>
+            <div class="testi-role">Sahibi, Demir Güzellik Merkezi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section id="sss">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-tag reveal" style="justify-content:center;">Sıkça Sorulanlar</div>
+    <h2 class="section-heading reveal" style="text-align:center;max-width:480px;margin:0 auto var(--sp-sm);">Aklınızdaki Sorular</h2>
+    <p class="section-sub reveal" style="margin:0 auto;">Cevap bulamadığınız bir soru varsa, doğrudan bize ulaşın.</p>
+
+    <div class="faq-wrap">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Hangi sektörlere hizmet veriyorsunuz?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">E-ticaret, perakende, sağlık, eğitim, konaklama, profesyonel hizmetler ve daha fazlası. Tekrarlayan süreçleri olan ve büyümek isteyen her işletmeyle çalışabiliriz. Sektörünüzün kendine özgü ihtiyaçlarını anlayarak çözüm üretiyoruz.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Kurulum süreci ne kadar sürer?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Projenin kapsamına göre değişmekle birlikte, basit bir chatbot entegrasyonu 5-7 iş günü, kapsamlı otomasyon projeleri ise 3-6 hafta arasında tamamlanır. Süreç boyunca her aşamada sizi bilgilendiriyor ve onayınızı alıyoruz.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Mevcut sistemlerimle entegre olabiliyor musunuz?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Evet. Shopify, WooCommerce, IdeaSoft, Parasut, Logo, Mikro ve çoğu popüler Türk yazılımıyla entegrasyon sağlayabiliyoruz. Mevcut sistemlerinizi terk etmenize gerek yok — üstüne inşa ediyoruz.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Fiyatlandırma nasıl işliyor?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Her proje farklı olduğu için standart bir fiyat listesi yerine ihtiyacınıza özel teklif hazırlıyoruz. Keşif görüşmesi tamamen ücretsizdir. Görüşmenin ardından kapsamı, bütçeyi ve beklentileri birlikte netleştiriyoruz.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Kurulum sonrası destek alabilir miyim?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Kesinlikle. Tüm projelerimiz için kurulum sonrası bakım ve destek paketi sunuyoruz. Sistemleri izliyoruz, güncelliyoruz ve gerektiğinde müdahale ediyoruz. Ekibimiz WhatsApp üzerinden 7/24 ulaşılabilir durumda.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Teknik bilgim olmadan bunu yönetebilir miyim?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Evet. Kurduğumuz sistemler, teknik bilgi gerektirmeden yönetilebilecek şekilde tasarlanır. Ayrıca size özel kullanım rehberleri hazırlıyor ve ekibinizi eğitiyoruz. Herhangi bir sorun çıktığında sadece bize mesaj atmanız yeterli.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="iletisim">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="section-tag">İletişim</div>
+      <h2 class="section-heading">İşinizi Özgürleştirmeye<br>Hazır Mısınız?</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.52);max-width:380px;">Hangi süreçte takıldığınızı anlatın, dijital sağ kolunuz olarak en kestirme çözümü birlikte kurgulayalım. Bir kahve uzağınızdayız.</p>
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="c-info-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a5 5 0 1 0 0 10A5 5 0 0 0 8 1zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8z" fill="rgba(255,87,51,0.7)"/><path d="M8 4v4l3 1.5" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          7/24 Yanıt Garantisi
+        </div>
+        <div class="contact-info-item">
+          <div class="c-info-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM5 14h6" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          Ücretsiz Keşif Görüşmesi
+        </div>
+        <div class="contact-info-item">
+          <div class="c-info-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4 6-4M2 4h12v9H2V4z" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          info@urastech.com.tr
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-1">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ad">Adınız</label>
+            <input type="text" id="ad" placeholder="Ahmet Kaya" required>
+          </div>
+          <div class="form-group">
+            <label for="sirket">Şirket / İşletme</label>
+            <input type="text" id="sirket" placeholder="Kaya Tekstil">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-posta</label>
+          <input type="email" id="email" placeholder="ahmet@kaya.com.tr" required>
+        </div>
+        <div class="form-group">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" placeholder="+90 532 000 00 00">
+        </div>
+        <div class="form-group">
+          <label for="sure">En çok hangi süreçte zaman kaybediyorsunuz?</label>
+          <select id="sure">
+            <option value="">Seçiniz...</option>
+            <option value="musteri">Müşteri iletişimi ve sorular</option>
+            <option value="fatura">Fatura ve muhasebe işlemleri</option>
+            <option value="stok">Stok ve sipariş takibi</option>
+            <option value="raporlama">Raporlama ve veri analizi</option>
+            <option value="randevu">Randevu ve takvim yönetimi</option>
+            <option value="diger">Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mesaj">Bize anlatın</label>
+          <textarea id="mesaj" placeholder="Hangi konuda yardım ihtiyacınız var? Mevcut süreçlerinizi kısaca anlatin..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Hemen Başlayalım →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICE MODALS ====== -->
+
+<!-- Modal: AI Chatbot -->
+<div class="modal-overlay" id="modal-chatbot" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="modal-title">7/24 AI Chatbot</div>
+          <div class="modal-subtitle">Kesintisiz Müşteri İletişimi</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('chatbot')" aria-label="Kapat">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="#636e72" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-lead">
+        Müşterileriniz gece yarısı soru soruyor, siz uyuyorsunuz — ve sabah bir satış kaçmış oluyor. <strong>Uras Tech AI Chatbot</strong> ile bu senaryo geçmişte kalıyor. Markanızın sesini öğrenen, doğal Türkçe ile yanıt veren bir asistan kuruyoruz; sanki en iyi personeliniz 7 gün 24 saat çalışıyor.
+      </p>
+
+      <div class="modal-section-title">Neler Yapabilir?</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Satış yönlendirme</strong> — Ürün soran müşteriyi doğru sayfaya yönlendirir, stok bilgisi verir, sepete eklemesi için teşvik eder</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>SSS otomasyonu</strong> — Kargo durumu, iade süreci, çalışma saatleri gibi tekrarlayan soruları %80+ oranında kendi kendine çözer</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Randevu & rezervasyon</strong> — Takvimi senkronize eder, müşteri adına slot ayırır, hatırlatma mesajı gönderir</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Çok kanallı entegrasyon</strong> — Web sitesi, WhatsApp Business, Instagram DM ve Facebook Messenger'da aynı anda çalışır</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>İnsan devresi</strong> — Karmaşık sorun geldiğinde sizi anında bildirir, konuşmayı size aktarır</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Haftalık rapor</strong> — En çok sorulan sorular, müşteri memnuniyeti skoru, dönüşüm oranı</span>
+        </li>
+      </ul>
+
+      <div class="modal-stats">
+        <div class="ms-item">
+          <span class="ms-num">1.200+</span>
+          <span class="ms-label">Aylık ort. yanıtlanan soru</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">3sn</span>
+          <span class="ms-label">Ortalama yanıt süresi</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">%80</span>
+          <span class="ms-label">Otonom çözüm oranı</span>
+        </div>
+      </div>
+
+      <div class="modal-section-title">Hangi İşletmelere Uygundur?</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>E-ticaret ve online mağazalar (sipariş takibi, ürün soruları)</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Güzellik, sağlık ve danışmanlık merkezleri (randevu yönetimi)</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Restoran, kafe ve konaklama işletmeleri (rezervasyon & menü)</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Hizmet sektörü (hukuk, muhasebe, emlak) — müşteri ön eleme</span>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <p>Ücretsiz demo ile chatbot'u 15 dakikada görün.</p>
+      <a href="#iletisim" class="modal-cta" onclick="closeModal('chatbot')">
+        Chatbot İstiyorum
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Otomasyon -->
+<div class="modal-overlay" id="modal-otomasyon" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="modal-title">Operasyonel Otomasyon</div>
+          <div class="modal-subtitle">Hatasız ve Hızlı Süreçler</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('otomasyon')" aria-label="Kapat">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="#636e72" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-lead">
+        Her gün aynı şeyleri tekrar tekrar yapmak — kopyala yapıştır, tabloya gir, email at, kontrol et. Bu döngü sizi değil, işletmenizi büyütmüyor. <strong>Uras Tech Otomasyon</strong> ile bu döngüyü kırıyor, süreçleri sizden bağımsız ama sizin kontrolünüzde çalışır hale getiriyoruz.
+      </p>
+
+      <div class="modal-section-title">Neler Otomatikleştiriyoruz?</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Sipariş → Fatura → Kargo zinciri</strong> — Yeni sipariş geldiğinde fatura kesilir, kargo firmasına bildirim gider, müşteriye takip kodu ulaşır. Tek tıklamadan</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Stok yönetimi</strong> — Ürün eşiğin altına düştüğünde otomatik uyarı alırsınız, tedarikçiye sipariş formu gönderilir</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>CRM otomasyonu</strong> — Form dolduran müşteri, CRM'e eklenir, karşılama emaili gider, satış ekibine görev atanır — otomatik</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Raporlama</strong> — Haftalık/aylık satış, müşteri ve operasyon raporları hazır, her Pazartesi sabahı inbox'ınızda</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Muhasebe entegrasyonu</strong> — Logo, Mikro, Parasut ile senkronizasyon; manuel veri girişi sıfıra iner</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Ekip bildirimleri</strong> — Kritik olaylar için WhatsApp, Slack veya email üzerinden anlık uyarı sistemi</span>
+        </li>
+      </ul>
+
+      <div class="modal-stats">
+        <div class="ms-item">
+          <span class="ms-num">10K+</span>
+          <span class="ms-label">Aylık otomatik işlem</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">%98</span>
+          <span class="ms-label">Hata azalma oranı</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">40sa</span>
+          <span class="ms-label">Haftalık tasarruf</span>
+        </div>
+      </div>
+
+      <div class="modal-section-title">Kullandığımız Araçlar</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>n8n & Make (Integromat)</strong> — Görsel iş akışı tasarımı, 400+ entegrasyon</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Shopify, WooCommerce, IdeaSoft</strong> — Türk ve global e-ticaret platformları ile tam entegrasyon</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Google Workspace</strong> — Sheets, Calendar, Gmail ile akıllı otomasyon zinciri</span>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <p>Sürecinizi anlatın, ücretsiz otomasyon haritası çıkaralım.</p>
+      <a href="#iletisim" class="modal-cta" onclick="closeModal('otomasyon')">
+        Otomasyon İstiyorum
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Web Tasarım -->
+<div class="modal-overlay" id="modal-web" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div>
+          <div class="modal-title">Fonksiyonel Web Tasarım</div>
+          <div class="modal-subtitle">Çalışan Tasarımlar</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('web')" aria-label="Kapat">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="#636e72" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-lead">
+        Pek çok web sitesi sadece bir vitrindir — güzel görünür ama iş getirmez. <strong>Uras Tech</strong>'te tasarladığımız her site, işletmenizin dijital motoru olmak üzere kurulur. Arka planda otomasyonla konuşan, SEO ile ziyaretçi çeken, dönüşüm için optimize edilmiş bir dijital merkez.
+      </p>
+
+      <div class="modal-section-title">Neler Sunuyoruz?</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Özel tasarım</strong> — Şablondan değil, markanıza özel tasarlanmış; rakiplerinizden sıyrılan bir kimlik</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Otomasyon entegrasyonu</strong> — Form dolduran müşteri anında CRM'e girer, randevu takvime eklenir, bildirim gönderilir</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Hız & performans</strong> — Lighthouse 90+ skorla 3 saniyeden hızlı açılan, Google'ın sevdiği site</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>SEO altyapısı</strong> — Teknik SEO, meta etiketleri, yapısal veri; Google'dan organik ziyaretçi için hazır</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Mobil öncelikli</strong> — Türkiye'de ziyaretçilerin %70'i mobil; her piksel telefondan da mükemmel görünür</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Analitik & takip</strong> — Google Analytics, Meta Pixel, dönüşüm takibi kurulu; kararlarınız veriye dayansın</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Bakım paketi</strong> — Site sonrası güncelleme, içerik yönetimi ve teknik destek, aylık abonelikle</span>
+        </li>
+      </ul>
+
+      <div class="modal-stats">
+        <div class="ms-item">
+          <span class="ms-num">90+</span>
+          <span class="ms-label">Lighthouse skoru</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">3×</span>
+          <span class="ms-label">Ortalama dönüşüm artışı</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">3sa</span>
+          <span class="ms-label">Maks. sayfa yükleme</span>
+        </div>
+      </div>
+
+      <div class="modal-section-title">Süreç Nasıl İşler?</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>1. Brifing</strong> — İşletmenizi, hedeflerinizi ve rakiplerinizi anlıyoruz. Konsept önerileri hazırlıyoruz.</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>2. Tasarım onayı</strong> — Mockup sunuluyor, geri bildirimlerinizle şekilleniyor, onayınızı alıyoruz.</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>3. Geliştirme & test</strong> — Kod yazılıyor, entegrasyonlar bağlanıyor, hız optimizasyonu yapılıyor.</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>4. Yayın & eğitim</strong> — Site yayına alınıyor, ekibinize yönetim eğitimi veriliyor.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <p>Fikirlerinizi paylaşın, ücretsiz konsept önerisi hazırlayalım.</p>
+      <a href="#iletisim" class="modal-cta" onclick="closeModal('web')">
+        Web Site İstiyorum
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+            <path d="M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          URAS <span style="font-weight:400;opacity:0.6;">Tech</span>
+        </div>
+        <p class="footer-tagline">Robotik süreçler, insani çözümler.<br>İşletmenizin dijital sağ kolu.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.6)"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter/X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hizmetler</h4>
+        <ul class="footer-links">
+          <li><a href="#hizmetler">7/24 AI Chatbot</a></li>
+          <li><a href="#hizmetler">Operasyonel Otomasyon</a></li>
+          <li><a href="#hizmetler">Web Tasarım</a></li>
+          <li><a href="#iletisim">Özel Proje</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Şirket</h4>
+        <ul class="footer-links">
+          <li><a href="#deger">Hakkımızda</a></li>
+          <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
+          <li><a href="#referanslar">Referanslar</a></li>
+          <li><a href="#sss">SSS</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:info@urastech.com.tr">info@urastech.com.tr</a></li>
+          <li><a href="tel:+905320000000">+90 532 000 00 00</a></li>
+          <li><a href="#iletisim">Ücretsiz Görüşme</a></li>
+          <li><a href="#iletisim">Teklif Al</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Uras Tech. Tüm hakları saklıdır.</span>
+      <span>
+        <a href="#" style="color:rgba(255,255,255,0.28);">Gizlilik Politikası</a>
+        &nbsp;·&nbsp;
+        <a href="#" style="color:rgba(255,255,255,0.28);">Kullanım Koşulları</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script defer>
+/* ---- Service Modals ---- */
+function openModal(id) {
+  const overlay = document.getElementById('modal-' + id);
+  if (!overlay) return;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  const overlay = document.getElementById('modal-' + id);
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(el => {
+      el.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+
+/* ---- Custom Cursor ---- */
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let ringX = 0, ringY = 0, dotX = 0, dotY = 0;
+
+document.addEventListener('mousemove', e => {
+  dotX = e.clientX; dotY = e.clientY;
+  dot.style.left = dotX + 'px';
+  dot.style.top = dotY + 'px';
+});
+
+(function animateRing() {
+  ringX += (dotX - ringX) * 0.12;
+  ringY += (dotY - ringY) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+})();
+
+document.querySelectorAll('a, button, .service-card, .faq-q, .testi-card').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+/* ---- Scroll Progress ---- */
+const progressBar = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  progressBar.style.width = pct + '%';
+}, { passive: true });
+
+/* ---- Nav scroll state ---- */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ---- Mobile menu ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ---- Scroll reveal ---- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ---- Counter animation ---- */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const duration = 1800;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.floor(eased * target);
+    el.textContent = prefix + (value >= 1000 ? value.toLocaleString('tr-TR') : value) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && entry.target.dataset.target) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
+
+/* ---- FAQ Accordion ---- */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ---- Form submit ---- */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Mesajınız İletildi ✓';
+  btn.style.background = '#27ae60';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Hemen Başlayalım →';
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 4000);
+}
+</script>
+</body>
+</html>
