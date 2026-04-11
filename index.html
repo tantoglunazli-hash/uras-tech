@@ -64,6 +64,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  overflow-x: hidden;
 }
 
 body {
@@ -276,7 +277,7 @@ nav.scrolled {
 ======================================== */
 #hero {
   min-height: 100vh;
-  background: var(--c-primary);
+  background: #162d4a;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -303,11 +304,12 @@ nav.scrolled {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   pointer-events: none;
   opacity: 0.5;
+  z-index: 2;
 }
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -425,124 +427,90 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
 }
-.h-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  pointer-events: none;
-  z-index: 0;
-}
-.h-orb-1 {
-  width: 280px; height: 280px;
-  background: rgba(255,87,51,0.12);
-  top: 30px; right: 40px;
-}
-.h-orb-2 {
-  width: 200px; height: 200px;
-  background: rgba(100,149,237,0.1);
-  bottom: 40px; left: 20px;
-}
 
-.h-visual-inner {
+/* Hero image */
+.hero-img-wrap {
   position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-md);
   width: 100%;
-  max-width: 360px;
-}
-
-.h-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius-lg);
-  padding: var(--sp-lg) var(--sp-xl);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.07),
+    0 24px 80px rgba(0,0,0,0.55),
+    0 0 80px rgba(255,87,51,0.07);
+  aspect-ratio: 4/3;
+}
+.hero-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.72) brightness(0.78) contrast(1.05);
+  transition: filter 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.hero-img-wrap:hover img {
+  filter: saturate(0.85) brightness(0.86) contrast(1.05);
+  transform: scale(1.03);
+}
+/* Blend with navy + cover bottom watermark area */
+.hero-img-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(22,45,74,0.38) 0%, transparent 55%),
+    linear-gradient(0deg, rgba(10,25,47,0.85) 0%, rgba(10,25,47,0.0) 32%);
+  pointer-events: none;
+}
+/* Extra cover for bottom-right Gemini watermark */
+.hero-img-watermark-cover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 160px;
+  height: 48px;
+  background: linear-gradient(135deg, transparent 0%, rgba(10,25,47,0.95) 60%);
+  pointer-events: none;
+}
+.hero-img-badge {
+  position: absolute;
+  bottom: var(--sp-lg);
+  left: var(--sp-lg);
+  background: rgba(10,25,47,0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
   color: var(--c-white);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-}
-.h-card-main {
-  animation: float-card 6s ease-in-out infinite;
-}
-.h-card-main .card-header {
+  font-size: 0.8rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: var(--sp-sm);
-  margin-bottom: var(--sp-md);
+  gap: 8px;
+  letter-spacing: 0.01em;
+  animation: float-card 5s ease-in-out infinite;
 }
-.card-status-dot {
-  width: 8px; height: 8px;
+.badge-live-dot {
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: #4ade80;
+  flex-shrink: 0;
   animation: pulse-dot 2s infinite;
 }
-.h-card-main .card-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.6;
-}
-.h-card-main .card-msg {
-  font-size: 0.87rem;
-  line-height: 1.5;
-  opacity: 0.85;
-  background: rgba(255,255,255,0.06);
-  border-radius: var(--radius-sm);
-  padding: var(--sp-sm) var(--sp-md);
-  margin-bottom: var(--sp-sm);
-  border-left: 2px solid var(--c-accent);
-}
-.h-card-main .card-reply {
-  font-size: 0.82rem;
-  opacity: 0.5;
-  font-style: italic;
-}
-
-.h-stats-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: var(--sp-sm);
-}
-
-.h-stat {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius-md);
-  padding: var(--sp-md) var(--sp-sm);
-  color: var(--c-white);
-  text-align: center;
-}
-.h-stat strong {
-  display: block;
-  font-family: var(--f-display);
-  font-size: 1.3rem;
-  font-weight: 800;
+.hero-img-tag {
+  position: absolute;
+  top: var(--sp-lg);
+  right: var(--sp-lg);
+  background: rgba(255,87,51,0.15);
+  border: 1px solid rgba(255,87,51,0.3);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
   color: var(--c-accent);
-  line-height: 1;
-}
-.h-stat small { font-size: 0.7rem; opacity: 0.55; letter-spacing: 0.01em; display: block; margin-top: 4px; }
-
-.h-stat-1 { animation: float-card 5.5s 1s ease-in-out infinite; }
-.h-stat-2 { animation: float-card 6.5s 2s ease-in-out infinite; }
-.h-stat-3 { animation: float-card 5s 0.5s ease-in-out infinite; }
-
-.h-connector {
-  display: none; /* removed, no longer needed */
-}
-.h-connector::before {
-  content: '';
-  display: none;
-}
-.h-connector::after {
-  content: '';
-  display: none;
-  width: 1px; height: 80px;
-  background: linear-gradient(180deg, transparent, var(--c-accent));
-  opacity: 0.3;
-  top: 20px; left: -80px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 /* Scroll hint */
@@ -566,53 +534,6 @@ nav.scrolled {
   width: 1px; height: 40px;
   background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
   animation: scroll-bounce 2s infinite;
-}
-
-/* ========================================
-   STATS STRIP
-======================================== */
-#stats {
-  background: var(--c-primary-mid);
-  padding: var(--sp-xl) var(--sp-2xl);
-  position: relative;
-  overflow: hidden;
-}
-#stats::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-.stats-grid {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-xl);
-  position: relative;
-}
-.stat-item {
-  text-align: center;
-  padding: var(--sp-xl) var(--sp-md);
-  border-right: 1px solid rgba(255,255,255,0.07);
-}
-.stat-item:last-child { border-right: none; }
-.stat-number {
-  font-family: var(--f-display);
-  font-size: clamp(2.2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  color: var(--c-accent);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: var(--sp-sm);
-  display: block;
-}
-.stat-label {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.83rem;
-  letter-spacing: 0.03em;
-  line-height: 1.4;
 }
 
 /* ========================================
@@ -920,76 +841,6 @@ section { position: relative; }
   color: var(--c-accent);
 }
 .value-badge span { font-size: 0.8rem; opacity: 0.65; }
-
-/* ========================================
-   TESTIMONIALS
-======================================== */
-#referanslar { background: var(--c-primary); position: relative; overflow: hidden; }
-#referanslar::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-#referanslar .section-heading { color: var(--c-white); }
-#referanslar .section-sub { color: rgba(255,255,255,0.5); }
-
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-lg);
-  margin-top: var(--sp-2xl);
-  position: relative;
-  z-index: 1;
-}
-.testi-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-lg);
-  padding: var(--sp-xl);
-  transition: background 0.3s, transform 0.35s var(--ease-spring), border-color 0.3s;
-}
-.testi-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,87,51,0.3);
-  transform: translateY(-6px);
-}
-.testi-stars {
-  display: flex;
-  gap: 3px;
-  margin-bottom: var(--sp-lg);
-}
-.star { color: var(--c-accent); font-size: 0.95rem; }
-
-.testi-quote {
-  font-size: 2.5rem;
-  font-family: Georgia, serif;
-  color: var(--c-accent);
-  line-height: 1;
-  margin-bottom: var(--sp-md);
-  opacity: 0.7;
-}
-.testi-text {
-  color: rgba(255,255,255,0.72);
-  font-size: 0.93rem;
-  line-height: 1.7;
-  margin-bottom: var(--sp-xl);
-  font-style: italic;
-}
-.testi-author { display: flex; align-items: center; gap: var(--sp-md); }
-.testi-avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.12);
-}
-.testi-name {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--c-white);
-}
-.testi-role { font-size: 0.78rem; color: rgba(255,255,255,0.42); }
 
 /* ========================================
    FAQ
@@ -1486,10 +1337,6 @@ footer {
   .hero-inner { gap: var(--sp-xl); padding: var(--sp-2xl) 0; }
   #hero { padding: 0 var(--sp-xl); }
   .services-header { flex-direction: column; align-items: flex-start; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-item:nth-child(2) { border-right: none; }
-  .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.07); }
-  #stats { padding: var(--sp-xl); }
   footer { padding: var(--sp-xl) var(--sp-xl) var(--sp-lg); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: var(--sp-xl); }
   .contact-inner { gap: var(--sp-xl); }
@@ -1511,19 +1358,13 @@ footer {
   .hero-label { margin-left: auto; margin-right: auto; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; flex-wrap: wrap; }
-  .h-visual-inner { max-width: 100%; }
-  .h-card { padding: var(--sp-md) var(--sp-lg); }
-  .h-stats-row { grid-template-columns: 1fr 1fr 1fr; }
+  .hero-img-wrap { aspect-ratio: 16/10; }
   .hero-scroll { display: none; }
 
   .section-inner { padding: var(--sp-xl) var(--sp-lg); }
   .services-grid { grid-template-columns: 1fr; }
   .services-header { gap: var(--sp-md); }
   .services-header .section-sub { flex: none !important; width: 100%; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-md); }
-  .stat-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07); padding: var(--sp-lg) var(--sp-md); }
-  .stat-item:last-child { border-bottom: none; }
-  #stats { padding: var(--sp-lg); }
 
   .process-grid { grid-template-columns: 1fr; gap: var(--sp-xl); }
   .process-grid::before { display: none; }
@@ -1532,7 +1373,6 @@ footer {
   .value-content { padding-right: 0; }
   .value-image-wrap { aspect-ratio: 16/9; }
 
-  .testi-grid { grid-template-columns: 1fr; }
 
   .contact-inner { grid-template-columns: 1fr; gap: var(--sp-xl); padding: var(--sp-xl) var(--sp-lg); }
   .form-row { grid-template-columns: 1fr; }
@@ -1549,17 +1389,19 @@ footer {
   .hero-heading { font-size: clamp(1.85rem, 8vw, 2.4rem); }
   .btn-hero-primary, .btn-hero-secondary { width: 100%; justify-content: center; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: var(--sp-sm); }
-  .h-stats-row { grid-template-columns: 1fr 1fr; }
-  .h-stat:nth-child(3) { grid-column: 1 / -1; }
+  .hero-img-wrap { aspect-ratio: 16/9; }
   nav { padding: var(--sp-md); }
   .section-inner { padding: var(--sp-xl) var(--sp-md); }
   .contact-inner { padding: var(--sp-xl) var(--sp-md); }
   footer { padding: var(--sp-xl) var(--sp-md) var(--sp-lg); }
-  .modal { border-radius: var(--radius-md); }
+  .modal { border-radius: var(--radius-md); width: calc(100vw - 32px); }
   .modal-header { padding: var(--sp-lg) var(--sp-md) var(--sp-md); }
   .modal-body { padding: var(--sp-md); }
   .modal-footer { padding: var(--sp-md); flex-direction: column; }
   .modal-cta { width: 100%; justify-content: center; }
+  .section-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .value-grid { overflow: hidden; }
+  .process-step { padding: var(--sp-lg); }
 }
 
 /* ========================================
@@ -1593,7 +1435,6 @@ footer {
   <ul class="nav-links">
     <li><a href="#hizmetler">Hizmetler</a></li>
     <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
-    <li><a href="#referanslar">Referanslar</a></li>
     <li><a href="#sss">SSS</a></li>
   </ul>
 
@@ -1609,13 +1450,13 @@ footer {
 <div class="nav-mobile" id="mobileNav">
   <a href="#hizmetler" onclick="closeMobile()">Hizmetler</a>
   <a href="#nasil-calisir" onclick="closeMobile()">Nasıl Çalışır</a>
-  <a href="#referanslar" onclick="closeMobile()">Referanslar</a>
   <a href="#sss" onclick="closeMobile()">SSS</a>
   <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Teklif Al</a>
 </div>
 
 <!-- ====== HERO ====== -->
 <section id="hero">
+  <canvas id="hero-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block;"></canvas>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-label">Dijital Dönüşüm Ortağınız</div>
@@ -1638,32 +1479,18 @@ footer {
     </div>
 
     <div class="hero-visual">
-      <div class="h-orb h-orb-1"></div>
-      <div class="h-orb h-orb-2"></div>
-
-      <div class="h-visual-inner">
-        <div class="h-card h-card-main">
-          <div class="card-header">
-            <div class="card-status-dot"></div>
-            <span class="card-label">AI Asistan — Aktif</span>
-          </div>
-          <div class="card-msg">"Yeni sipariş geldi, müşteriye otomatik onay gönderildi ✓"</div>
-          <div class="card-reply">3 saniyede yanıt verildi · Kesintisiz 7/24</div>
-        </div>
-
-        <div class="h-stats-row">
-          <div class="h-stat h-stat-1">
-            <strong>1.247</strong>
-            <small>Bu ay yanıtlanan soru</small>
-          </div>
-          <div class="h-stat h-stat-2">
-            <strong>%99.8</strong>
-            <small>Çalışma süresi</small>
-          </div>
-          <div class="h-stat h-stat-3">
-            <strong>3s</strong>
-            <small>Ort. yanıt süresi</small>
-          </div>
+      <div class="hero-img-wrap">
+        <img
+          src="hero.png"
+          alt="Profesyonel İş Ortamı"
+          loading="eager"
+        >
+        <div class="hero-img-overlay"></div>
+        <div class="hero-img-watermark-cover"></div>
+        <div class="hero-img-tag">Dijital Dönüşüm</div>
+        <div class="hero-img-badge">
+          <span class="badge-live-dot"></span>
+          Dijital Sağ Kolunuz · 7/24
         </div>
       </div>
     </div>
@@ -1672,28 +1499,6 @@ footer {
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     Keşfet
-  </div>
-</section>
-
-<!-- ====== STATS ====== -->
-<section id="stats">
-  <div class="stats-grid">
-    <div class="stat-item reveal">
-      <span class="stat-number" data-target="50" data-suffix="+">0+</span>
-      <span class="stat-label">Aktif İşletme<br>Müşterisi</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-1">
-      <span class="stat-number" data-target="10000" data-suffix="+">0+</span>
-      <span class="stat-label">Aylık Otomatik<br>İşlem</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-2">
-      <span class="stat-number" data-prefix="7/" data-target="24" data-suffix="">7/0</span>
-      <span class="stat-label">Kesintisiz<br>Destek</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-3">
-      <span class="stat-number" data-target="98" data-suffix="%">0%</span>
-      <span class="stat-label">Müşteri<br>Memnuniyeti</span>
-    </div>
   </div>
 </section>
 
@@ -1840,62 +1645,6 @@ footer {
   </div>
 </section>
 
-<!-- ====== TESTIMONIALS ====== -->
-<section id="referanslar">
-  <div class="section-inner">
-    <div class="section-tag reveal">Müşteri Yorumları</div>
-    <h2 class="section-heading reveal">Onlar Anlatsın</h2>
-    <p class="section-sub reveal">Uras Tech ile çalışan işletmelerin deneyimlerinden birkaçı.</p>
-
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="testi-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Chatbot kurulumu öncesinde müşteri sorularının %70'ini manuel yanıtlıyorduk. Şimdi sistem bunları otomatik hallediyor, biz sadece gerçekten karmaşık sorunlara odaklanıyoruz. Haftalık 15 saatimizi geri kazandık.</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&crop=faces&fit=crop" alt="Mehmet Yıldız" class="testi-avatar" loading="lazy">
-          <div>
-            <div class="testi-name">Mehmet Yıldız</div>
-            <div class="testi-role">Kurucu, YıldızPet E-Ticaret</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Fatura ve stok entegrasyonumuzu manuel yönetiyorduk, hatalar kaçınılmazdı. Uras Tech'in kurduğu otomasyon ile bu süreç artık sıfır hatayla işliyor. Geçen ay 3 farklı insan hatasından kaynaklanan müşteri şikayetini sıfıra indirdik.</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&q=80&crop=faces&fit=crop" alt="Selin Kara" class="testi-avatar" loading="lazy">
-          <div>
-            <div class="testi-name">Selin Kara</div>
-            <div class="testi-role">Operasyon Müdürü, Kara Lojistik</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Yeni web sitemiz sadece güzel değil, gerçekten iş getiriyor. Arka planda randevu otomasyonu, müşteri bildirimleri ve CRM entegrasyonu var. Açılıştan bu yana online randevu talebimiz 3 katına çıktı.</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&crop=faces&fit=crop" alt="Burak Demir" class="testi-avatar" loading="lazy">
-          <div>
-            <div class="testi-name">Burak Demir</div>
-            <div class="testi-role">Sahibi, Demir Güzellik Merkezi</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ====== FAQ ====== -->
 <section id="sss">
   <div class="section-inner" style="text-align:center;">
@@ -1987,7 +1736,7 @@ footer {
           <div class="c-info-icon">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4 6-4M2 4h12v9H2V4z" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          info@urastech.com.tr
+          info@urastech.com
         </div>
       </div>
     </div>
@@ -1997,16 +1746,16 @@ footer {
         <div class="form-row">
           <div class="form-group">
             <label for="ad">Adınız</label>
-            <input type="text" id="ad" placeholder="Ahmet Kaya" required>
+            <input type="text" id="ad" placeholder="Murat Şahin" required>
           </div>
           <div class="form-group">
             <label for="sirket">Şirket / İşletme</label>
-            <input type="text" id="sirket" placeholder="Kaya Tekstil">
+            <input type="text" id="sirket" placeholder="Şahin Tekstil">
           </div>
         </div>
         <div class="form-group">
           <label for="email">E-posta</label>
-          <input type="email" id="email" placeholder="ahmet@kaya.com.tr" required>
+          <input type="email" id="email" placeholder="murat@sahin.com.tr" required>
         </div>
         <div class="form-group">
           <label for="telefon">Telefon</label>
@@ -2336,14 +2085,11 @@ footer {
         </div>
         <p class="footer-tagline">Robotik süreçler, insani çözümler.<br>İşletmenizin dijital sağ kolu.</p>
         <div class="footer-social">
-          <a href="#" class="social-link" aria-label="LinkedIn">
+          <a href="https://dk.linkedin.com/in/cenk-alper-tantoglu-65036a4a/tr" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <a href="#" class="social-link" aria-label="Instagram">
+          <a href="https://www.instagram.com/urastech/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.6)"/></svg>
-          </a>
-          <a href="#" class="social-link" aria-label="Twitter/X">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
           </a>
         </div>
       </div>
@@ -2363,7 +2109,6 @@ footer {
         <ul class="footer-links">
           <li><a href="#deger">Hakkımızda</a></li>
           <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
-          <li><a href="#referanslar">Referanslar</a></li>
           <li><a href="#sss">SSS</a></li>
         </ul>
       </div>
@@ -2371,10 +2116,10 @@ footer {
       <div class="footer-col">
         <h4>İletişim</h4>
         <ul class="footer-links">
-          <li><a href="mailto:info@urastech.com.tr">info@urastech.com.tr</a></li>
-          <li><a href="tel:+905320000000">+90 532 000 00 00</a></li>
+          <li><a href="mailto:info@urastech.com">info@urastech.com</a></li>
+          <li><a href="tel:+905063583035">0506 358 30 35</a></li>
+          <li>Tekirdağ, Türkiye</li>
           <li><a href="#iletisim">Ücretsiz Görüşme</a></li>
-          <li><a href="#iletisim">Teklif Al</a></li>
         </ul>
       </div>
     </div>
@@ -2438,7 +2183,7 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(animateRing);
 })();
 
-document.querySelectorAll('a, button, .service-card, .faq-q, .testi-card').forEach(el => {
+document.querySelectorAll('a, button, .service-card, .faq-q').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
@@ -2484,35 +2229,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-/* ---- Counter animation ---- */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const duration = 1800;
-  const start = performance.now();
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const value = Math.floor(eased * target);
-    el.textContent = prefix + (value >= 1000 ? value.toLocaleString('tr-TR') : value) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && entry.target.dataset.target) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
 
 /* ---- FAQ Accordion ---- */
 function toggleFaq(btn) {
@@ -2537,6 +2253,118 @@ function handleSubmit(e) {
     e.target.reset();
   }, 4000);
 }
+</script>
+
+<!-- ====== NEBULA — Hero Raw WebGL Background ====== -->
+<script>
+(function () {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+
+  var VS = [
+    'attribute vec2 a_pos;',
+    'varying vec2 vUv;',
+    'void main(){',
+    '  vUv = a_pos * 0.5 + 0.5;',
+    '  gl_Position = vec4(a_pos, 0.0, 1.0);',
+    '}'
+  ].join('\n');
+
+  var FS = [
+    'precision highp float;',
+    'varying vec2 vUv;',
+    'uniform vec2 u_res;',
+    'uniform float u_time;',
+    'uniform vec2 u_mouse;',
+
+    'float rand(vec2 s){return fract(sin(dot(s,vec2(12.9898,78.233)))*43758.5453);}',
+
+    'float noise(vec2 s){',
+    '  vec2 i=floor(s);vec2 f=fract(s);',
+    '  float a=rand(i);float b=rand(i+vec2(1,0));',
+    '  float c=rand(i+vec2(0,1));float d=rand(i+vec2(1,1));',
+    '  vec2 u=f*f*(3.0-2.0*f);',
+    '  return mix(a,b,u.x)+(c-a)*u.y*(1.0-u.x)+(d-b)*u.y*u.x;',
+    '}',
+
+    'float fbm(vec2 s){',
+    '  float v=0.0;float a=0.5;',
+    '  for(int i=0;i<6;i++){v+=a*noise(s);s*=2.0;a*=0.5;}',
+    '  return v;',
+    '}',
+
+    'vec3 hsl(float h,float s,float l){',
+    '  vec3 r=clamp(abs(mod(h*6.0+vec3(0,4,2),6.0)-3.0)-1.0,0.0,1.0);',
+    '  return l*mix(vec3(1),r,s);',
+    '}',
+
+    'void main(){',
+    '  vec2 uv=(gl_FragCoord.xy-0.5*u_res)/min(u_res.y,u_res.x)*1.5;',
+    '  vec2 mn=u_mouse/u_res;',
+    '  uv+=(mn-0.5)*0.35;',
+    '  float f=fbm(uv+vec2(u_time*0.1,u_time*0.05));',
+    '  float t=fbm(uv+f+vec2(u_time*0.05,u_time*0.02));',
+    '  float neb=pow(t,2.8);',
+    '  vec3 nc=hsl(0.60+neb*0.12,0.7,0.45)*neb*1.6;',
+    '  vec3 base=vec3(0.086,0.176,0.290);',
+    '  vec3 col=base+nc;',
+    '  float sv=rand(vUv*600.0);',
+    '  if(sv>0.998){col+=vec3((sv-0.998)/0.002*1.5);}',
+    '  gl_FragColor=vec4(col,1.0);',
+    '}'
+  ].join('\n');
+
+  function compile(type, src) {
+    var sh = gl.createShader(type);
+    gl.shaderSource(sh, src);
+    gl.compileShader(sh);
+    return sh;
+  }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+  var uRes   = gl.getUniformLocation(prog, 'u_res');
+  var uTime  = gl.getUniformLocation(prog, 'u_time');
+  var uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  var mx = 0, my = 0, t = 0;
+
+  function resize() {
+    var hero = canvas.parentElement;
+    var w = hero.clientWidth || window.innerWidth;
+    var h = hero.clientHeight || window.innerHeight;
+    canvas.width  = Math.floor(w * Math.min(devicePixelRatio, 2));
+    canvas.height = Math.floor(h * Math.min(devicePixelRatio, 2));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.useProgram(prog);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; });
+
+  function frame() {
+    t += 0.0015;
+    gl.uniform1f(uTime, t);
+    gl.uniform2f(uMouse, mx, window.innerHeight - my);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
 </script>
 </body>
 </html>
