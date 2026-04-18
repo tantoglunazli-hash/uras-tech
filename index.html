@@ -8,6 +8,12 @@
 <meta property="og:title" content="Uras Tech | Dijital Sağ Kolunuzla Tanışın">
 <meta property="og:description" content="İşinizi büyütürken rutin operasyonların içinde boğulmayın. Uras Tech akıllı otomasyonlarla dijital sağ kolunuz olur.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://urastech.com">
+<meta property="og:image" content="https://urastech.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uras Tech | Dijital Sağ Kolunuzla Tanışın">
+<meta name="twitter:description" content="İşinizi büyütürken rutin operasyonların içinde boğulmayın. Uras Tech akıllı otomasyonlarla dijital sağ kolunuz olur.">
+<link rel="canonical" href="https://urastech.com">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1123,7 +1129,7 @@ footer {
 }
 .modal-overlay.open {
   opacity: 1;
-  pointer-events: all;
+  pointer-events: auto;
 }
 .modal {
   background: var(--c-white);
@@ -1484,6 +1490,7 @@ footer {
           src="hero.png"
           alt="Profesyonel İş Ortamı"
           loading="eager"
+          onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80';this.onerror=null;"
         >
         <div class="hero-img-overlay"></div>
         <div class="hero-img-watermark-cover"></div>
@@ -1696,7 +1703,7 @@ footer {
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Kesinlikle. Tüm projelerimiz için kurulum sonrası bakım ve destek paketi sunuyoruz. Sistemleri izliyoruz, güncelliyoruz ve gerektiğinde müdahale ediyoruz. Ekibimiz WhatsApp üzerinden 7/24 ulaşılabilir durumda.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Kesinlikle. Tüm projelerimiz için kurulum sonrası bakım ve destek paketi sunuyoruz. Sistemleri izliyoruz, güncelliyoruz ve gerektiğinde müdahale ediyoruz.</div></div>
       </div>
       <div class="faq-item reveal reveal-delay-2">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -1743,27 +1750,29 @@ footer {
 
     <div class="contact-form reveal reveal-delay-1">
       <form onsubmit="handleSubmit(event)">
+        <!-- Honeypot: botlar doldurur, insanlar görmez -->
+        <input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group">
             <label for="ad">Adınız</label>
-            <input type="text" id="ad" placeholder="Murat Şahin" required>
+            <input type="text" id="ad" name="name" placeholder="Murat Şahin" autocomplete="name" required>
           </div>
           <div class="form-group">
             <label for="sirket">Şirket / İşletme</label>
-            <input type="text" id="sirket" placeholder="Şahin Tekstil">
+            <input type="text" id="sirket" name="company" placeholder="Şahin Tekstil" autocomplete="organization">
           </div>
         </div>
         <div class="form-group">
           <label for="email">E-posta</label>
-          <input type="email" id="email" placeholder="murat@sahin.com.tr" required>
+          <input type="email" id="email" name="email" placeholder="murat@sahin.com.tr" autocomplete="email" required>
         </div>
         <div class="form-group">
           <label for="telefon">Telefon</label>
-          <input type="tel" id="telefon" placeholder="+90 532 000 00 00">
+          <input type="tel" id="telefon" name="phone" placeholder="+90 532 000 00 00" autocomplete="tel">
         </div>
         <div class="form-group">
           <label for="sure">En çok hangi süreçte zaman kaybediyorsunuz?</label>
-          <select id="sure">
+          <select id="sure" name="process">
             <option value="">Seçiniz...</option>
             <option value="musteri">Müşteri iletişimi ve sorular</option>
             <option value="fatura">Fatura ve muhasebe işlemleri</option>
@@ -1775,7 +1784,7 @@ footer {
         </div>
         <div class="form-group">
           <label for="mesaj">Bize anlatın</label>
-          <textarea id="mesaj" placeholder="Hangi konuda yardım ihtiyacınız var? Mevcut süreçlerinizi kısaca anlatın..."></textarea>
+          <textarea id="mesaj" name="message" placeholder="Hangi konuda yardım ihtiyacınız var? Mevcut süreçlerinizi kısaca anlatın..."></textarea>
         </div>
         <button type="submit" class="form-submit">
           Hemen Başlayalım →
@@ -2085,7 +2094,7 @@ footer {
         </div>
         <p class="footer-tagline">Robotik süreçler, insani çözümler.<br>İşletmenizin dijital sağ kolu.</p>
         <div class="footer-social">
-          <a href="https://dk.linkedin.com/in/cenk-alper-tantoglu-65036a4a/tr" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/cenk-alper-tantoglu-65036a4a/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <a href="https://www.instagram.com/urastech/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
@@ -2126,16 +2135,12 @@ footer {
 
     <div class="footer-bottom">
       <span>© 2026 Uras Tech. Tüm hakları saklıdır.</span>
-      <span>
-        <a href="#" style="color:rgba(255,255,255,0.28);">Gizlilik Politikası</a>
-        &nbsp;·&nbsp;
-        <a href="#" style="color:rgba(255,255,255,0.28);">Kullanım Koşulları</a>
-      </span>
+      <span style="color:rgba(255,255,255,0.28);">info@urastech.com</span>
     </div>
   </div>
 </footer>
 
-<script defer>
+<script>
 /* ---- Service Modals ---- */
 function openModal(id) {
   const overlay = document.getElementById('modal-' + id);
@@ -2240,18 +2245,58 @@ function toggleFaq(btn) {
 }
 
 /* ---- Form submit ---- */
-function handleSubmit(e) {
+const WEB3FORMS_ACCESS_KEY = '0975f6de-54d3-4caf-8155-1e1e58b418be';
+
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Mesajınız İletildi ✓';
-  btn.style.background = '#27ae60';
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+
+  // Honeypot kontrolü — bot ise sessizce çık
+  if (form.querySelector('[name="honeypot"]').value) return;
+
+  btn.textContent = 'Gönderiliyor...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Hemen Başlayalım →';
-    btn.style.background = '';
+
+  const payload = {
+    access_key: WEB3FORMS_ACCESS_KEY,
+    subject: 'Uras Tech — Yeni Teklif Talebi',
+    from_name: form.querySelector('#ad').value,
+    email: form.querySelector('#email').value,
+    phone: form.querySelector('#telefon').value || '—',
+    company: form.querySelector('#sirket').value || '—',
+    process: form.querySelector('#sure').value || '—',
+    message: form.querySelector('#mesaj').value || '—',
+  };
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (data.success) {
+      btn.textContent = 'Mesajınız İletildi ✓';
+      btn.style.background = '#27ae60';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Hemen Başlayalım →';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error(data.message || 'Gönderilemedi');
+    }
+  } catch (err) {
+    btn.textContent = 'Hata — Tekrar Deneyin';
+    btn.style.background = '#e74c3c';
     btn.disabled = false;
-    e.target.reset();
-  }, 4000);
+    setTimeout(() => {
+      btn.textContent = 'Hemen Başlayalım →';
+      btn.style.background = '';
+    }, 3000);
+  }
 }
 </script>
 
