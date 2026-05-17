@@ -1,0 +1,13 @@
+# Local Claude config
+.claude/
+
+# Node deps (used only for local screenshot tooling)
+node_modules/
+package-lock.json
+package.json
+
+# Screenshot debugging artifacts
+screenshot*.cjs
+screenshot-*.png
+mobile-*.png
+desktop-*.png

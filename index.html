@@ -313,6 +313,105 @@ nav.scrolled {
   z-index: 2;
 }
 
+/* ========================================
+   FALLING PATTERN — Hero background
+   (vanilla CSS port of FallingPattern React component)
+======================================== */
+.falling-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: #0a192f;
+  background-image:
+    radial-gradient(4px 100px at 0px 235px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 235px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 117.5px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 252px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 252px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 126px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 150px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 150px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 75px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 253px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 253px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 126.5px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 204px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 204px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 102px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 134px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 134px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 67px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 179px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 179px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 89.5px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 299px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 299px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 149.5px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 215px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 215px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 107.5px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 281px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 281px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 140.5px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 158px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 158px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 79px, #FF8A65 100%, transparent 150%),
+    radial-gradient(4px 100px at 0px 210px, #FF8A65, transparent),
+    radial-gradient(4px 100px at 300px 210px, #FF8A65, transparent),
+    radial-gradient(1.5px 1.5px at 150px 105px, #FF8A65 100%, transparent 150%);
+  background-size:
+    300px 235px, 300px 235px, 300px 235px,
+    300px 252px, 300px 252px, 300px 252px,
+    300px 150px, 300px 150px, 300px 150px,
+    300px 253px, 300px 253px, 300px 253px,
+    300px 204px, 300px 204px, 300px 204px,
+    300px 134px, 300px 134px, 300px 134px,
+    300px 179px, 300px 179px, 300px 179px,
+    300px 299px, 300px 299px, 300px 299px,
+    300px 215px, 300px 215px, 300px 215px,
+    300px 281px, 300px 281px, 300px 281px,
+    300px 158px, 300px 158px, 300px 158px,
+    300px 210px, 300px 210px, 300px 210px;
+  background-position:
+    0px 220px, 3px 220px, 151.5px 337.5px, 25px 24px, 28px 24px, 176.5px 150px,
+    50px 16px, 53px 16px, 201.5px 91px, 75px 224px, 78px 224px, 226.5px 230.5px,
+    100px 19px, 103px 19px, 251.5px 121px, 125px 120px, 128px 120px, 276.5px 187px,
+    150px 31px, 153px 31px, 301.5px 120.5px, 175px 235px, 178px 235px, 326.5px 384.5px,
+    200px 121px, 203px 121px, 351.5px 228.5px, 225px 224px, 228px 224px, 376.5px 364.5px,
+    250px 26px, 253px 26px, 401.5px 105px, 275px 75px, 278px 75px, 426.5px 180px;
+  animation: fallingPattern 80s linear infinite;
+  mask-image: radial-gradient(ellipse at center, transparent 0%, transparent 30%, #0a192f 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, transparent 0%, transparent 30%, #0a192f 100%);
+}
+
+@keyframes fallingPattern {
+  to {
+    background-position:
+      0px 6800px, 3px 6800px, 151.5px 6917.5px, 25px 13632px, 28px 13632px, 176.5px 13758px,
+      50px 5416px, 53px 5416px, 201.5px 5491px, 75px 17175px, 78px 17175px, 226.5px 17301.5px,
+      100px 5119px, 103px 5119px, 251.5px 5221px, 125px 8428px, 128px 8428px, 276.5px 8495px,
+      150px 9876px, 153px 9876px, 301.5px 9965.5px, 175px 13391px, 178px 13391px, 326.5px 13540.5px,
+      200px 14741px, 203px 14741px, 351.5px 14848.5px, 225px 18770px, 228px 18770px, 376.5px 18910.5px,
+      250px 5082px, 253px 5082px, 401.5px 5161px, 275px 6375px, 278px 6375px, 426.5px 6480px;
+  }
+}
+
+.falling-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  background-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 2px, rgba(10,25,47,0.92) 2px);
+  background-size: 16px 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-pattern { animation: none; }
+}
+
 .hero-inner {
   position: relative;
   z-index: 3;
@@ -596,8 +695,11 @@ section { position: relative; }
 }
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-lg);
+}
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 .service-card {
   position: relative;
@@ -679,6 +781,155 @@ section { position: relative; }
   transition: gap 0.2s;
 }
 .service-card:hover .service-link { gap: 10px; }
+
+/* ========================================
+   PRODUCTS — Hazır Sistemler
+======================================== */
+#urunler {
+  background: var(--c-primary);
+  color: var(--c-white);
+  position: relative;
+  overflow: hidden;
+}
+#urunler::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(255,87,51,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 5% 85%, rgba(100,149,237,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+#urunler::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.6;
+}
+#urunler .section-inner { position: relative; z-index: 1; }
+#urunler .section-heading { color: var(--c-white); }
+#urunler .section-sub { color: rgba(255,255,255,0.55); }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-lg);
+  margin-top: var(--sp-2xl);
+}
+.product-card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  transition: transform 0.35s var(--ease-spring), border-color 0.3s, background 0.3s;
+  overflow: hidden;
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,87,51,0.6), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease-out);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,87,51,0.3);
+}
+.product-card:hover::before { transform: translateX(100%); }
+.product-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255,87,51,0.14);
+  border: 1px solid rgba(255,87,51,0.25);
+  border-radius: var(--radius-pill);
+  color: var(--c-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-md);
+}
+.product-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  animation: pulse-dot 1.8s infinite;
+}
+.product-title {
+  font-family: var(--f-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--c-white);
+  margin-bottom: var(--sp-md);
+}
+.product-desc {
+  color: rgba(255,255,255,0.62);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--sp-lg);
+}
+.product-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--sp-lg);
+  padding-top: var(--sp-md);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.product-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  color: rgba(255,255,255,0.78);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+.product-features svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.product-who {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  padding: var(--sp-md) 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: var(--sp-lg);
+}
+.product-who strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+.product-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--c-accent);
+  color: var(--c-white);
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(255,87,51,0.3);
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
+}
+.product-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255,87,51,0.45);
+}
+
+@media (max-width: 768px) {
+  .products-grid { grid-template-columns: 1fr; gap: var(--sp-md); }
+}
 
 /* ========================================
    PROCESS
@@ -1211,6 +1462,50 @@ footer {
 }
 .modal-lead strong { color: var(--c-primary); }
 
+.modal-block {
+  margin-bottom: var(--sp-xl);
+}
+.modal-block-text {
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: var(--c-text);
+}
+.modal-block-text strong { color: var(--c-primary); }
+
+.modal-process {
+  list-style: none;
+  counter-reset: mp-counter;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-xl);
+}
+.modal-process li {
+  counter-increment: mp-counter;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+  font-size: 0.93rem;
+  color: var(--c-text);
+  line-height: 1.6;
+}
+.modal-process li::before {
+  content: counter(mp-counter, decimal-leading-zero);
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--c-accent-dim);
+  color: var(--c-accent);
+  font-family: var(--f-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.02em;
+}
+.modal-process li strong { color: var(--c-primary); display: block; margin-bottom: 2px; }
+
 .modal-section-title {
   font-family: var(--f-display);
   font-size: 0.78rem;
@@ -1440,12 +1735,13 @@ footer {
 
   <ul class="nav-links">
     <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#urunler">Ürünler</a></li>
     <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
     <li><a href="#sss">SSS</a></li>
   </ul>
 
   <div class="nav-cta">
-    <a href="#iletisim" class="btn btn-primary">Teklif Al</a>
+    <a href="#iletisim" class="btn btn-primary">Konuşalım</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Menü">
       <span></span><span></span><span></span>
     </button>
@@ -1455,14 +1751,16 @@ footer {
 <!-- Mobile nav overlay -->
 <div class="nav-mobile" id="mobileNav">
   <a href="#hizmetler" onclick="closeMobile()">Hizmetler</a>
+  <a href="#urunler" onclick="closeMobile()">Ürünler</a>
   <a href="#nasil-calisir" onclick="closeMobile()">Nasıl Çalışır</a>
   <a href="#sss" onclick="closeMobile()">SSS</a>
-  <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Teklif Al</a>
+  <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Konuşalım</a>
 </div>
 
 <!-- ====== HERO ====== -->
 <section id="hero">
-  <canvas id="hero-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block;"></canvas>
+  <div class="falling-pattern" aria-hidden="true"></div>
+  <div class="falling-pattern-overlay" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-label">Dijital Dönüşüm Ortağınız</div>
@@ -1517,7 +1815,7 @@ footer {
         <div class="section-tag reveal">Hizmetlerimiz</div>
         <h2 class="section-heading reveal">İşletmenizin<br>İhtiyacı Olan Her Şey</h2>
       </div>
-      <p class="section-sub reveal" style="flex: 0 0 380px;">Üç temel alanda işletmenizi güçlendiriyoruz. Teknoloji sizin için çalışsın, siz işinize odaklanın.</p>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">Dört temel alanda işletmenizi güçlendiriyoruz. Teknoloji sizin için çalışsın, siz işinize odaklanın.</p>
     </div>
 
     <div class="services-grid">
@@ -1529,7 +1827,7 @@ footer {
           </svg>
         </div>
         <h3 class="service-title">7/24 AI Chatbot</h3>
-        <p class="service-desc">Müşterilerinize robot gibi değil, markanızın en bilgili personeli gibi cevap veren asistanlar kuruyoruz. Siz uyurken bile satış ve destek devam eder.</p>
+        <p class="service-desc">Müşteri sorusu mesai saati tanımaz. Sisteminiz de tanımasın.</p>
         <button class="service-link" onclick="openModal('chatbot')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1544,7 +1842,7 @@ footer {
           </svg>
         </div>
         <h3 class="service-title">Operasyonel Otomasyon</h3>
-        <p class="service-desc">Siparişten faturaya, stoktan rapora kadar tüm veri trafiğini otomatikleştiriyoruz. Manuel hatalara veda edin, hızın keyfini çıkarın.</p>
+        <p class="service-desc">Her gün aynı şeyleri tekrar yapıyor musunuz?</p>
         <button class="service-link" onclick="openModal('otomasyon')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1560,12 +1858,121 @@ footer {
           </svg>
         </div>
         <h3 class="service-title">Fonksiyonel Web Tasarım</h3>
-        <p class="service-desc">Sadece vitrin değil, işletmenizin motoru olacak web siteleri inşa ediyoruz. Arka planda otomasyonla konuşan, size iş getiren dijital bir merkez.</p>
+        <p class="service-desc">Vitrin değil, işletmenizin dijital motoru.</p>
         <button class="service-link" onclick="openModal('web')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <span class="service-num">04</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 7l-7 5 7 5V7z"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Reklam Görsel & Video</h3>
+        <p class="service-desc">Reklamınız ne kadar dikkat çekiyor?</p>
+        <button class="service-link" onclick="openModal('video')">
+          Keşfet
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ÜRÜNLER — Hazır Sistemler ====== -->
+<section id="urunler">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-tag reveal">Hazır Sistemler</div>
+        <h2 class="section-heading reveal">Kurulum bekleyen değil,<br>bugün çalışmaya başlayan sistemler.</h2>
+      </div>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">Sıfırdan kurmadan, hemen devreye alabileceğiniz iki üründümüz var. İşletmenizin günlük çarkını anında hafifletir.</p>
+    </div>
+
+    <div class="products-grid">
+      <article class="product-card reveal">
+        <span class="product-tag">Ürün 01</span>
+        <h3 class="product-title">Müşteri Takip Asistanı</h3>
+        <p class="product-desc">
+          Gelen her soruyu karşılayan, takibi kaçırmayan, hangi kanaldan kaç müşteri geldiğini gösteren AI destekli sistem.
+        </p>
+        <ul class="product-features">
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>WhatsApp, Instagram ve web üzerinden gelen soruları 7/24 yanıtlar</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Müşteri bilgilerini otomatik toplar ve kaydeder</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Belirlenen aralıklarla takip mesajları gönderir</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Sabah hazır müşteri listesi sunar</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Her reklam kanalından kaç müşteri geldiğini gösterir</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Müdür veya ilgili kişiye anlık bildirim gönderir</span>
+          </li>
+        </ul>
+        <p class="product-who">
+          <strong>Kim için:</strong> Dil kursu, anaokulu, etüt merkezi, özel okul ve hizmet sektöründeki her işletme — müşteri sorularını kaçırmak istemeyenler için.
+        </p>
+        <a href="#iletisim" class="product-cta">
+          Bu sistemi görmek isterim
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="product-card reveal reveal-delay-1">
+        <span class="product-tag">Ürün 02 · Pilot</span>
+        <h3 class="product-title">Geri Bildirim ve İtibar Yönetim Sistemi</h3>
+        <p class="product-desc">
+          Şikayetleri toplamak yetmez. Bu sistem şikayeti ilgili ekibe yönlendirir, çözüm sürecini takip eder ve aynı sorunun tekrar yaşanmasını önler.
+        </p>
+        <ul class="product-features">
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Google yorumları, sosyal medya ve destek kanallarından geri bildirimleri tek merkezde toplar</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>AI ile tekrar eden sorunları ve öncelikli riskleri tespit eder</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Kritik şikayetleri ilgili ekibe yönlendirir</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Aksiyon sürecini izler — "çözüldü" denmeden kapatılmaz</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Zaman içindeki iyileşmeyi ve şikayet trendlerini raporlar</span>
+          </li>
+        </ul>
+        <p class="product-who">
+          <strong>Kim için:</strong> Birden fazla şubesi olan işletmeler, hizmet sektörü, turizm, sağlık, eğitim ve kurumsal yapılar. Pilot program kapsamında görüşmeler alınıyor.
+        </p>
+        <a href="#iletisim" class="product-cta">
+          Pilot görüşme için başvurun
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
     </div>
   </div>
 </section>
@@ -1644,8 +2051,8 @@ footer {
       <div class="value-image-wrap reveal reveal-delay-1">
         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Uras Tech ekip çalışması — profesyonel iş görüşmesi" loading="lazy">
         <div class="value-badge">
-          <strong>+40 saat</strong>
-          <span>Haftalık tasarruf ortalaması</span>
+          <strong>7/24</strong>
+          <span>Kesintisiz Çalışır</span>
         </div>
       </div>
     </div>
@@ -1679,15 +2086,6 @@ footer {
         <div class="faq-a"><div class="faq-a-inner">Projenin kapsamına göre değişmekle birlikte, basit bir chatbot entegrasyonu 5-7 iş günü, kapsamlı otomasyon projeleri ise 3-6 hafta arasında tamamlanır. Süreç boyunca her aşamada sizi bilgilendiriyor ve onayınızı alıyoruz.</div></div>
       </div>
       <div class="faq-item reveal reveal-delay-2">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>Mevcut sistemlerimle entegre olabiliyor musunuz?</span>
-          <div class="faq-chevron">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Evet. Shopify, WooCommerce, IdeaSoft, Paraşüt, Logo, Mikro ve çoğu popüler Türk yazılımıyla entegrasyon sağlayabiliyoruz. Mevcut sistemlerinizi terk etmenize gerek yok — üstüne inşa ediyoruz.</div></div>
-      </div>
-      <div class="faq-item reveal">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span>Fiyatlandırma nasıl işliyor?</span>
           <div class="faq-chevron">
@@ -1806,7 +2204,7 @@ footer {
         </div>
         <div>
           <div class="modal-title">7/24 AI Chatbot</div>
-          <div class="modal-subtitle">Kesintisiz Müşteri İletişimi</div>
+          <div class="modal-subtitle">Müşteri sorusu mesai saati tanımaz. Sisteminiz de tanımasın.</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeModal('chatbot')" aria-label="Kapat">
@@ -1814,77 +2212,75 @@ footer {
       </button>
     </div>
     <div class="modal-body">
-      <p class="modal-lead">
-        Müşterileriniz gece yarısı soru soruyor, siz uyuyorsunuz — ve sabah bir satış kaçmış oluyor. <strong>Uras Tech AI Chatbot</strong> ile bu senaryo geçmişte kalıyor. Markanızın sesini öğrenen, doğal Türkçe ile yanıt veren bir asistan kuruyoruz; sanki en iyi personeliniz 7 gün 24 saat çalışıyor.
-      </p>
+      <div class="modal-block">
+        <div class="modal-section-title">Problem</div>
+        <p class="modal-block-text">
+          Mesai sonrası gelen bir soru çoğu zaman cevapsız kalır. Sabah baktığınızda müşteri çoktan başka yere gitmiş olur. Tekrarlayan soruları yanıtlamak için harcanan zaman ise ekibinizin enerjisini tüketir.
+        </p>
+      </div>
+
+      <div class="modal-block">
+        <div class="modal-section-title">Çözüm</div>
+        <p class="modal-block-text">
+          Markanızın sesini öğrenen, doğal Türkçe ile yanıt veren bir asistan kuruyoruz. Gece 02:00'deki soruya da gündüz 10:00'dakiyle aynı tonda, aynı hızda cevap verir.
+        </p>
+      </div>
 
       <div class="modal-section-title">Neler Yapabilir?</div>
       <ul class="modal-features">
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>Satış yönlendirme</strong> — Ürün soran müşteriyi doğru sayfaya yönlendirir, stok bilgisi verir, sepete eklemesi için teşvik eder</span>
+          <span><strong>Satış yönlendirme</strong> — Ürün soran müşteriyi doğru sayfaya yönlendirir, stok bilgisi verir</span>
         </li>
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>SSS otomasyonu</strong> — Kargo durumu, iade süreci, çalışma saatleri gibi tekrarlayan soruları %80+ oranında kendi kendine çözer</span>
+          <span><strong>SSS otomasyonu</strong> — Kargo, iade, çalışma saati gibi tekrarlayan soruları kendi kendine çözer</span>
         </li>
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>Randevu & rezervasyon</strong> — Takvimi senkronize eder, müşteri adına slot ayırır, hatırlatma mesajı gönderir</span>
+          <span><strong>Randevu ve rezervasyon</strong> — Takvimi senkronize eder, slot ayırır, hatırlatma gönderir</span>
         </li>
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>Çok kanallı entegrasyon</strong> — Web sitesi, WhatsApp Business, Instagram DM ve Facebook Messenger'da aynı anda çalışır</span>
+          <span><strong>4 kanal</strong> — Web sitesi, WhatsApp, Instagram DM ve Facebook Messenger'da aynı anda çalışır</span>
         </li>
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>İnsan devresi</strong> — Karmaşık sorun geldiğinde sizi anında bildirir, konuşmayı size aktarır</span>
+          <span><strong>İnsan devri</strong> — Karmaşık durumlarda sizi anında bildirir, konuşmayı size aktarır</span>
         </li>
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>Haftalık rapor</strong> — En çok sorulan sorular, müşteri memnuniyeti skoru, dönüşüm oranı</span>
+          <span><strong>Haftalık rapor</strong> — En çok sorulan sorular, yanıt performansı</span>
         </li>
       </ul>
 
       <div class="modal-stats">
         <div class="ms-item">
-          <span class="ms-num">1.200+</span>
-          <span class="ms-label">Aylık ort. yanıtlanan soru</span>
+          <span class="ms-num">4 Kanal</span>
+          <span class="ms-label">Web · WhatsApp · Instagram · Messenger</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">7/24</span>
+          <span class="ms-label">Aktif</span>
         </div>
         <div class="ms-item">
           <span class="ms-num">3sn</span>
           <span class="ms-label">Ortalama yanıt süresi</span>
         </div>
-        <div class="ms-item">
-          <span class="ms-num">%80</span>
-          <span class="ms-label">Otonom çözüm oranı</span>
-        </div>
       </div>
 
-      <div class="modal-section-title">Hangi İşletmelere Uygundur?</div>
-      <ul class="modal-features">
-        <li>
-          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>E-ticaret ve online mağazalar (sipariş takibi, ürün soruları)</span>
-        </li>
-        <li>
-          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>Güzellik, sağlık ve danışmanlık merkezleri (randevu yönetimi)</span>
-        </li>
-        <li>
-          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>Restoran, kafe ve konaklama işletmeleri (rezervasyon & menü)</span>
-        </li>
-        <li>
-          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>Hizmet sektörü (hukuk, muhasebe, emlak) — müşteri ön eleme</span>
-        </li>
-      </ul>
+      <div class="modal-section-title">Nasıl Çalışır?</div>
+      <ol class="modal-process">
+        <li><span><strong>Keşif görüşmesi (15 dk)</strong>İşletmenizi, sık sorulan soruları ve ihtiyaçları dinliyoruz.</span></li>
+        <li><span><strong>Eğitim ve kurulum</strong>Sistemi markanıza ve süreçlerinize göre yapılandırıyoruz.</span></li>
+        <li><span><strong>Canlıya alma</strong>Test ediyoruz, onaylıyorsunuz, yayına alıyoruz.</span></li>
+        <li><span><strong>Aylık bakım</strong>İzliyoruz, güncelliyoruz, raporluyoruz.</span></li>
+      </ol>
     </div>
     <div class="modal-footer">
       <p>Ücretsiz demo ile chatbot'u 15 dakikada görün.</p>
       <a href="#iletisim" class="modal-cta" onclick="closeModal('chatbot')">
-        Chatbot İstiyorum
+        Chatbot'u 15 dakikada görün
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -1933,26 +2329,22 @@ footer {
         </li>
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span><strong>Muhasebe entegrasyonu</strong> — Logo, Mikro, Paraşüt ile senkronizasyon; manuel veri girişi sıfıra iner</span>
-        </li>
-        <li>
-          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span><strong>Ekip bildirimleri</strong> — Kritik olaylar için WhatsApp, Slack veya email üzerinden anlık uyarı sistemi</span>
         </li>
       </ul>
 
       <div class="modal-stats">
         <div class="ms-item">
-          <span class="ms-num">10K+</span>
-          <span class="ms-label">Aylık otomatik işlem</span>
+          <span class="ms-num">7/24</span>
+          <span class="ms-label">Otomatik</span>
         </div>
         <div class="ms-item">
-          <span class="ms-num">%98</span>
-          <span class="ms-label">Hata azalma oranı</span>
+          <span class="ms-num">Anlık</span>
+          <span class="ms-label">Bildirim</span>
         </div>
         <div class="ms-item">
-          <span class="ms-num">40sa</span>
-          <span class="ms-label">Haftalık tasarruf</span>
+          <span class="ms-num">Sıfır</span>
+          <span class="ms-label">Manuel Giriş</span>
         </div>
       </div>
 
@@ -2042,8 +2434,8 @@ footer {
           <span class="ms-label">Lighthouse skoru</span>
         </div>
         <div class="ms-item">
-          <span class="ms-num">3×</span>
-          <span class="ms-label">Ortalama dönüşüm artışı</span>
+          <span class="ms-num">Mobil</span>
+          <span class="ms-label">Öncelikli</span>
         </div>
         <div class="ms-item">
           <span class="ms-num">3sn</span>
@@ -2081,6 +2473,95 @@ footer {
   </div>
 </div>
 
+<!-- Modal: Reklam Görsel & Video -->
+<div class="modal-overlay" id="modal-video" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div>
+          <div class="modal-title">Reklam Görsel & Video</div>
+          <div class="modal-subtitle">Reklamınız ne kadar dikkat çekiyor?</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('video')" aria-label="Kapat">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="#636e72" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-block">
+        <div class="modal-section-title">Problem</div>
+        <p class="modal-block-text">
+          Reklam bütçesi harcıyorsunuz ama görseller amatörce görünüyor, video yok ya da kötü. İyi içerik olmadan iyi reklam olmaz.
+        </p>
+      </div>
+
+      <div class="modal-block">
+        <div class="modal-section-title">Çözüm</div>
+        <p class="modal-block-text">
+          Hedef kitlenize hitap eden, platforma özel görsel ve video içerikler üretiyoruz. Instagram Reels'ten statik reklam görsellerine, tanıtım videolarından sezonluk kampanya materyallerine kadar — markanıza uygun, hazır içerik.
+        </p>
+      </div>
+
+      <div class="modal-section-title">Neler Üretiyoruz?</div>
+      <ul class="modal-features">
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Instagram Reels</strong> — Kısa video içerikler; dikkat çekici, platforma uygun ritim</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Statik reklam görselleri</strong> — Feed ve story formatlarında, Meta ve Google reklamlarına hazır</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Sezonluk kampanya materyalleri</strong> — Kayıt sezonu, yaz kampanyası, indirim dönemleri için tematik set</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Marka kimliğine uygun şablonlar</strong> — İçi sizin tarafınızdan da değiştirilebilen, tutarlı görsel sistem</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Rakip analizi</strong> — Sektörünüzdeki içeriklere bakıyoruz, sizi farklılaştıracak yönü birlikte belirliyoruz</span>
+        </li>
+      </ul>
+
+      <div class="modal-stats">
+        <div class="ms-item">
+          <span class="ms-num">Reels</span>
+          <span class="ms-label">Kısa video formatı</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">Feed · Story</span>
+          <span class="ms-label">Reklam görseli</span>
+        </div>
+        <div class="ms-item">
+          <span class="ms-num">Sezonluk</span>
+          <span class="ms-label">Kampanya seti</span>
+        </div>
+      </div>
+
+      <div class="modal-section-title">Nasıl Çalışır?</div>
+      <ol class="modal-process">
+        <li><span><strong>Brifing</strong>Hedef kitlenizi, platformunuzu ve kampanyanızı anlıyoruz.</span></li>
+        <li><span><strong>Konsept</strong>İçerik planı ve görsel yön önerisi sunuyoruz.</span></li>
+        <li><span><strong>Üretim</strong>Onayladığınız konsepte göre içerikler hazırlanır.</span></li>
+        <li><span><strong>Teslimat</strong>Platforma hazır formatlarda teslim edilir, gerekirse revize yapılır.</span></li>
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <p>İçerik ihtiyacınızı anlatın, doğru formatı birlikte seçelim.</p>
+      <a href="#iletisim" class="modal-cta" onclick="closeModal('video')">
+        İçerik ihtiyacınızı anlatın
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ====== FOOTER ====== -->
 <footer>
   <div class="footer-inner">
@@ -2109,6 +2590,7 @@ footer {
           <li><a href="#hizmetler">7/24 AI Chatbot</a></li>
           <li><a href="#hizmetler">Operasyonel Otomasyon</a></li>
           <li><a href="#hizmetler">Web Tasarım</a></li>
+          <li><a href="#hizmetler">Reklam Görsel & Video</a></li>
           <li><a href="#iletisim">Özel Proje</a></li>
         </ul>
       </div>
@@ -2300,116 +2782,5 @@ async function handleSubmit(e) {
 }
 </script>
 
-<!-- ====== NEBULA — Hero Raw WebGL Background ====== -->
-<script>
-(function () {
-  var canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-  if (!gl) return;
-
-  var VS = [
-    'attribute vec2 a_pos;',
-    'varying vec2 vUv;',
-    'void main(){',
-    '  vUv = a_pos * 0.5 + 0.5;',
-    '  gl_Position = vec4(a_pos, 0.0, 1.0);',
-    '}'
-  ].join('\n');
-
-  var FS = [
-    'precision highp float;',
-    'varying vec2 vUv;',
-    'uniform vec2 u_res;',
-    'uniform float u_time;',
-    'uniform vec2 u_mouse;',
-
-    'float rand(vec2 s){return fract(sin(dot(s,vec2(12.9898,78.233)))*43758.5453);}',
-
-    'float noise(vec2 s){',
-    '  vec2 i=floor(s);vec2 f=fract(s);',
-    '  float a=rand(i);float b=rand(i+vec2(1,0));',
-    '  float c=rand(i+vec2(0,1));float d=rand(i+vec2(1,1));',
-    '  vec2 u=f*f*(3.0-2.0*f);',
-    '  return mix(a,b,u.x)+(c-a)*u.y*(1.0-u.x)+(d-b)*u.y*u.x;',
-    '}',
-
-    'float fbm(vec2 s){',
-    '  float v=0.0;float a=0.5;',
-    '  for(int i=0;i<6;i++){v+=a*noise(s);s*=2.0;a*=0.5;}',
-    '  return v;',
-    '}',
-
-    'vec3 hsl(float h,float s,float l){',
-    '  vec3 r=clamp(abs(mod(h*6.0+vec3(0,4,2),6.0)-3.0)-1.0,0.0,1.0);',
-    '  return l*mix(vec3(1),r,s);',
-    '}',
-
-    'void main(){',
-    '  vec2 uv=(gl_FragCoord.xy-0.5*u_res)/min(u_res.y,u_res.x)*1.5;',
-    '  vec2 mn=u_mouse/u_res;',
-    '  uv+=(mn-0.5)*0.35;',
-    '  float f=fbm(uv+vec2(u_time*0.1,u_time*0.05));',
-    '  float t=fbm(uv+f+vec2(u_time*0.05,u_time*0.02));',
-    '  float neb=pow(t,2.8);',
-    '  vec3 nc=hsl(0.60+neb*0.12,0.7,0.45)*neb*1.6;',
-    '  vec3 base=vec3(0.086,0.176,0.290);',
-    '  vec3 col=base+nc;',
-    '  float sv=rand(vUv*600.0);',
-    '  if(sv>0.998){col+=vec3((sv-0.998)/0.002*1.5);}',
-    '  gl_FragColor=vec4(col,1.0);',
-    '}'
-  ].join('\n');
-
-  function compile(type, src) {
-    var sh = gl.createShader(type);
-    gl.shaderSource(sh, src);
-    gl.compileShader(sh);
-    return sh;
-  }
-  var prog = gl.createProgram();
-  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
-  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
-  gl.linkProgram(prog);
-  gl.useProgram(prog);
-
-  var buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-  var loc = gl.getAttribLocation(prog, 'a_pos');
-  gl.enableVertexAttribArray(loc);
-  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-
-  var uRes   = gl.getUniformLocation(prog, 'u_res');
-  var uTime  = gl.getUniformLocation(prog, 'u_time');
-  var uMouse = gl.getUniformLocation(prog, 'u_mouse');
-
-  var mx = 0, my = 0, t = 0;
-
-  function resize() {
-    var hero = canvas.parentElement;
-    var w = hero.clientWidth || window.innerWidth;
-    var h = hero.clientHeight || window.innerHeight;
-    canvas.width  = Math.floor(w * Math.min(devicePixelRatio, 2));
-    canvas.height = Math.floor(h * Math.min(devicePixelRatio, 2));
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.useProgram(prog);
-    gl.uniform2f(uRes, canvas.width, canvas.height);
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; });
-
-  function frame() {
-    t += 0.0015;
-    gl.uniform1f(uTime, t);
-    gl.uniform2f(uMouse, mx, window.innerHeight - my);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    requestAnimationFrame(frame);
-  }
-  frame();
-})();
-</script>
 </body>
 </html>
