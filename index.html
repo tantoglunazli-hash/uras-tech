@@ -46,6 +46,33 @@
   "priceRange": "$$"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Velocost Filo",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://velocost.app",
+  "description": "Araçlarınızı değil, kararlarınızı yöneten filo maliyet yönetimi paketi. Araç–sürücü takibi, bütçe aşım uyarısı, AI yönetici özeti ve gerçek TCO hesaplamasıyla filo maliyetlerini şeffaflaştırır.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "499",
+    "priceCurrency": "TRY",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "499",
+      "priceCurrency": "TRY",
+      "unitText": "araç/ay"
+    }
+  }
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -846,7 +873,7 @@ section { position: relative; }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: var(--sp-lg);
   margin-top: var(--sp-2xl);
 }
@@ -1770,6 +1797,7 @@ footer {
     <li><a href="#urunler">Ürünler</a></li>
     <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
     <li><a href="#sss">SSS</a></li>
+    <li><a href="/blog/">Blog</a></li>
   </ul>
 
   <div class="nav-cta">
@@ -1786,6 +1814,7 @@ footer {
   <a href="#urunler" onclick="closeMobile()">Ürünler</a>
   <a href="#nasil-calisir" onclick="closeMobile()">Nasıl Çalışır</a>
   <a href="#sss" onclick="closeMobile()">SSS</a>
+  <a href="/blog/" onclick="closeMobile()">Blog</a>
   <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Konuşalım</a>
 </div>
 
@@ -1924,7 +1953,7 @@ footer {
         <div class="section-tag reveal">Hazır Sistemler</div>
         <h2 class="section-heading reveal">Kurulum bekleyen değil,<br>bugün çalışmaya başlayan sistemler.</h2>
       </div>
-      <p class="section-sub reveal" style="flex: 0 0 380px;">Sıfırdan kurmadan, hemen devreye alabileceğiniz iki üründümüz var. İşletmenizin günlük çarkını anında hafifletir.</p>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">Sıfırdan kurmadan, hemen devreye alabileceğiniz üç ürünümüz var. İşletmenizin günlük çarkını anında hafifletir.</p>
     </div>
 
     <div class="products-grid">
@@ -2002,6 +2031,47 @@ footer {
         </p>
         <a href="#iletisim" class="product-cta">
           Pilot görüşme için başvurun
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="product-card reveal reveal-delay-2">
+        <span class="product-tag">Ürün 03 · Yayında</span>
+        <h3 class="product-title">Velocost Filo</h3>
+        <p class="product-desc">
+          Araçlarınızı değil, kararlarınızı yöneten filo paketi. Donanımsız, aynı gün kurulan bir sistemle filonuzun gerçek maliyetini ve nerede para kaybettiğinizi görün.
+        </p>
+        <ul class="product-features">
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Araç–sürücü atama, takip ve kamyon/otobüs rotalaması (aks, tonaj, yükseklik)</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Departman bazlı bütçe, aşım uyarısı ve run-rate projeksiyonu</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Aylık rapora tek tıkla AI yönetici özeti ve öncelikli aksiyon önerileri</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Tasarruf Radarı — kaçan ve gerçekleşen tasarrufu ayrı ayrı gösterir</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Araç başına gerçek TCO (₺/km) ve öz mal/kiralık kıyası</span>
+          </li>
+          <li>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Muayene, sigorta, kasko, bakım ve lastik hatırlatıcıları — hepsi tek panelde</span>
+          </li>
+        </ul>
+        <p class="product-who">
+          <strong>Kim için:</strong> Filo sahibi işletmeler — lojistik, nakliye, kurumsal araç filosu bulunan şirketler. Fiyat filo boyutuna göre belirlenir, araç başına 499 ₺'den başlar.
+        </p>
+        <a href="https://velocost.app" class="product-cta" target="_blank" rel="noopener noreferrer">
+          Velocost Filo'yu inceleyin
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </article>
@@ -2623,6 +2693,7 @@ footer {
           <li><a href="#hizmetler">Operasyonel Otomasyon</a></li>
           <li><a href="#hizmetler">Web Tasarım</a></li>
           <li><a href="#hizmetler">Reklam Görsel & Video</a></li>
+          <li><a href="https://velocost.app" target="_blank" rel="noopener noreferrer">Velocost Filo ↗</a></li>
           <li><a href="#iletisim">Özel Proje</a></li>
         </ul>
       </div>
@@ -2633,6 +2704,7 @@ footer {
           <li><a href="#deger">Hakkımızda</a></li>
           <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
           <li><a href="#sss">SSS</a></li>
+          <li><a href="/blog/">Blog</a></li>
         </ul>
       </div>
 
