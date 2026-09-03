@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uras Tech | Dijital Sağ Kolunuzla Tanışın</title>
-<meta name="description" content="Uras Tech — 7/24 AI Chatbot, Operasyonel Otomasyon ve Fonksiyonel Web Tasarım ile işletmenizin dijital sağ kolu. Karmaşayı emekli edin, zamanı özgürleştirin.">
-<meta property="og:title" content="Uras Tech | Dijital Sağ Kolunuzla Tanışın">
-<meta property="og:description" content="İşinizi büyütürken rutin operasyonların içinde boğulmayın. Uras Tech akıllı otomasyonlarla dijital sağ kolunuz olur.">
+<title>Uras Tech | Yazılım, Otomasyon ve Web Çözümleri</title>
+<meta name="description" content="Uras Tech — şirkete özel otomasyon sistemleri, web sitesi ve web uygulaması geliştirme, 7/24 yapay zekâ asistanı. Kendi SaaS ürünlerini yazan yazılım ekibi. Ücretsiz keşif görüşmesi.">
+<meta property="og:title" content="Uras Tech | Yazılım, Otomasyon ve Web Çözümleri">
+<meta property="og:description" content="Şirketinize özel otomasyon, web altyapısı ve yapay zekâ çözümleri. Velocost ve Premisey'i yazan ekip, sizin sisteminizi de kurar.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://urastech.com">
 <meta property="og:image" content="https://urastech.com/hero.png">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Uras Tech | Dijital Sağ Kolunuzla Tanışın">
-<meta name="twitter:description" content="İşinizi büyütürken rutin operasyonların içinde boğulmayın. Uras Tech akıllı otomasyonlarla dijital sağ kolunuz olur.">
+<meta name="twitter:title" content="Uras Tech | Yazılım, Otomasyon ve Web Çözümleri">
+<meta name="twitter:description" content="Şirketinize özel otomasyon, web altyapısı ve yapay zekâ çözümleri. Velocost ve Premisey'i yazan ekip, sizin sisteminizi de kurar.">
 <meta name="twitter:image" content="https://urastech.com/hero.png">
 <meta name="robots" content="index, follow">
 <meta name="geo.region" content="TR-59">
@@ -27,8 +27,12 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Uras Tech",
-  "description": "Uras Tech — 7/24 AI Chatbot, Operasyonel Otomasyon ve Fonksiyonel Web Tasarım ile işletmenizin dijital sağ kolu.",
+  "description": "Uras Tech — şirkete özel otomasyon sistemleri, web sitesi ve web uygulaması geliştirme, 7/24 yapay zekâ asistanı kurulumu. Velocost ve Premisey SaaS ürünlerinin geliştiricisi.",
   "url": "https://urastech.com",
+  "brand": [
+    { "@type": "Brand", "name": "Velocost", "url": "https://velocost.app" },
+    { "@type": "Brand", "name": "Premisey", "url": "https://premisey.com" }
+  ],
   "image": "https://urastech.com/hero.png",
   "email": "info@urastech.com",
   "telephone": "+905063583035",
@@ -50,11 +54,11 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Velocost Filo",
+  "name": "Velocost",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "url": "https://velocost.app",
-  "description": "Araçlarınızı değil, kararlarınızı yöneten filo maliyet yönetimi paketi. Araç–sürücü takibi, bütçe aşım uyarısı, AI yönetici özeti ve gerçek TCO hesaplamasıyla filo maliyetlerini şeffaflaştırır.",
+  "description": "Yolculuk ve filo maliyet zekâsı. Bireysel kullanımda yakıt, geçiş ve vinyet dahil gerçek yolculuk maliyetini yola çıkmadan hesaplar; kurumsal Velocost Filo paketinde araç–sürücü takibi, bütçe aşım uyarısı, sevkiyat planlama ve araç başına gerçek maliyet (TCO) sunar.",
   "provider": {
     "@type": "Organization",
     "name": "Uras Tech",
@@ -70,6 +74,22 @@
       "priceCurrency": "TRY",
       "unitText": "araç/ay"
     }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Premisey",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://premisey.com",
+  "description": "Girişimcilik ve iş fikri doğrulama platformu. Pazar, rekabet, fizibilite ve kurucu uyumunu kaynaklı biçimde değerlendirir; her rakamı gerçek, tahmini veya bilinmiyor olarak işaretler. Kurumsal tarafta hızlandırıcı, kuluçka ve TTO'lar için başvuru eleme ve portföy değerlendirme aracı olarak kullanılır.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com"
   }
 }
 </script>
@@ -1352,7 +1372,7 @@ footer {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
   gap: var(--sp-xl);
   margin-bottom: var(--sp-xl);
   padding-bottom: var(--sp-xl);
@@ -1691,6 +1711,9 @@ footer {
 /* ========================================
    RESPONSIVE — TABLET
 ======================================== */
+@media (max-width: 1200px) {
+  .nav-links { gap: var(--sp-lg); }
+}
 @media (max-width: 1024px) {
   nav { padding: var(--sp-md) var(--sp-xl); }
   .section-inner { padding: var(--sp-2xl) var(--sp-xl); }
@@ -1772,6 +1795,379 @@ footer {
   body { cursor: auto; }
   button { cursor: pointer; }
 }
+
+/* ========================================
+   HERO TRUST STRIP
+======================================== */
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-md) var(--sp-lg);
+  margin-top: var(--sp-xl);
+  padding-top: var(--sp-md);
+  border-top: 1px solid rgba(255,255,255,0.09);
+}
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.62);
+  letter-spacing: -0.005em;
+}
+.hero-trust-item svg { flex-shrink: 0; }
+
+/* ========================================
+   PLATFORMS — Kendi ürünlerimiz
+======================================== */
+#platformlar { background: var(--c-white); }
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: var(--sp-lg);
+  margin-top: var(--sp-2xl);
+}
+.platform-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-out), border-color 0.3s;
+}
+.platform-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), #ff8a65);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+.platform-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(255,87,51,0.25);
+}
+.platform-card:hover::before { transform: scaleX(1); }
+
+.platform-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-md);
+}
+.platform-mark {
+  width: 46px; height: 46px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: linear-gradient(140deg, var(--c-primary), var(--c-primary-mid));
+  display: grid;
+  place-items: center;
+  color: var(--c-white);
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  box-shadow: 0 6px 18px rgba(10,25,47,0.22);
+}
+.platform-name {
+  font-family: var(--f-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--c-primary);
+  line-height: 1.1;
+}
+.platform-kicker {
+  font-size: 0.78rem;
+  color: var(--c-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.platform-status {
+  margin-left: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,87,51,0.09);
+  color: var(--c-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.platform-status::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--c-accent);
+}
+.platform-lead {
+  color: var(--c-text);
+  font-size: 0.97rem;
+  line-height: 1.68;
+  margin-bottom: var(--sp-lg);
+}
+
+.platform-lanes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-lg);
+}
+.lane {
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-md);
+  background: var(--c-bg);
+  transition: border-color 0.25s, background 0.25s;
+}
+.lane:hover { border-color: rgba(255,87,51,0.28); background: var(--c-white); }
+.lane-label {
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--c-accent);
+  margin-bottom: 7px;
+}
+.lane-title {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 5px;
+  letter-spacing: -0.015em;
+}
+.lane-desc {
+  font-size: 0.83rem;
+  color: var(--c-muted);
+  line-height: 1.6;
+}
+
+.platform-highlight {
+  display: flex;
+  gap: var(--sp-md);
+  align-items: flex-start;
+  padding: var(--sp-md);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(255,87,51,0.07), rgba(255,87,51,0.02));
+  border: 1px solid rgba(255,87,51,0.18);
+  margin-bottom: var(--sp-lg);
+}
+.platform-highlight svg { flex-shrink: 0; margin-top: 2px; }
+.ph-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ph-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--c-white);
+  background: var(--c-accent);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+.ph-text { font-size: 0.83rem; color: var(--c-muted); line-height: 1.6; }
+
+.platform-foot {
+  margin-top: auto;
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
+}
+.platform-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--c-primary);
+  color: var(--c-white);
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s, background 0.25s;
+}
+.platform-link:hover {
+  transform: translateY(-2px);
+  background: var(--c-accent);
+  box-shadow: 0 8px 24px rgba(255,87,51,0.35);
+}
+.platform-link-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  transition: color 0.25s, gap 0.25s;
+}
+.platform-link-ghost:hover { color: var(--c-accent); gap: 11px; }
+
+.platform-note {
+  margin-top: var(--sp-xl);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+.platform-note strong { color: var(--c-primary); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .platform-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .platform-lanes { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   COMMITMENT BAND — riski biz alıyoruz
+======================================== */
+#taahhut {
+  background: var(--c-bg);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+.commit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-lg);
+  margin-top: var(--sp-2xl);
+}
+.commit-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s;
+}
+.commit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.commit-icon {
+  width: 38px; height: 38px;
+  border-radius: 11px;
+  background: var(--c-accent-dim);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--sp-md);
+}
+.commit-title {
+  font-family: var(--f-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 7px;
+  letter-spacing: -0.02em;
+}
+.commit-text { font-size: 0.88rem; color: var(--c-muted); line-height: 1.65; }
+
+/* ========================================
+   CONTACT — enhancements
+======================================== */
+.contact-promise {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(255,87,51,0.09);
+  border: 1px solid rgba(255,87,51,0.2);
+  color: rgba(255,255,255,0.88);
+  font-size: 0.87rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-lg);
+}
+.contact-promise svg { flex-shrink: 0; }
+
+.contact-steps {
+  list-style: none;
+  margin: var(--sp-lg) 0 0;
+  padding: var(--sp-lg) 0 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
+  display: grid;
+  gap: var(--sp-md);
+}
+.contact-steps li {
+  display: flex;
+  gap: var(--sp-md);
+  align-items: flex-start;
+  color: rgba(255,255,255,0.62);
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+.cs-num {
+  width: 24px; height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,87,51,0.5);
+  color: var(--c-accent);
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.contact-steps strong { color: var(--c-white); font-weight: 600; }
+
+.contact-direct {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-md);
+  margin-top: var(--sp-lg);
+}
+.direct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.87rem;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--c-white);
+  background: rgba(255,255,255,0.05);
+  transition: transform 0.25s var(--ease-spring), background 0.25s, border-color 0.25s;
+}
+.direct-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+}
+.direct-btn.wa {
+  background: rgba(37,211,102,0.14);
+  border-color: rgba(37,211,102,0.4);
+}
+.direct-btn.wa:hover { background: rgba(37,211,102,0.22); border-color: rgba(37,211,102,0.6); }
+.form-hint {
+  font-size: 0.78rem;
+  color: var(--c-muted);
+  opacity: 0.85;
+  text-align: center;
+  margin-top: var(--sp-md);
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .hero-trust { gap: var(--sp-md); }
+  .platform-card { padding: var(--sp-lg); }
+}
 </style>
 </head>
 <body>
@@ -1794,14 +2190,14 @@ footer {
 
   <ul class="nav-links">
     <li><a href="#hizmetler">Hizmetler</a></li>
-    <li><a href="#urunler">Ürünler</a></li>
+    <li><a href="#platformlar">Ürünlerimiz</a></li>
+    <li><a href="#urunler">Hazır Sistemler</a></li>
     <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
-    <li><a href="#sss">SSS</a></li>
     <li><a href="/blog/">Blog</a></li>
   </ul>
 
   <div class="nav-cta">
-    <a href="#iletisim" class="btn btn-primary">Konuşalım</a>
+    <a href="#iletisim" class="btn btn-primary">Ücretsiz Görüşme</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Menü">
       <span></span><span></span><span></span>
     </button>
@@ -1811,11 +2207,12 @@ footer {
 <!-- Mobile nav overlay -->
 <div class="nav-mobile" id="mobileNav">
   <a href="#hizmetler" onclick="closeMobile()">Hizmetler</a>
-  <a href="#urunler" onclick="closeMobile()">Ürünler</a>
+  <a href="#platformlar" onclick="closeMobile()">Ürünlerimiz</a>
+  <a href="#urunler" onclick="closeMobile()">Hazır Sistemler</a>
   <a href="#nasil-calisir" onclick="closeMobile()">Nasıl Çalışır</a>
   <a href="#sss" onclick="closeMobile()">SSS</a>
   <a href="/blog/" onclick="closeMobile()">Blog</a>
-  <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Konuşalım</a>
+  <a href="#iletisim" class="btn btn-primary" onclick="closeMobile()">Ücretsiz Görüşme</a>
 </div>
 
 <!-- ====== HERO ====== -->
@@ -1829,17 +2226,31 @@ footer {
         Dijital <span class="accent">Sağ Kolunuzla</span><br>Tanışın.
       </h1>
       <p class="hero-sub">
-        İşinizi büyütmek isterken rutin operasyonların içinde mi boğuluyorsunuz? Vaktinizi çalan tüm o tekrarlayan işleri akıllı otomasyonlarla üstleniyoruz. Siz stratejinize odaklanın, arka planı biz tıkır tıkır işletelim.
+        İşinizi büyütmek isterken rutin operasyonların içinde mi boğuluyorsunuz? Şirketinize özel otomasyon sistemleri, web altyapısı ve yapay zekâ çözümleri kuruyoruz. Siz stratejinize odaklanın, arka planı biz tıkır tıkır işletelim.
       </p>
       <div class="hero-actions">
         <a href="#iletisim" class="btn-hero-primary">
-          Hemen Tanışalım
+          Ücretsiz Keşif Görüşmesi
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="#hizmetler" class="btn-hero-secondary">
           Hizmetleri Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3 4.2 13.3l.7-4.3-3.1-3 4.3-.6L8 1.5z" stroke="#FF5733" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          Kendi SaaS ürünlerini yazan ekip
+        </div>
+        <div class="hero-trust-item">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l5.5 2.4v4c0 3.4-2.3 6.1-5.5 6.9-3.2-.8-5.5-3.5-5.5-6.9v-4L8 1.5z" stroke="#FF5733" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.8 8l1.6 1.6 3-3.2" stroke="#FF5733" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Donanımsız kurulum
+        </div>
+        <div class="hero-trust-item">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.3" stroke="#FF5733" stroke-width="1.3"/><path d="M8 4.6V8l2.3 1.4" stroke="#FF5733" stroke-width="1.3" stroke-linecap="round"/></svg>
+          Kurulum sonrası 7/24 destek
+        </div>
       </div>
     </div>
 
@@ -1874,9 +2285,9 @@ footer {
     <div class="services-header">
       <div>
         <div class="section-tag reveal">Hizmetlerimiz</div>
-        <h2 class="section-heading reveal">İşletmenizin<br>İhtiyacı Olan Her Şey</h2>
+        <h2 class="section-heading reveal">Sizin İşinize Göre<br>Yazılan Sistemler</h2>
       </div>
-      <p class="section-sub reveal" style="flex: 0 0 380px;">Dört temel alanda işletmenizi güçlendiriyoruz. Teknoloji sizin için çalışsın, siz işinize odaklanın.</p>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">Hazır bir paketi size uydurmuyoruz. Önce süreçlerinizi dinliyor, sonra tam o sürece göre kurulan sistemi yazıyoruz. Kurulumdan sonra da sahipsiz bırakmıyoruz.</p>
     </div>
 
     <div class="services-grid">
@@ -1884,12 +2295,12 @@ footer {
         <span class="service-num">01</span>
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
           </svg>
         </div>
-        <h3 class="service-title">7/24 AI Chatbot</h3>
-        <p class="service-desc">Müşteri sorusu mesai saati tanımaz. Sisteminiz de tanımasın.</p>
-        <button class="service-link" onclick="openModal('chatbot')">
+        <h3 class="service-title">Şirkete Özel Otomasyon</h3>
+        <p class="service-desc">Her gün elle yaptığınız işi bir daha yapmayın. Sürecinize göre yazılır, mevcut programlarınıza bağlanır.</p>
+        <button class="service-link" onclick="openModal('otomasyon')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -1899,12 +2310,13 @@ footer {
         <span class="service-num">02</span>
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
           </svg>
         </div>
-        <h3 class="service-title">Operasyonel Otomasyon</h3>
-        <p class="service-desc">Her gün aynı şeyleri tekrar yapıyor musunuz?</p>
-        <button class="service-link" onclick="openModal('otomasyon')">
+        <h3 class="service-title">Web Sitesi & Dijital Altyapı</h3>
+        <p class="service-desc">Vitrin değil, müşteri getiren ve arka planda işi yürüten bir motor. Kurumsal site, e-ticaret veya web uygulaması.</p>
+        <button class="service-link" onclick="openModal('web')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -1914,13 +2326,12 @@ footer {
         <span class="service-num">03</span>
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18M9 21V9"/>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
         </div>
-        <h3 class="service-title">Fonksiyonel Web Tasarım</h3>
-        <p class="service-desc">Vitrin değil, işletmenizin dijital motoru.</p>
-        <button class="service-link" onclick="openModal('web')">
+        <h3 class="service-title">7/24 Yapay Zekâ Asistanı</h3>
+        <p class="service-desc">Müşteri sorusu mesai saati tanımaz. Gece gelen soru da sabah gelen kadar hızlı yanıtlansın.</p>
+        <button class="service-link" onclick="openModal('chatbot')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -1935,7 +2346,7 @@ footer {
           </svg>
         </div>
         <h3 class="service-title">Reklam Görsel & Video</h3>
-        <p class="service-desc">Reklamınız ne kadar dikkat çekiyor?</p>
+        <p class="service-desc">Kurduğumuz sistem müşteriyi karşılıyor. Reklam görseli o müşteriyi kapıya getiriyor.</p>
         <button class="service-link" onclick="openModal('video')">
           Keşfet
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1945,20 +2356,137 @@ footer {
   </div>
 </section>
 
+<!-- ====== PLATFORMLAR — Kendi ürünlerimiz ====== -->
+<section id="platformlar">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-tag reveal">Kendi Ürünlerimiz</div>
+        <h2 class="section-heading reveal">Yazılımı sadece kurmuyoruz.<br>Kendi ürünlerimizi de biz yazıyoruz.</h2>
+      </div>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">İki ticari SaaS ürünümüz yayında. Bu, sizin projenizde de deneme yanılmayla değil, bunları ayakta tutan aynı mühendislikle çalıştığımız anlamına gelir.</p>
+    </div>
+
+    <div class="platform-grid">
+
+      <!-- Velocost -->
+      <article class="platform-card reveal">
+        <div class="platform-head">
+          <div class="platform-mark">V</div>
+          <div>
+            <div class="platform-name">Velocost</div>
+            <div class="platform-kicker">velocost.app · Yol ve filo maliyet zekâsı</div>
+          </div>
+          <span class="platform-status">Yayında</span>
+        </div>
+
+        <p class="platform-lead">
+          Bir aracın yolculuğu daha yola çıkmadan kaça mal olacağını hesaplar: yakıt, köprü ve otoyol geçişleri, ülke vinyetleri ve ayrı ödenen tüneller dahil. Türkiye ve Avrupa kapsar.
+        </p>
+
+        <div class="platform-lanes">
+          <div class="lane">
+            <div class="lane-label">Bireysel</div>
+            <div class="lane-title">Tek araç, tam maliyet</div>
+            <p class="lane-desc">Yakıt ve geçiş toplamını 30 saniyede görün. Elektrikli araç şarj planı ve rota karşılaştırması dahil.</p>
+          </div>
+          <div class="lane">
+            <div class="lane-label">Kurumsal</div>
+            <div class="lane-title">Velocost Filo</div>
+            <p class="lane-desc">Araç, sürücü, bütçe ve araç başına gerçek maliyet tek panelde. Donanımsız, aynı gün kurulum.</p>
+          </div>
+        </div>
+
+        <div class="platform-highlight">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div>
+            <div class="ph-title">Sevkiyat Planlama <span class="ph-badge">Yeni</span></div>
+            <p class="ph-text">Sabah yaptığınız dağıtım planı ile sistemin kendi planı aynı kalemlerle kıyaslanır. Soğuk zincir teslim sırası korunur, sahada uygulanamayacak plan baştan işaretlenir, hedefi siz seçersiniz: en düşük maliyet, en kısa süre veya en az araç.</p>
+          </div>
+        </div>
+
+        <div class="platform-foot">
+          <a href="https://velocost.app" class="platform-link" target="_blank" rel="noopener noreferrer">
+            Velocost'u inceleyin
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M5 3h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#iletisim" class="platform-link-ghost">
+            Filonuz için konuşalım
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Premisey -->
+      <article class="platform-card reveal reveal-delay-1">
+        <div class="platform-head">
+          <div class="platform-mark">P</div>
+          <div>
+            <div class="platform-name">Premisey</div>
+            <div class="platform-kicker">premisey.com · Fikir ve başvuru doğrulama</div>
+          </div>
+          <span class="platform-status">Yayında</span>
+        </div>
+
+        <p class="platform-lead">
+          Bir iş fikrinin tutup tutmayacağını kaynaklı ve dürüst değerlendirir. Sayılar uydurulmaz: her rakam gerçek, tahmini veya bilinmiyor olarak işaretlenir ve kaynağına bağlanır.
+        </p>
+
+        <div class="platform-lanes">
+          <div class="lane">
+            <div class="lane-label">Bireysel</div>
+            <div class="lane-title">Fikrinizi doğrulayın</div>
+            <p class="lane-desc">Pazar, rekabet, fizibilite ve kurucu uyumu skorlanır. Tutmazsa pivot önerisi, tutarsa adım adım yapım planı çıkar.</p>
+          </div>
+          <div class="lane">
+            <div class="lane-label">Kurumsal</div>
+            <div class="lane-title">Başvuru eleme ve portföy</div>
+            <p class="lane-desc">Gelen her başvuru aynı ölçütlerden geçer, kararın gerekçesi yazılı kalır. Hızlandırıcı, kuluçka ve TTO'lar için.</p>
+          </div>
+        </div>
+
+        <div class="platform-highlight">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+          <div>
+            <div class="ph-title">Dürüstlük modeli</div>
+            <p class="ph-text">Çoğu araç size duymak istediğinizi söyler. Premisey fikri beğenmediğinde bunu da yazar ve neden öyle düşündüğünü kaynağıyla gösterir. Kurumsal tarafta ücretsiz pilot ile başlanır.</p>
+          </div>
+        </div>
+
+        <div class="platform-foot">
+          <a href="https://premisey.com" class="platform-link" target="_blank" rel="noopener noreferrer">
+            Premisey'i inceleyin
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M5 3h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#iletisim" class="platform-link-ghost">
+            Kurumsal pilot için yazın
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="platform-note reveal">
+      <strong>Sizin de böyle bir ürününüz olabilir.</strong> Aklınızdaki yazılımı sıfırdan kurup yayına almak istiyorsanız, bu iki ürünü ayağa kaldıran ekip aynı işi sizin için de yapar.
+    </p>
+  </div>
+</section>
+
 <!-- ====== ÜRÜNLER — Hazır Sistemler ====== -->
 <section id="urunler">
   <div class="section-inner">
     <div class="services-header">
       <div>
-        <div class="section-tag reveal">Hazır Sistemler</div>
+        <div class="section-tag reveal">Hazır Otomasyon Sistemleri</div>
         <h2 class="section-heading reveal">Kurulum bekleyen değil,<br>bugün çalışmaya başlayan sistemler.</h2>
       </div>
-      <p class="section-sub reveal" style="flex: 0 0 380px;">Sıfırdan kurmadan, hemen devreye alabileceğiniz üç ürünümüz var. İşletmenizin günlük çarkını anında hafifletir.</p>
+      <p class="section-sub reveal" style="flex: 0 0 380px;">Sıfırdan yazılmayı beklemeden devreye alabileceğiniz iki hazır sistemimiz var. İşletmenizin günlük çarkını daha ilk haftadan hafifletir.</p>
     </div>
 
     <div class="products-grid">
       <article class="product-card reveal">
-        <span class="product-tag">Ürün 01</span>
+        <span class="product-tag">Sistem 01 · Yayında</span>
         <h3 class="product-title">Müşteri Takip Asistanı</h3>
         <p class="product-desc">
           Gelen her soruyu karşılayan, takibi kaçırmayan, hangi kanaldan kaç müşteri geldiğini gösteren AI destekli sistem.
@@ -1999,7 +2527,7 @@ footer {
       </article>
 
       <article class="product-card reveal reveal-delay-1">
-        <span class="product-tag">Ürün 02 · Pilot</span>
+        <span class="product-tag">Sistem 02 · Pilot</span>
         <h3 class="product-title">Geri Bildirim ve İtibar Yönetim Sistemi</h3>
         <p class="product-desc">
           Şikayetleri toplamak yetmez. Bu sistem şikayeti ilgili ekibe yönlendirir, çözüm sürecini takip eder ve aynı sorunun tekrar yaşanmasını önler.
@@ -2035,47 +2563,11 @@ footer {
         </a>
       </article>
 
-      <article class="product-card reveal reveal-delay-2">
-        <span class="product-tag">Ürün 03 · Yayında</span>
-        <h3 class="product-title">Velocost Filo</h3>
-        <p class="product-desc">
-          Araçlarınızı değil, kararlarınızı yöneten filo paketi. Donanımsız, aynı gün kurulan bir sistemle filonuzun gerçek maliyetini ve nerede para kaybettiğinizi görün.
-        </p>
-        <ul class="product-features">
-          <li>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Araç–sürücü atama, takip ve kamyon/otobüs rotalaması (aks, tonaj, yükseklik)</span>
-          </li>
-          <li>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Departman bazlı bütçe, aşım uyarısı ve run-rate projeksiyonu</span>
-          </li>
-          <li>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Aylık rapora tek tıkla AI yönetici özeti ve öncelikli aksiyon önerileri</span>
-          </li>
-          <li>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Tasarruf Radarı — kaçan ve gerçekleşen tasarrufu ayrı ayrı gösterir</span>
-          </li>
-          <li>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Araç başına gerçek TCO (₺/km) ve öz mal/kiralık kıyası</span>
-          </li>
-          <li>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Muayene, sigorta, kasko, bakım ve lastik hatırlatıcıları — hepsi tek panelde</span>
-          </li>
-        </ul>
-        <p class="product-who">
-          <strong>Kim için:</strong> Filo sahibi işletmeler — lojistik, nakliye, kurumsal araç filosu bulunan şirketler. Fiyat filo boyutuna göre belirlenir, araç başına 499 ₺'den başlar.
-        </p>
-        <a href="https://velocost.app" class="product-cta" target="_blank" rel="noopener noreferrer">
-          Velocost Filo'yu inceleyin
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </article>
     </div>
+
+    <p class="platform-note reveal" style="color:rgba(255,255,255,0.55);">
+      <strong style="color:#fff;">Süreciniz bunlardan farklı mı?</strong> Çoğu işletmede öyle. O zaman hazır sistemi zorlamayız — sizin akışınıza göre sıfırdan kurarız.
+    </p>
   </div>
 </section>
 
@@ -2116,7 +2608,7 @@ footer {
           Bir Yazılım Değil,<br><span class="hl">Ekip Arkadaşı</span><br>Kazanıyorsunuz.
         </h2>
         <p class="value-body">
-          Bizim işimiz sadece kod yazmak değil; işletmenizin üzerindeki o görünmez yükü alıp size nefes alacak alan açmak. Uras Tech ile tanıştığınızda, teknoloji bir yük olmaktan çıkar, işinizi büyüten en sadık yardımcınız haline gelir.
+          Bizim işimiz sadece kod yazmak değil; işletmenizin üzerindeki o görünmez yükü alıp size nefes alacak alan açmak. Kendi SaaS ürünlerimizi kendimiz yazıyor, kendimiz yayında tutuyoruz — yani sizin sisteminizi de bir deneme tahtası olarak değil, ayakta kalması gereken gerçek bir ürün gibi kuruyoruz.
         </p>
         <ul class="value-checks">
           <li>
@@ -2141,7 +2633,7 @@ footer {
             <div class="check-icon">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <span>Ölçülebilir sonuçlar — her çözüm için net hedefler ve metrikler</span>
+            <span>Kurduğumuz her sistem sizin adınıza açılır — kimseye bağımlı kalmazsınız</span>
           </li>
         </ul>
         <a href="#iletisim" class="btn btn-dark" style="display:inline-flex;">
@@ -2205,6 +2697,33 @@ footer {
         </button>
         <div class="faq-a"><div class="faq-a-inner">Kesinlikle. Tüm projelerimiz için kurulum sonrası bakım ve destek paketi sunuyoruz. Sistemleri izliyoruz, güncelliyoruz ve gerektiğinde müdahale ediyoruz.</div></div>
       </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Hazır bir program almak yerine neden size özel yaptırayım?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Hazır program iyi bir çözümse bunu size açıkça söyleriz ve hangisini alacağınızı da tarif ederiz — sırf iş çıksın diye gereksiz proje satmıyoruz. Ama çoğu işletmede sorun şudur: hazır program sizin çalışma şeklinize uymaz, siz programa uymak zorunda kalırsınız. Özel kurulumda tersi olur; sistem sizin akışınıza uyar ve ekibiniz alışkanlığını değiştirmez.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Kurduğunuz sisteme bağımlı kalır mıyım?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Hayır. Alan adı, sunucu, veritabanı ve kullandığımız servislerin hesapları sizin adınıza açılır; yönetici erişimi baştan sizde olur. Yarın yolumuz ayrılsa sistem yerinde kalır ve başka bir ekip devralabilir. Bunu bir pazarlama cümlesi olarak değil, çalışma şeklimiz olarak uyguluyoruz.</div></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Kendi ürünleriniz varken benim projeme yeterli zaman ayırır mısınız?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Aynı anda sınırlı sayıda proje alıyoruz; takvimimiz doluysa bunu ilk görüşmede söyler, size gerçekçi bir başlangıç tarihi veririz. Kendi ürünlerimiz bir engel değil avantaj: Velocost ve Premisey'i yayında tutarken karşılaştığımız her sorunun çözümünü sizin sisteminize de taşıyoruz.</div></div>
+      </div>
       <div class="faq-item reveal reveal-delay-2">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span>Teknik bilgim olmadan bunu yönetebilir miyim?</span>
@@ -2218,33 +2737,95 @@ footer {
   </div>
 </section>
 
+<!-- ====== TAAHHÜT ====== -->
+<section id="taahhut">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-tag reveal" style="justify-content:center;">Taahhüdümüz</div>
+    <h2 class="section-heading reveal" style="text-align:center;max-width:760px;margin:0 auto var(--sp-sm);">Sistem çalışmaya başlamadan<br>işimizi bitmiş saymayız.</h2>
+    <p class="section-sub reveal" style="margin:0 auto;">Yazılım almak riskli hissettirir: bütçe belirsizdir, teslim tarihi kayar, sonra kimseye ulaşamazsınız. Biz bu üç riski de baştan üstümüze alıyoruz.</p>
+
+    <div class="commit-grid">
+      <div class="commit-card reveal" style="text-align:left;">
+        <div class="commit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 4 11.5a8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 class="commit-title">Keşif görüşmesi ücretsiz</h3>
+        <p class="commit-text">Önce dinliyoruz. İlk görüşmede neyin çözülebileceğini, neyin çözülemeyeceğini ve yaklaşık bütçeyi açıkça söylüyoruz. Size uymuyorsa da bunu söyleriz.</p>
+      </div>
+
+      <div class="commit-card reveal reveal-delay-1" style="text-align:left;">
+        <div class="commit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
+        </div>
+        <h3 class="commit-title">Kapsam ve fiyat baştan yazılır</h3>
+        <p class="commit-text">Teklifte ne yazıyorsa o teslim edilir. Proje ortasında sürpriz kalem çıkmaz, "bu ekstra" denmez. Kapsam değişecekse önce size sorulur.</p>
+      </div>
+
+      <div class="commit-card reveal reveal-delay-2" style="text-align:left;">
+        <div class="commit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        </div>
+        <h3 class="commit-title">Teslimden sonra da yanınızdayız</h3>
+        <p class="commit-text">Sistem çalışmaya başladıktan sonra izliyor, güncelliyor ve gerektiğinde müdahale ediyoruz. Bir sorun olduğunda tek yapmanız gereken mesaj atmak.</p>
+      </div>
+
+      <div class="commit-card reveal reveal-delay-3" style="text-align:left;">
+        <div class="commit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3 class="commit-title">Sistem sizin adınıza kurulur</h3>
+        <p class="commit-text">Hesaplar, alan adı, veri ve erişim sizin adınıza açılır. Yarın yolumuz ayrılsa bile sistem sizde kalır. Kimseye bağımlı olmazsınız.</p>
+      </div>
+    </div>
+
+    <a href="#iletisim" class="btn btn-dark reveal" style="display:inline-flex;margin-top:var(--sp-xl);">
+      Ücretsiz keşif görüşmesi alın
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
 <!-- ====== CONTACT ====== -->
 <section id="iletisim">
   <div class="contact-inner">
     <div class="contact-left reveal">
       <div class="section-tag">İletişim</div>
-      <h2 class="section-heading">İşinizi Özgürleştirmeye<br>Hazır Mısınız?</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.52);max-width:380px;">Hangi süreçte takıldığınızı anlatın, dijital sağ kolunuz olarak en kestirme çözümü birlikte kurgulayalım. Bir kahve uzağınızdayız.</p>
+      <h2 class="section-heading">Bu Yükü Taşımaya<br>Devam Etmeyin.</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.52);max-width:400px;">Hangi süreçte tıkandığınızı anlatın, yeter. Çözülüp çözülemeyeceğini, ne kadar süreceğini ve yaklaşık bütçeyi ilk görüşmede net olarak söyleyelim.</p>
 
-      <div class="contact-info">
-        <div class="contact-info-item">
-          <div class="c-info-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a5 5 0 1 0 0 10A5 5 0 0 0 8 1zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8z" fill="rgba(255,87,51,0.7)"/><path d="M8 4v4l3 1.5" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </div>
-          7/24 Yanıt Garantisi
-        </div>
-        <div class="contact-info-item">
-          <div class="c-info-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM5 14h6" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          Ücretsiz Keşif Görüşmesi
-        </div>
-        <div class="contact-info-item">
-          <div class="c-info-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4 6-4M2 4h12v9H2V4z" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+      <div class="contact-promise" style="margin-top:var(--sp-lg);">
+        <svg width="17" height="17" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.3" stroke="#FF5733" stroke-width="1.4"/><path d="M8 4.6V8l2.3 1.4" stroke="#FF5733" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Mesajınıza 24 saat içinde dönüş yapıyoruz
+      </div>
+
+      <ul class="contact-steps">
+        <li>
+          <span class="cs-num">1</span>
+          <span><strong>Siz anlatırsınız.</strong> 20-30 dakikalık bir görüşme. Hazırlık yapmanıza, doküman toplamanıza gerek yok.</span>
+        </li>
+        <li>
+          <span class="cs-num">2</span>
+          <span><strong>Biz yol haritası çıkarırız.</strong> Neyin otomatikleşebileceğini, hangi sırayla yapılacağını ve kapsamı yazılı olarak paylaşırız.</span>
+        </li>
+        <li>
+          <span class="cs-num">3</span>
+          <span><strong>Siz karar verirsiniz.</strong> Teklif netleşene kadar hiçbir ödeme yok. Devam etmemeye karar verirseniz yol haritası yine sizde kalır.</span>
+        </li>
+      </ul>
+
+      <div class="contact-direct">
+        <a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." class="direct-btn wa" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1 1 7 3.8z" fill="#25D366"/><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.4z" fill="#25D366"/></svg>
+          WhatsApp'tan yazın
+        </a>
+        <a href="tel:+905063583035" class="direct-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          0506 358 30 35
+        </a>
+        <a href="mailto:info@urastech.com" class="direct-btn">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4 6-4M2 4h12v9H2V4z" stroke="rgba(255,255,255,0.75)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           info@urastech.com
-        </div>
+        </a>
       </div>
     </div>
 
@@ -2271,12 +2852,15 @@ footer {
           <input type="tel" id="telefon" name="phone" placeholder="+90 532 000 00 00" autocomplete="tel">
         </div>
         <div class="form-group">
-          <label for="sure">En çok hangi süreçte zaman kaybediyorsunuz?</label>
+          <label for="sure">Hangi konuda destek arıyorsunuz?</label>
           <select id="sure" name="process">
             <option value="">Seçiniz...</option>
-            <option value="musteri">Müşteri iletişimi ve sorular</option>
+            <option value="musteri">Müşteri iletişimi ve gelen sorular</option>
+            <option value="ozel-otomasyon">Şirkete özel otomasyon kurulumu</option>
+            <option value="web">Web sitesi veya web uygulaması</option>
             <option value="fatura">Fatura ve muhasebe işlemleri</option>
             <option value="stok">Stok ve sipariş takibi</option>
+            <option value="filo">Araç filosu ve sevkiyat planlama</option>
             <option value="raporlama">Raporlama ve veri analizi</option>
             <option value="randevu">Randevu ve takvim yönetimi</option>
             <option value="diger">Diğer</option>
@@ -2284,11 +2868,12 @@ footer {
         </div>
         <div class="form-group">
           <label for="mesaj">Bize anlatın</label>
-          <textarea id="mesaj" name="message" placeholder="Hangi konuda yardım ihtiyacınız var? Mevcut süreçlerinizi kısaca anlatın..."></textarea>
+          <textarea id="mesaj" name="message" placeholder="Bugün en çok neyi elle yapıyorsunuz? Birkaç cümle yeterli — gerisini görüşmede konuşuruz."></textarea>
         </div>
         <button type="submit" class="form-submit">
-          Hemen Başlayalım →
+          Ücretsiz keşif görüşmesi alın →
         </button>
+        <p class="form-hint">Bilgileriniz yalnızca size dönüş yapmak için kullanılır.<br>Satış listesine eklenmez, üçüncü taraflarla paylaşılmaz.</p>
       </form>
     </div>
   </div>
@@ -2305,7 +2890,7 @@ footer {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <div>
-          <div class="modal-title">7/24 AI Chatbot</div>
+          <div class="modal-title">7/24 Yapay Zekâ Asistanı</div>
           <div class="modal-subtitle">Müşteri sorusu mesai saati tanımaz. Sisteminiz de tanımasın.</div>
         </div>
       </div>
@@ -2398,8 +2983,8 @@ footer {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <div>
-          <div class="modal-title">Operasyonel Otomasyon</div>
-          <div class="modal-subtitle">Hatasız ve Hızlı Süreçler</div>
+          <div class="modal-title">Şirkete Özel Otomasyon</div>
+          <div class="modal-subtitle">Sizin sürecinize göre kurulur, hazır kalıba sokulmaz.</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeModal('otomasyon')" aria-label="Kapat">
@@ -2485,8 +3070,8 @@ footer {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5733" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <div>
-          <div class="modal-title">Fonksiyonel Web Tasarım</div>
-          <div class="modal-subtitle">Çalışan Tasarımlar</div>
+          <div class="modal-title">Web Sitesi & Dijital Altyapı</div>
+          <div class="modal-subtitle">Vitrin değil, işi yürüten motor.</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeModal('web')" aria-label="Kapat">
@@ -2527,6 +3112,10 @@ footer {
         <li>
           <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span><strong>Bakım paketi</strong> — Site sonrası güncelleme, içerik yönetimi ve teknik destek, aylık abonelikle</span>
+        </li>
+        <li>
+          <div class="mf-dot"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#FF5733" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span><strong>Web uygulaması</strong> — Sadece site değil: panel, üyelik, ödeme, raporlama gerektiren tam bir uygulamayı da sıfırdan yazarız</span>
         </li>
       </ul>
 
@@ -2675,7 +3264,7 @@ footer {
           </svg>
           URAS <span style="font-weight:400;opacity:0.6;">Tech</span>
         </div>
-        <p class="footer-tagline">Robotik süreçler, insani çözümler.<br>İşletmenizin dijital sağ kolu.</p>
+        <p class="footer-tagline">Kendi ürünlerini yazan yazılım ekibi.<br>Şirketinize özel otomasyon, web ve yapay zekâ.</p>
         <div class="footer-social">
           <a href="https://www.linkedin.com/in/cenk-alper-tantoglu-65036a4a/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -2689,12 +3278,22 @@ footer {
       <div class="footer-col">
         <h4>Hizmetler</h4>
         <ul class="footer-links">
-          <li><a href="#hizmetler">7/24 AI Chatbot</a></li>
-          <li><a href="#hizmetler">Operasyonel Otomasyon</a></li>
-          <li><a href="#hizmetler">Web Tasarım</a></li>
+          <li><a href="#hizmetler">Şirkete Özel Otomasyon</a></li>
+          <li><a href="#hizmetler">Web Sitesi & Dijital Altyapı</a></li>
+          <li><a href="#hizmetler">7/24 Yapay Zekâ Asistanı</a></li>
           <li><a href="#hizmetler">Reklam Görsel & Video</a></li>
-          <li><a href="https://velocost.app" target="_blank" rel="noopener noreferrer">Velocost Filo ↗</a></li>
+          <li><a href="#urunler">Hazır Otomasyon Sistemleri</a></li>
           <li><a href="#iletisim">Özel Proje</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ürünlerimiz</h4>
+        <ul class="footer-links">
+          <li><a href="https://velocost.app" target="_blank" rel="noopener noreferrer">Velocost ↗</a></li>
+          <li><a href="https://velocost.app/enterprise" target="_blank" rel="noopener noreferrer">Velocost Filo ↗</a></li>
+          <li><a href="https://premisey.com" target="_blank" rel="noopener noreferrer">Premisey ↗</a></li>
+          <li><a href="https://premisey.com/kurumsal" target="_blank" rel="noopener noreferrer">Premisey Kurumsal ↗</a></li>
         </ul>
       </div>
 
@@ -2702,6 +3301,7 @@ footer {
         <h4>Şirket</h4>
         <ul class="footer-links">
           <li><a href="#deger">Hakkımızda</a></li>
+          <li><a href="#taahhut">Taahhüdümüz</a></li>
           <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
           <li><a href="#sss">SSS</a></li>
           <li><a href="/blog/">Blog</a></li>
@@ -2713,8 +3313,9 @@ footer {
         <ul class="footer-links">
           <li><a href="mailto:info@urastech.com">info@urastech.com</a></li>
           <li><a href="tel:+905063583035">0506 358 30 35</a></li>
+          <li><a href="https://wa.me/905063583035" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
           <li>Tekirdağ, Türkiye</li>
-          <li><a href="#iletisim">Ücretsiz Görüşme</a></li>
+          <li><a href="#iletisim">Ücretsiz Keşif Görüşmesi</a></li>
         </ul>
       </div>
     </div>
