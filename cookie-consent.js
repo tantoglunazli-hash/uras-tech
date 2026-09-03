@@ -52,7 +52,7 @@
   function injectStyles() {
     if (document.getElementById('uras-cerez-stil')) return;
     var css = [
-      '.uras-cerez{position:fixed;left:16px;right:16px;bottom:16px;z-index:10001;',
+      '.uras-cerez{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:10001;',
       'max-width:640px;margin:0 auto;background:#0A192F;color:#fff;',
       'border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px 22px;',
       'box-shadow:0 12px 40px rgba(10,25,47,0.45);',

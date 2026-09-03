@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Uras Tech | Yazılım, Otomasyon ve Web Çözümleri</title>
 <meta name="description" content="Uras Tech — şirkete özel otomasyon sistemleri, web sitesi ve web uygulaması geliştirme, 7/24 yapay zekâ asistanı. Kendi SaaS ürünlerini yazan yazılım ekibi. Ücretsiz keşif görüşmesi.">
 <meta property="og:title" content="Uras Tech | Yazılım, Otomasyon ve Web Çözümleri">
@@ -2172,7 +2172,7 @@ footer {
 ======================================== */
 .sticky-cta {
   position: fixed;
-  left: 50%; bottom: 18px;
+  left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   z-index: 900;
   display: flex;
   align-items: center;
@@ -2208,7 +2208,7 @@ footer {
 .sticky-btn { background: var(--g-accent); box-shadow: 0 4px 14px rgba(255,87,51,0.35); }
 .sticky-wa:hover, .sticky-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
 @media (max-width: 640px) {
-  .sticky-cta { left: 12px; right: 12px; bottom: 12px; padding: 8px; transform: translateY(150%); }
+  .sticky-cta { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); padding: 8px; transform: translateY(150%); }
   .sticky-cta.show { transform: none; }
   .sticky-text { display: none; }
   .sticky-actions { width: 100%; }
