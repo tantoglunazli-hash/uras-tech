@@ -1372,8 +1372,8 @@ footer {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
-  gap: var(--sp-xl);
+  grid-template-columns: 1.5fr repeat(5, 1fr);
+  gap: var(--sp-lg);
   margin-bottom: var(--sp-xl);
   padding-bottom: var(--sp-xl);
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -1433,9 +1433,18 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
   color: rgba(255,255,255,0.28);
   font-size: 0.82rem;
 }
+.footer-bottom-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-md);
+}
+.footer-bottom-legal a { color: rgba(255,255,255,0.42); transition: color 0.2s; }
+.footer-bottom-legal a:hover { color: var(--c-accent); }
 .footer-bottom a { transition: color 0.2s; }
 .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
 
@@ -1713,6 +1722,7 @@ footer {
 ======================================== */
 @media (max-width: 1200px) {
   .nav-links { gap: var(--sp-lg); }
+  .footer-top { grid-template-columns: 1.4fr repeat(3, 1fr); row-gap: var(--sp-xl); }
 }
 @media (max-width: 1024px) {
   nav { padding: var(--sp-md) var(--sp-xl); }
@@ -2873,7 +2883,7 @@ footer {
         <button type="submit" class="form-submit">
           Ücretsiz keşif görüşmesi alın →
         </button>
-        <p class="form-hint">Bilgileriniz yalnızca size dönüş yapmak için kullanılır.<br>Satış listesine eklenmez, üçüncü taraflarla paylaşılmaz.</p>
+        <p class="form-hint">Bilgileriniz yalnızca size dönüş yapmak için kullanılır. Satış listesine eklenmez, üçüncü taraflarla paylaşılmaz.<br>Formu göndererek <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve <a href="/gizlilik.html">Gizlilik Politikası</a>'nı okuduğunuzu kabul edersiniz.</p>
       </form>
     </div>
   </div>
@@ -3309,6 +3319,16 @@ footer {
       </div>
 
       <div class="footer-col">
+        <h4>Hukuki</h4>
+        <ul class="footer-links">
+          <li><a href="/kvkk.html">KVKK Aydınlatma Metni</a></li>
+          <li><a href="/gizlilik.html">Gizlilik Politikası</a></li>
+          <li><a href="/cerez-politikasi.html">Çerez Politikası</a></li>
+          <li><a href="/cerez-politikasi.html#tercih">Çerez Tercihi</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
         <h4>İletişim</h4>
         <ul class="footer-links">
           <li><a href="mailto:info@urastech.com">info@urastech.com</a></li>
@@ -3322,7 +3342,12 @@ footer {
 
     <div class="footer-bottom">
       <span>© 2026 Uras Tech. Tüm hakları saklıdır.</span>
-      <span style="color:rgba(255,255,255,0.28);">info@urastech.com</span>
+      <span class="footer-bottom-legal">
+        <a href="/kvkk.html">KVKK</a>
+        <a href="/gizlilik.html">Gizlilik</a>
+        <a href="/cerez-politikasi.html">Çerezler</a>
+        <a href="mailto:info@urastech.com">info@urastech.com</a>
+      </span>
     </div>
   </div>
 </footer>
@@ -3468,7 +3493,7 @@ async function handleSubmit(e) {
       btn.style.background = '#27ae60';
       form.reset();
       setTimeout(() => {
-        btn.textContent = 'Hemen Başlayalım →';
+        btn.textContent = 'Ücretsiz keşif görüşmesi alın →';
         btn.style.background = '';
         btn.disabled = false;
       }, 4000);
@@ -3480,12 +3505,13 @@ async function handleSubmit(e) {
     btn.style.background = '#e74c3c';
     btn.disabled = false;
     setTimeout(() => {
-      btn.textContent = 'Hemen Başlayalım →';
+      btn.textContent = 'Ücretsiz keşif görüşmesi alın →';
       btn.style.background = '';
     }, 3000);
   }
 }
 </script>
 
+<script src="/cookie-consent.js" defer></script>
 </body>
 </html>

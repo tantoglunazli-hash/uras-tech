@@ -369,6 +369,16 @@ img { max-width: 100%; display: block; }
   text-align: center;
   font-size: 0.85rem;
 }
+.blog-footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-md);
+  font-size: 0.85rem;
+}
+.blog-footer-links a { color: rgba(255,255,255,0.6); }
+.blog-footer-links a:hover { color: var(--c-accent); }
 .blog-footer a { color: rgba(255,255,255,0.75); }
 .blog-footer a:hover { color: var(--c-white); }
 
