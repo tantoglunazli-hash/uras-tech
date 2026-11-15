@@ -1,16 +1,16 @@
 :root {
-  --c-primary: #0A192F;
-  --c-primary-mid: #112240;
+  --c-primary: #0B1220;
+  --c-primary-mid: #111A2C;
   --c-accent: #FF5733;
   --c-accent-dim: rgba(255,87,51,0.12);
-  --c-bg: #F8F9FA;
-  --c-text: #2D3436;
-  --c-muted: #636e72;
+  --c-bg: #F4F2EC;
+  --c-text: #0B1220;
+  --c-muted: #5A6273;
   --c-white: #ffffff;
-  --c-border: rgba(10,25,47,0.09);
+  --c-border: rgba(11,18,32,0.12);
 
-  --f-display: 'Syne', sans-serif;
-  --f-body: 'Plus Jakarta Sans', sans-serif;
+  --f-display: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --f-body: 'Geist', ui-sans-serif, system-ui, sans-serif;
 
   --sp-xs: 4px;
   --sp-sm: 8px;
@@ -389,3 +389,12 @@ img { max-width: 100%; display: block; }
   .blog-main { padding: var(--sp-xl) var(--sp-md); }
   .solution-card { padding: var(--sp-lg); }
 }
+
+/* 2026-11 "dijital pafta": ana sayfayla aynı ince ızgara zemin ve başlık ritmi */
+body {
+  background-image:
+    linear-gradient(rgba(11,18,32,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,18,32,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+h1, h2, h3 { letter-spacing: -0.03em; font-weight: 600; }
