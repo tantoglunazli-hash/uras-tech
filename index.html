@@ -386,6 +386,45 @@ html.motion .drawn .draw:nth-of-type(2) { transition-delay: .15s; } html.motion 
 .antet div:last-child { border-right: 0; }
 .antet span { display: block; font-family: var(--f-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
 
+/* yöntem rozeti */
+.method { display: inline-flex; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: #fff; border: 1px solid var(--l-l); border-radius: 4px; padding: 2px 7px; margin: 0 0 10px 6px; }
+.method::before { content: 'P'; display: grid; place-items: center; width: 14px; height: 14px; border-radius: 3px; background: var(--ink); color: #fff; font-size: .55rem; letter-spacing: 0; }
+
+/* şeffaf getiri simülatörü */
+.sim { margin: clamp(48px, 7vw, 80px) auto 0; max-width: 980px; background: #fff; border: 1px solid var(--l-l); border-radius: 6px; }
+.sim-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; padding: 18px 22px; border-bottom: 1px solid var(--l-l); }
+.sim-top b { font-weight: 600; font-size: 1.05rem; }
+.sim-top .mono { font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sig); }
+.sim-grid { display: grid; grid-template-columns: 1fr 1.1fr; }
+.sim-in { padding: 22px; border-right: 1px solid var(--l-l); display: grid; gap: 22px; align-content: start; }
+.sim-f label { display: flex; justify-content: space-between; gap: 12px; font-family: var(--f-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--m-l); margin-bottom: 8px; }
+.sim-f output, .sim-f .val { color: var(--t-l); font-size: .82rem; letter-spacing: 0; }
+.sim-f input[type=range] { width: 100%; accent-color: var(--sig); }
+.sim-f input[type=number] { width: 100%; font: inherit; font-size: 1rem; color: var(--t-l); background: var(--paper); border: 1px solid var(--l-l); border-radius: 8px; padding: 10px 12px; }
+.sim-f input[type=number]:focus { outline: none; border-color: var(--sig); background: #fff; }
+.sim-f small { display: block; margin-top: 6px; font-size: .76rem; color: var(--m-l); }
+.sim-out { display: grid; grid-template-columns: 1fr 1fr; }
+.sim-out div { padding: 20px 22px; border-bottom: 1px solid var(--l-l); }
+.sim-out div:nth-child(odd) { border-right: 1px solid var(--l-l); }
+.sim-out span { display: block; font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); margin-bottom: 6px; }
+.sim-out b { display: block; font-family: var(--f-mono); font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 500; letter-spacing: -0.02em; }
+.sim-out small { display: block; margin-top: 4px; font-size: .78rem; color: var(--m-l); }
+.sim-out .net { grid-column: 1 / -1; border-right: 0 !important; background: var(--paper); }
+.sim-out .net b { color: var(--sig); font-size: clamp(1.5rem, 3vw, 2rem); }
+.sim-out .net b.neg { color: #B91C1C; }
+.sim-note { padding: 16px 22px; border-top: 1px solid var(--l-l); background: var(--paper-2); font-size: .82rem; color: var(--m-l); }
+.sim-note ul { list-style: none; display: grid; gap: 4px; margin-top: 6px; }
+.sim-note li::before { content: '· '; color: var(--sig); }
+.sim-note b { color: var(--t-l); }
+
+/* form onayı ve durum */
+.consent { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; margin: 4px 0 14px; font-size: .86rem; color: var(--m-l); }
+.consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--sig); }
+.consent a { text-decoration: underline; color: var(--t-l); }
+.form-status { margin-top: 10px; font-size: .86rem; min-height: 1.2em; }
+.form-status.ok { color: #15803D; }
+.form-status.err { color: #B91C1C; }
+
 /* değer */
 .val-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
 .val-q { font-size: clamp(2rem, 4vw, 3.2rem); }
@@ -504,8 +543,16 @@ footer { padding: 72px 0 32px; }
   transform: translateY(140%); transition: transform .4s var(--ease);
 }
 .sticky.show { transform: none; }
-.sticky span { font-size: .82rem; }
+.sticky-text { font-size: .82rem; line-height: 1.3; min-width: 0; }
+.sticky-acts { display: flex; gap: 8px; flex: 0 0 auto; }
 .sticky .btn { padding: 10px 14px; font-size: .85rem; }
+.to-top {
+  position: absolute; right: 0; top: -12px; transform: translateY(-100%);
+  width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+  background: var(--ink); color: var(--t-d); border: 1px solid var(--l-d);
+  box-shadow: 0 8px 20px -10px rgba(0,0,0,.5);
+}
+.to-top:hover { border-color: var(--sig); color: var(--sig); }
 
 /* hareket: Motion yüklenince başlangıç durumları */
 html.motion [data-in] { opacity: 0; transform: translateY(24px); }
@@ -540,8 +587,21 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   .title-block > div:nth-child(2) { border-right: 0; }
   .title-block > div:nth-child(-n+2) { border-bottom: 1px solid var(--l-d); }
   .sticky { display: flex; }
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 420px) {
+  .sticky-text { display: none; }
+  .sticky-acts { flex: 1; }
+  .sticky-acts .btn { flex: 1; justify-content: center; }
+  .sticky { padding: 8px; }
+}
+@media (max-width: 760px) {
+  .sim-grid { grid-template-columns: minmax(0, 1fr); }
+  .sim-in { border-right: 0; border-bottom: 1px solid var(--l-l); }
 }
 @media (max-width: 600px) {
+  .sim-out { grid-template-columns: minmax(0, 1fr); }
+  .sim-out div:nth-child(odd) { border-right: 0; }
   .svc-grid, .commit-grid, .lanes, .f-row { grid-template-columns: minmax(0, 1fr); }
   .svc { min-height: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
@@ -737,7 +797,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         <div class="plat-body">
           <div class="plat-head">
             <div class="plat-mark">P</div>
-            <div><div class="plat-name">Premisey</div><div class="plat-kick">premisey.com · Fikir ve başvuru doğrulama</div></div>
+            <div><div class="plat-name">Premisey</div><div class="plat-kick">premisey.com · Kanıta dayalı doğrulama ve teşhis yöntemi</div></div>
             <span class="status">Yayında</span>
           </div>
           <p class="plat-lead">Bir iş fikrinin tutup tutmayacağını kaynaklı ve dürüst değerlendirir. Sayılar uydurulmaz: her rakam gerçek, tahmini veya bilinmiyor olarak işaretlenir ve kaynağına bağlanır.</p>
@@ -746,6 +806,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
             <div class="lane"><span class="mono">Kurumsal</span><b>Başvuru eleme ve portföy</b><p>Gelen her başvuru aynı ölçütlerden geçer, kararın gerekçesi yazılı kalır. Hızlandırıcı, kuluçka ve TTO'lar için.</p></div>
           </div>
           <div class="callout"><b>Dürüstlük modeli</b><p>Çoğu araç size duymak istediğinizi söyler. Premisey fikri beğenmediğinde bunu da yazar ve neden öyle düşündüğünü kaynağıyla gösterir. Kurumsal tarafta ücretsiz pilot ile başlanır.</p></div>
+          <div class="callout"><b>İşletme teşhisinde aynı yöntem</b><p>UrasTech'in ilk okuması ve derin teşhisi Premisey'in kanıt kuralıyla yapılır: işletmenizdeki her darboğaz ve otomasyon fırsatı "siz söylediniz", "tahminimiz" ya da "bilinmiyor, ölçülecek" diye işaretlenir; ölçülmemiş bir kazanç, ölçülmüş gibi yazılmaz.</p></div>
           <div class="plat-foot">
             <a href="https://premisey.com" class="btn btn-sig" target="_blank" rel="noopener noreferrer">Premisey'i inceleyin ↗</a>
             <a href="#iletisim" class="btn btn-line">Kurumsal pilot için yazın</a>
@@ -765,7 +826,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         <div class="sheet-tag" data-in><span>Detay 03</span><span class="rule"></span><span class="dim">Nasıl Çalışır</span></div>
         <h2 class="h" data-in>Önce Dinliyoruz,<br><span class="hl">Sonra Kuruyoruz</span></h2>
       </div>
-      <p class="sub" data-in>Kod yazmadan önce neyin gerçekten zaman ve müşteri kaybettirdiğini birlikte görüyoruz. Bazen doğru karar bir şeyi hiç otomatikleştirmemektir; bunu da söylüyoruz.</p>
+      <p class="sub" data-in>Kod yazmadan önce neyin gerçekten zaman ve müşteri kaybettirdiğini birlikte görüyoruz. İlk okuma ve derin teşhis, kendi ürünümüz Premisey'in kanıt yöntemiyle yapılır. Bazen doğru karar bir şeyi hiç otomatikleştirmemektir; bunu da söylüyoruz.</p>
     </div>
     <div class="rail" id="rail">
       <div class="rail-line" aria-hidden="true"><div class="rail-fill"></div><div class="rail-dot"></div></div>
@@ -777,14 +838,15 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
       </div>
       <div class="step" data-step="1">
         <div class="step-n">02</div>
-        <span class="free">Ücretsiz</span>
+        <span class="free">Ücretsiz</span><span class="method">Premisey yöntemi</span>
         <h3>İlk Okuma</h3>
         <p>Ertesi gün tek sayfa gönderiyoruz: duyduğumuz dert, en fazla üç kayıp noktası, her biri için kararımız ve bize para vermeden yapabileceğiniz çözüm.</p>
       </div>
       <div class="step" data-step="2">
         <div class="step-n">03</div>
+        <span class="method" style="margin-left:0">Premisey yöntemi · derin teşhis</span>
         <h3>Kurulum &amp; Entegrasyon</h3>
-        <p>Onayladığınız kapsamı mevcut sistemlerinize bağlıyoruz. Birden fazla süreç iç içeyse önce ücretli derin teşhis (1–2 hafta ölçüm ve rapor) yapılır; kurulum alırsanız ücreti kurulumdan düşülür.</p>
+        <p>Onayladığınız kapsamı mevcut sistemlerinize bağlıyoruz. Birden fazla süreç iç içeyse önce ücretli derin teşhis (1–2 hafta ölçüm ve rapor) yapılır: darboğazlar ve otomasyon potansiyeli ölçülür, her rakam kaynağıyla yazılır. Kurulum alırsanız teşhis ücreti kurulumdan düşülür.</p>
       </div>
       <div class="step" data-step="3">
         <div class="step-n">04</div>
@@ -806,9 +868,48 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
       <div class="ok-sol"><b>Bize para vermeden çözüm:</b> WhatsApp Business'ın ücretsiz hazır yanıtıyla akşam gelen mesaja ilk cevabı bu akşam verebilirsiniz.</div>
       <div class="antet">
         <div><span>Belge</span>İlk okuma</div>
-        <div><span>Sayfa</span>1 / 1</div>
+        <div><span>Yöntem</span>Premisey</div>
         <div><span>Ücret</span>Ücretsiz</div>
         <div><span>Teslim</span>Ertesi gün</div>
+      </div>
+    </div>
+
+    <div class="sim ticks" id="simulator" data-in aria-labelledby="sim-baslik">
+      <div class="sim-top"><b id="sim-baslik">Şeffaf getiri hesabı</b><span class="mono">Örnek hesap · varsayımlar aşağıda açık</span></div>
+      <div class="sim-grid">
+        <div class="sim-in">
+          <div class="sim-f">
+            <label for="sim-saat">Haftalık elle yapılan iş <output id="sim-saat-o" for="sim-saat">20 saat</output></label>
+            <input type="range" id="sim-saat" min="1" max="200" step="1" value="20">
+            <small>Ekibin toplamı: mesaj yanıtlama, tabloya veri girme, teklif ve fatura hazırlama…</small>
+          </div>
+          <div class="sim-f">
+            <label for="sim-ucret">Saatlik birim maliyet <output id="sim-ucret-o" for="sim-ucret">250 ₺</output></label>
+            <input type="range" id="sim-ucret" min="50" max="2000" step="10" value="250">
+            <small>Bir çalışanın işverene saatlik toplam maliyeti (maaş + yan haklar).</small>
+          </div>
+          <div class="sim-f">
+            <label for="sim-kurulum">Tahmini tek seferlik kurulum bedeli <span class="val">₺</span></label>
+            <input type="number" id="sim-kurulum" min="0" step="1000" value="40000" inputmode="numeric">
+            <small>Örnek değerdir. Sizin işinizin gerçek tutarı ilk okumadan sonra yazılı teklifte verilir; buraya kendi rakamınızı yazabilirsiniz.</small>
+          </div>
+        </div>
+        <div class="sim-out" aria-live="polite">
+          <div><span>Geri kazanılan iş gücü</span><b id="sim-r-saat">—</b><small id="sim-r-fte">—</small></div>
+          <div><span>Brüt parasal karşılık</span><b id="sim-r-brut">—</b><small id="sim-r-brut12">—</small></div>
+          <div><span>Tahmini kurulum maliyeti</span><b id="sim-r-kurulum">—</b><small>tek seferlik, girdiğiniz değer</small></div>
+          <div><span>Geri dönüş süresi</span><b id="sim-r-geri">—</b><small>kurulum ÷ aylık brüt karşılık</small></div>
+          <div class="net"><span>12 aylık tahmini net kazanç</span><b id="sim-r-net">—</b><small>12 aylık brüt karşılık − kurulum bedeli</small></div>
+        </div>
+      </div>
+      <div class="sim-note">
+        <b>Varsayımlar (açıkça):</b>
+        <ul>
+          <li><b>%65 verimlilik:</b> elle yapılan işin yalnız %65'inin otomasyonla geri kazanıldığı varsayılır; her iş otomatikleşmez. Sizin gerçek oranınız derin teşhiste ölçülür.</li>
+          <li><b>Aylık 176 saat:</b> bir tam zamanlı çalışanın aylık çalışma süresi (22 gün × 8 saat); "kaç kişilik iş gücü" bununla hesaplanır.</li>
+          <li><b>Haftadan aya:</b> haftalık saat × 52 ÷ 12 (ayda ≈ 4,33 hafta).</li>
+          <li>Aylık bakım ya da abonelik bedeli, vergi ve geçiş dönemi bu hesaba dahil değildir. Bu bir örnek hesaptır; teklif ya da taahhüt değildir.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -962,8 +1063,10 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         </select>
       </div>
       <div class="f-g"><label for="mesaj">Bize anlatın</label><textarea id="mesaj" name="message" placeholder="Bugün en çok neyi elle yapıyorsunuz? Birkaç cümle yeterli — gerisini görüşmede konuşuruz."></textarea></div>
+      <label class="consent" for="kvkk"><input type="checkbox" id="kvkk" name="kvkk" required><span><a href="/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum, onaylıyorum.</span></label>
       <button type="submit" class="btn btn-sig form-submit">Ücretsiz keşif görüşmesi alın →</button>
-      <p class="form-hint">Bilgileriniz yalnızca size dönüş yapmak için kullanılır. Satış listesine eklenmez, üçüncü taraflarla paylaşılmaz.<br>Formu göndererek <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve <a href="/gizlilik.html">Gizlilik Politikası</a>'nı okuduğunuzu kabul edersiniz.</p>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="form-hint">Bilgileriniz yalnızca size dönüş yapmak için kullanılır. Satış listesine eklenmez, üçüncü taraflarla paylaşılmaz. Ayrıntılar: <a href="/gizlilik.html">Gizlilik Politikası</a>.</p>
     </form>
   </div>
 </section>
@@ -1184,8 +1287,9 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 
 <!-- ====== YAPIŞKAN CTA ====== -->
 <div class="sticky" id="stickyCta" aria-hidden="true">
-  <span><b>Ücretsiz keşif görüşmesi.</b> 24 saat içinde dönüş.</span>
-  <span style="display:flex;gap:8px"><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." class="btn btn-line" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="#iletisim" class="btn btn-sig">Görüşme alın</a></span>
+  <button class="to-top" type="button" aria-label="Sayfanın başına dön" onclick="scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <span class="sticky-text"><b>Ücretsiz keşif görüşmesi.</b> 24 saat içinde dönüş.</span>
+  <span class="sticky-acts"><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." class="btn btn-line" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="#iletisim" class="btn btn-sig">Görüşme alın</a></span>
 </div>
 
 <script src="/assets/vendor/motion.js"></script>
@@ -1434,16 +1538,53 @@ if (matchMedia('(pointer: fine)').matches) {
   setTimeout(() => document.querySelectorAll('[data-in]').forEach(el => { if (getComputedStyle(el).opacity === '0' && el.getBoundingClientRect().top < innerHeight) { el.style.opacity = 1; el.style.transform = 'none'; } }), 3000);
 })();
 
-/* ---- Form gönderimi (web3forms) — alanlar ve anahtar eskisiyle aynı ---- */
+/* ---- Şeffaf getiri simülatörü ---- */
+(function () {
+  const $ = id => document.getElementById(id);
+  const saat = $('sim-saat'), ucret = $('sim-ucret'), kurulum = $('sim-kurulum');
+  if (!saat) return;
+  const VERIM = 0.65, AYLIK_SAAT = 176, HAFTA_AY = 52 / 12;
+  const tl = n => Math.round(n).toLocaleString('tr-TR') + ' ₺';
+  const sayi = (n, k) => n.toLocaleString('tr-TR', { maximumFractionDigits: k, minimumFractionDigits: k });
+  function hesap() {
+    const h = +saat.value, u = +ucret.value, k = Math.max(0, +kurulum.value || 0);
+    $('sim-saat-o').textContent = h + ' saat';
+    $('sim-ucret-o').textContent = tl(u);
+    const geri = h * HAFTA_AY * VERIM;            // saat / ay
+    const brut = geri * u;                         // ₺ / ay
+    const net = brut * 12 - k;
+    $('sim-r-saat').textContent = sayi(geri, 0) + ' saat/ay';
+    $('sim-r-fte').textContent = '≈ ' + sayi(geri / AYLIK_SAAT, 2) + ' kişilik iş gücü (176 saat = 1 kişi)';
+    $('sim-r-brut').textContent = tl(brut) + '/ay';
+    $('sim-r-brut12').textContent = '12 ayda ' + tl(brut * 12);
+    $('sim-r-kurulum').textContent = tl(k);
+    $('sim-r-geri').textContent = brut > 0 ? (k === 0 ? '0 ay' : '≈ ' + sayi(k / brut, 1) + ' ay') : '—';
+    const n = $('sim-r-net');
+    n.textContent = (net < 0 ? '−' : '') + tl(Math.abs(net));
+    n.classList.toggle('neg', net < 0);
+  }
+  [saat, ucret, kurulum].forEach(el => el.addEventListener('input', hesap));
+  hesap();
+})();
+
+/* ---- Form gönderimi (web3forms) ----
+   Başarı mesajı yalnız sunucu gerçekten "success: true" dönerse gösterilir. Anahtar yoksa,
+   ağ hatası ya da sunucu reddi olursa açıkça hata yazılır ve doğrudan iletişim önerilir. */
 const WEB3FORMS_ACCESS_KEY = '0975f6de-54d3-4caf-8155-1e1e58b418be';
+const BUTON_METNI = 'Ücretsiz keşif görüşmesi alın →';
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('.form-submit');
+  const durum = document.getElementById('formStatus');
+  const yaz = (metin, tur) => { durum.textContent = metin; durum.className = 'form-status ' + (tur || ''); };
   // Honeypot kontrolü — bot ise sessizce çık
   if (form.querySelector('[name="honeypot"]').value) return;
+  if (!form.querySelector('#kvkk').checked) { yaz('Göndermek için KVKK Aydınlatma Metni onayını işaretleyin.', 'err'); return; }
+  if (!WEB3FORMS_ACCESS_KEY) { yaz('Form şu an bağlı değil. Lütfen WhatsApp (0506 358 30 35) ya da info@urastech.com üzerinden yazın.', 'err'); return; }
   btn.textContent = 'Gönderiliyor...';
   btn.disabled = true;
+  yaz('');
   const payload = {
     access_key: WEB3FORMS_ACCESS_KEY,
     subject: 'Uras Tech — Yeni Teklif Talebi',
@@ -1453,6 +1594,7 @@ async function handleSubmit(e) {
     company: form.querySelector('#sirket').value || '—',
     process: form.querySelector('#sure').value || '—',
     message: form.querySelector('#mesaj').value || '—',
+    kvkk_onay: 'Aydınlatma metni okundu ve onaylandı (' + new Date().toISOString() + ')',
   };
   try {
     const res = await fetch('https://api.web3forms.com/submit', {
@@ -1460,20 +1602,20 @@ async function handleSubmit(e) {
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(payload),
     });
-    const data = await res.json();
-    if (data.success) {
-      btn.textContent = 'Mesajınız İletildi ✓';
-      btn.style.background = '#16A34A';
+    let data = null;
+    try { data = await res.json(); } catch (_) { data = null; }
+    if (res.ok && data && data.success === true) {
       form.reset();
-      setTimeout(() => { btn.textContent = 'Ücretsiz keşif görüşmesi alın →'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      btn.textContent = BUTON_METNI;
+      btn.disabled = false;
+      yaz('Mesajınız iletildi. 24 saat içinde dönüş yapıyoruz.', 'ok');
     } else {
-      throw new Error(data.message || 'Gönderilemedi');
+      throw new Error((data && data.message) || ('HTTP ' + res.status));
     }
   } catch (err) {
-    btn.textContent = 'Hata — Tekrar Deneyin';
-    btn.style.background = '#DC2626';
+    btn.textContent = BUTON_METNI;
     btn.disabled = false;
-    setTimeout(() => { btn.textContent = 'Ücretsiz keşif görüşmesi alın →'; btn.style.background = ''; }, 3000);
+    yaz('Mesajınız gönderilemedi. Lütfen tekrar deneyin ya da WhatsApp (0506 358 30 35) veya info@urastech.com üzerinden yazın.', 'err');
   }
 }
 </script>
