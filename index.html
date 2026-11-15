@@ -357,18 +357,6 @@ html.motion .drawn .draw:nth-of-type(2) { transition-delay: .15s; } html.motion 
 .rp-note { margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEF1F5; display: flex; flex-wrap: wrap; gap: 12px; font-size: .7rem; color: var(--m-l); }
 .rp-note i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 5px; }
 
-/* hazır sistemler */
-.prod-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.prod { display: flex; flex-direction: column; gap: 16px; padding: 32px; }
-.prod h3 { font-size: 1.6rem; }
-.prod > p { color: var(--m-l); }
-.checks { list-style: none; display: grid; gap: 10px; }
-.checks li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; font-size: .94rem; }
-.checks li::before { content: ''; margin-top: 9px; width: 10px; height: 10px; border: 1.5px solid var(--sig); border-radius: 2px; background: linear-gradient(var(--sig), var(--sig)) center/4px 4px no-repeat; }
-.who { font-size: .9rem; color: var(--m-l); border-top: 1px dashed var(--l-l); padding-top: 14px; }
-.who b { color: var(--t-l); }
-.prod .btn { align-self: flex-start; margin-top: auto; }
-
 /* süreç */
 .rail { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
 .rail-line { position: absolute; left: 0; right: 0; top: 22px; height: 1px; background: var(--l-l); }
@@ -538,7 +526,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 @media (max-width: 900px) {
   .nav-links, .nav-right .btn { display: none; }
   .burger { display: block; }
-  .hero-grid, .head-row, .val-grid, .contact-grid, .plat-grid, .prod-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid, .head-row, .val-grid, .contact-grid, .plat-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-grid { gap: 40px; }
   #hero { padding-top: 96px; min-height: auto; }
   .scene { aspect-ratio: 4 / 3; margin-bottom: 28px; }
@@ -568,7 +556,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   .modal-stats div { border-right: 0; border-bottom: 1px solid var(--l-l); }
   .modal-stats div:last-child { border-bottom: 0; }
   .scene-cap span:nth-child(2) { display: none; }
-  .prod, .card { padding: 22px; }
+  .card { padding: 22px; }
   .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
@@ -585,8 +573,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
     <ul class="nav-links">
       <li><a href="#hizmetler"><span class="mono">01</span>Hizmetler</a></li>
       <li><a href="#platformlar"><span class="mono">02</span>Ürünlerimiz</a></li>
-      <li><a href="#urunler"><span class="mono">03</span>Hazır Sistemler</a></li>
-      <li><a href="#nasil-calisir"><span class="mono">04</span>Nasıl Çalışır</a></li>
+      <li><a href="#nasil-calisir"><span class="mono">03</span>Nasıl Çalışır</a></li>
       <li><a href="/blog/">Blog</a></li>
     </ul>
     <div class="nav-right">
@@ -599,9 +586,8 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 <nav class="mnav" id="mnav" aria-label="Mobil menü">
   <a href="#hizmetler">Hizmetler <span class="mono">01</span></a>
   <a href="#platformlar">Ürünlerimiz <span class="mono">02</span></a>
-  <a href="#urunler">Hazır Sistemler <span class="mono">03</span></a>
-  <a href="#nasil-calisir">Nasıl Çalışır <span class="mono">04</span></a>
-  <a href="#sss">SSS <span class="mono">05</span></a>
+  <a href="#nasil-calisir">Nasıl Çalışır <span class="mono">03</span></a>
+  <a href="#sss">SSS <span class="mono">04</span></a>
   <a href="/blog/">Blog <span class="mono">↗</span></a>
   <a href="#iletisim" class="btn btn-sig">Ücretsiz Görüşme</a>
 </nav>
@@ -771,59 +757,12 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   </div>
 </section>
 
-<!-- ====== HAZIR SİSTEMLER ====== -->
-<section id="urunler" class="light alt">
-  <div class="wrap">
-    <div class="head-row">
-      <div>
-        <div class="sheet-tag" data-in><span>Detay 03</span><span class="rule"></span><span class="dim">Hazır Otomasyon Sistemleri</span></div>
-        <h2 class="h" data-in>Kurulum bekleyen değil,<br>bugün çalışmaya başlayan sistemler.</h2>
-      </div>
-      <p class="sub" data-in>Sıfırdan yazılmayı beklemeden devreye alabileceğiniz iki hazır sistemimiz var. İşletmenizin günlük çarkını daha ilk haftadan hafifletir.</p>
-    </div>
-    <div class="prod-grid">
-      <article class="card prod ticks" data-in>
-        <span class="glow"></span>
-        <div class="card-id"><span>Sistem 01</span><span>Yayında</span></div>
-        <h3>Müşteri Takip Asistanı</h3>
-        <p>Gelen her soruyu karşılayan, takibi kaçırmayan, hangi kanaldan kaç müşteri geldiğini gösteren AI destekli sistem.</p>
-        <ul class="checks">
-          <li>WhatsApp, Instagram ve web üzerinden gelen soruları 7/24 yanıtlar</li>
-          <li>Müşteri bilgilerini otomatik toplar ve kaydeder</li>
-          <li>Belirlenen aralıklarla takip mesajları gönderir</li>
-          <li>Sabah hazır müşteri listesi sunar</li>
-          <li>Her reklam kanalından kaç müşteri geldiğini gösterir</li>
-          <li>Müdür veya ilgili kişiye anlık bildirim gönderir</li>
-        </ul>
-        <p class="who"><b>Kim için:</b> Dil kursu, anaokulu, etüt merkezi, özel okul ve hizmet sektöründeki her işletme — müşteri sorularını kaçırmak istemeyenler için.</p>
-        <a href="#iletisim" class="btn btn-ink">Bu sistemi görmek isterim →</a>
-      </article>
-      <article class="card prod ticks" data-in>
-        <span class="glow"></span>
-        <div class="card-id"><span>Sistem 02</span><span>Pilot</span></div>
-        <h3>Geri Bildirim ve İtibar Yönetim Sistemi</h3>
-        <p>Şikayetleri toplamak yetmez. Bu sistem şikayeti ilgili ekibe yönlendirir, çözüm sürecini takip eder ve aynı sorunun tekrar yaşanmasını önler.</p>
-        <ul class="checks">
-          <li>Google yorumları, sosyal medya ve destek kanallarından geri bildirimleri tek merkezde toplar</li>
-          <li>AI ile tekrar eden sorunları ve öncelikli riskleri tespit eder</li>
-          <li>Kritik şikayetleri ilgili ekibe yönlendirir</li>
-          <li>Aksiyon sürecini izler — "çözüldü" denmeden kapatılmaz</li>
-          <li>Zaman içindeki iyileşmeyi ve şikayet trendlerini raporlar</li>
-        </ul>
-        <p class="who"><b>Kim için:</b> Birden fazla şubesi olan işletmeler, hizmet sektörü, turizm, sağlık, eğitim ve kurumsal yapılar. Pilot program kapsamında görüşmeler alınıyor.</p>
-        <a href="#iletisim" class="btn btn-ink">Pilot görüşme için başvurun →</a>
-      </article>
-    </div>
-    <p class="note" data-in><b>Süreciniz bunlardan farklı mı?</b> Çoğu işletmede öyle. O zaman hazır sistemi zorlamayız — sizin akışınıza göre sıfırdan kurarız.</p>
-  </div>
-</section>
-
 <!-- ====== NASIL ÇALIŞIR ====== -->
 <section id="nasil-calisir" class="light">
   <div class="wrap">
     <div class="head-row">
       <div>
-        <div class="sheet-tag" data-in><span>Detay 04</span><span class="rule"></span><span class="dim">Nasıl Çalışır</span></div>
+        <div class="sheet-tag" data-in><span>Detay 03</span><span class="rule"></span><span class="dim">Nasıl Çalışır</span></div>
         <h2 class="h" data-in>Önce Dinliyoruz,<br><span class="hl">Sonra Kuruyoruz</span></h2>
       </div>
       <p class="sub" data-in>Kod yazmadan önce neyin gerçekten zaman ve müşteri kaybettirdiğini birlikte görüyoruz. Bazen doğru karar bir şeyi hiç otomatikleştirmemektir; bunu da söylüyoruz.</p>
@@ -879,7 +818,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 <section id="deger" class="dark">
   <div class="wrap val-grid">
     <div>
-      <div class="sheet-tag" data-in><span>Detay 05</span><span class="rule"></span><span class="dim">Neden Uras Tech</span></div>
+      <div class="sheet-tag" data-in><span>Detay 04</span><span class="rule"></span><span class="dim">Neden Uras Tech</span></div>
       <h2 class="h val-q" data-in>Bir Yazılım Değil,<br><span class="hl">Ekip Arkadaşı</span><br>Kazanıyorsunuz.</h2>
       <p class="val-body" data-in>Bizim işimiz sadece kod yazmak değil; işletmenizin üzerindeki o görünmez yükü alıp size nefes alacak alan açmak. Kendi SaaS ürünlerimizi kendimiz yazıyor, kendimiz yayında tutuyoruz — yani sizin sisteminizi de bir deneme tahtası olarak değil, ayakta kalması gereken gerçek bir ürün gibi kuruyoruz.</p>
       <ul class="val-list" data-in>
@@ -906,7 +845,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   <div class="wrap">
     <div class="head-row">
       <div>
-        <div class="sheet-tag" data-in><span>Detay 06</span><span class="rule"></span><span class="dim">Sıkça Sorulanlar</span></div>
+        <div class="sheet-tag" data-in><span>Detay 05</span><span class="rule"></span><span class="dim">Sıkça Sorulanlar</span></div>
         <h2 class="h" data-in>Aklınızdaki Sorular</h2>
       </div>
       <p class="sub" data-in>Cevap bulamadığınız bir soru varsa, doğrudan bize ulaşın.</p>
@@ -961,7 +900,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   <div class="wrap">
     <div class="head-row">
       <div>
-        <div class="sheet-tag" data-in><span>Detay 07</span><span class="rule"></span><span class="dim">Taahhüdümüz</span></div>
+        <div class="sheet-tag" data-in><span>Detay 06</span><span class="rule"></span><span class="dim">Taahhüdümüz</span></div>
         <h2 class="h" data-in>Sistem çalışmaya başlamadan<br>işimizi bitmiş saymayız.</h2>
       </div>
       <p class="sub" data-in>Yazılım almak riskli hissettirir: bütçe belirsizdir, teslim tarihi kayar, sonra kimseye ulaşamazsınız. Biz bu üç riski de baştan üstümüze alıyoruz.</p>
@@ -980,7 +919,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 <section id="iletisim" class="light alt">
   <div class="wrap contact-grid">
     <div>
-      <div class="sheet-tag" data-in><span>Detay 08</span><span class="rule"></span><span class="dim">İletişim</span></div>
+      <div class="sheet-tag" data-in><span>Detay 07</span><span class="rule"></span><span class="dim">İletişim</span></div>
       <h2 class="h" data-in>Bu Yükü Taşımaya<br><span class="hl">Devam Etmeyin.</span></h2>
       <p class="sub" style="margin-top:20px" data-in>Hangi süreçte tıkandığınızı anlatın, yeter. Çözülüp çözülemeyeceğini, ne kadar süreceğini ve yaklaşık bütçeyi ilk görüşmede net olarak söyleyelim.</p>
       <ul class="steps" data-in>
@@ -1053,7 +992,6 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         <li><a href="#hizmetler">Web Sitesi &amp; Dijital Altyapı</a></li>
         <li><a href="#hizmetler">7/24 Yapay Zekâ Asistanı</a></li>
         <li><a href="#hizmetler">Reklam Görsel &amp; Video</a></li>
-        <li><a href="#urunler">Hazır Otomasyon Sistemleri</a></li>
         <li><a href="#iletisim">Özel Proje</a></li>
       </ul></div>
       <div><h4>Ürünlerimiz</h4><ul>
