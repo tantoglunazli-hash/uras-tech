@@ -27,7 +27,8 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Uras Tech",
-  "description": "Uras Tech — şirkete özel otomasyon sistemleri, web sitesi ve web uygulaması geliştirme, 7/24 yapay zekâ asistanı kurulumu. Velocost ve Premisey SaaS ürünlerinin geliştiricisi.",
+  "founder": { "@type": "Person", "name": "Cenk Alper Tantoğlu", "jobTitle": "İnşaat Mühendisi" },
+  "description": "Uras Tech — ücretsiz keşif görüşmesi ve ilk okuma; şirkete özel otomasyon sistemleri, web sitesi ve web uygulaması geliştirme, 7/24 yapay zekâ asistanı kurulumu. Velocost ve Premisey SaaS ürünlerinin geliştiricisi.",
   "url": "https://urastech.com",
   "brand": [
     { "@type": "Brand", "name": "Velocost", "url": "https://velocost.app" },
@@ -985,7 +986,7 @@ section { position: relative; }
 }
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-xl);
   margin-top: var(--sp-2xl);
   position: relative;
@@ -994,8 +995,8 @@ section { position: relative; }
   content: '';
   position: absolute;
   top: 30px;
-  left: calc(16.666% + var(--sp-xl));
-  right: calc(16.666% + var(--sp-xl));
+  left: calc(12.5% + var(--sp-xl));
+  right: calc(12.5% + var(--sp-xl));
   height: 1px;
   background: linear-gradient(90deg, var(--c-accent), rgba(255,87,51,0.2), var(--c-accent));
   opacity: 0.4;
@@ -1020,6 +1021,73 @@ section { position: relative; }
   position: relative;
   z-index: 1;
   transition: background 0.3s, transform 0.3s var(--ease-spring);
+}
+.step-free {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.12);
+  color: #15803d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+/* Örnek ilk okuma kartı — gerçek müşteri değil, biçimi gösterir */
+.okuma-ornek {
+  max-width: 620px;
+  margin: var(--sp-2xl) auto 0;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #E5E9F0;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 18px 40px -24px rgba(10,25,47,0.25);
+}
+.okuma-ornek .rp-head { margin-bottom: 14px; }
+.ok-etiket {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #F1F4F8;
+  color: #475569;
+  white-space: nowrap;
+}
+.ok-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #EEF1F5;
+  font-size: 0.9rem;
+}
+.ok-karar { font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.ok-karar.oto { background: rgba(255,87,51,0.1); color: #c2410c; }
+.ok-karar.duzelt { background: rgba(245,158,11,0.14); color: #b45309; }
+.ok-karar.dokunma { background: #E2E8F0; color: #334155; }
+.ok-cozum {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(34,197,94,0.08);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.ok-cozum strong { color: #15803d; }
+.founder-line {
+  margin-top: var(--sp-lg);
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--c-border);
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+.founder-line strong { font-weight: 700; color: var(--c-text); }
+@media (max-width: 520px) {
+  .ok-row { grid-template-columns: 1fr auto; }
+  .ok-row .ok-etiket { grid-column: 1; justify-self: start; }
+  .okuma-ornek { padding: 18px; }
 }
 .process-step:hover .step-num {
   background: var(--c-accent);
@@ -1704,6 +1772,8 @@ footer {
   footer { padding: var(--sp-xl) var(--sp-xl) var(--sp-lg); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: var(--sp-xl); }
   .contact-inner { gap: var(--sp-xl); }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-grid::before { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -2323,7 +2393,7 @@ footer {
         </div>
         <div class="hero-trust-item">
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.3" stroke="#FF5733" stroke-width="1.3"/><path d="M8 4.6V8l2.3 1.4" stroke="#FF5733" stroke-width="1.3" stroke-linecap="round"/></svg>
-          Kurulum sonrası 7/24 destek
+          Kurulum sonrası izleme ve destek
         </div>
       </div>
     </div>
@@ -2659,25 +2729,46 @@ footer {
 <section id="nasil-calisir">
   <div class="section-inner" style="text-align:center;">
     <div class="section-tag reveal" style="justify-content:center;">Nasıl Çalışır</div>
-    <h2 class="section-heading reveal" style="text-align:center;max-width:560px;margin:0 auto var(--sp-sm);">3 Adımda Dijital<br>Dönüşüm</h2>
-    <p class="section-sub reveal" style="margin:0 auto;">Karmaşık süreçleri üç basit adıma indirgedik. Siz karar verin, gerisini biz halledelim.</p>
+    <h2 class="section-heading reveal" style="text-align:center;max-width:620px;margin:0 auto var(--sp-sm);">Önce Dinliyoruz,<br>Sonra Kuruyoruz</h2>
+    <p class="section-sub reveal" style="margin:0 auto;">Kod yazmadan önce neyin gerçekten zaman ve müşteri kaybettirdiğini birlikte görüyoruz. Bazen doğru karar bir şeyi hiç otomatikleştirmemektir; bunu da söylüyoruz.</p>
 
     <div class="process-grid">
       <div class="process-step reveal">
         <div class="step-num">01</div>
-        <h3 class="step-title">Analiz & Planlama</h3>
-        <p class="step-desc">İşletmenizi, süreçlerinizi ve hedeflerinizi dinliyoruz. Hangi alanlarda zaman ve kaynak kaybettiğinizi tespit edip bir yol haritası çıkarıyoruz.</p>
+        <span class="step-free">Ücretsiz</span>
+        <h3 class="step-title">Keşif Görüşmesi</h3>
+        <p class="step-desc">20–30 dakika işinizi anlatırsınız. Hazırlık yapmanıza ya da doküman toplamanıza gerek yok.</p>
       </div>
       <div class="process-step reveal reveal-delay-1">
         <div class="step-num">02</div>
-        <h3 class="step-title">Kurulum & Entegrasyon</h3>
-        <p class="step-desc">Belirlenen çözümleri mevcut sistemlerinize entegre ediyoruz. Süreç boyunca sizi bilgilendiriyor, test ediyor ve sorunsuz bir geçiş sağlıyoruz.</p>
+        <span class="step-free">Ücretsiz</span>
+        <h3 class="step-title">İlk Okuma</h3>
+        <p class="step-desc">Ertesi gün tek sayfa gönderiyoruz: duyduğumuz dert, en fazla üç kayıp noktası, her biri için kararımız ve bize para vermeden yapabileceğiniz çözüm.</p>
       </div>
       <div class="process-step reveal reveal-delay-2">
         <div class="step-num">03</div>
-        <h3 class="step-title">İzleme & Destek</h3>
-        <p class="step-desc">Kurulum sonrası 7/24 izleme ve destek sunuyoruz. Sistemleriniz büyüdükçe çözümlerimizi de genişletiyoruz — daima yanınızdayız.</p>
+        <h3 class="step-title">Kurulum & Entegrasyon</h3>
+        <p class="step-desc">Onayladığınız kapsamı mevcut sistemlerinize bağlıyoruz. Birden fazla süreç iç içeyse önce ücretli derin teşhis (1–2 hafta ölçüm ve rapor) yapılır; kurulum alırsanız ücreti kurulumdan düşülür.</p>
       </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <h3 class="step-title">İzleme & Destek</h3>
+        <p class="step-desc">Kurulumdan sonra sistemi izliyor ve güncelliyoruz. Hata alarmı 7/24 çalışır; mesai içinde aynı gün dönüş yapıyoruz.</p>
+      </div>
+    </div>
+
+    <div class="okuma-ornek reveal" aria-label="Örnek ilk okuma">
+      <div class="rp-head">
+        <div class="rp-logo">U</div>
+        <div>
+          <div class="rp-title">İlk Okuma · Diş Kliniği</div>
+          <div class="rp-sub">Örnek · gerçek müşteri değil, biçimi gösterir</div>
+        </div>
+      </div>
+      <div class="ok-row"><span>Akşam gelen mesajlar sabaha kalıyor</span><span class="ok-etiket">siz söylediniz</span><span class="ok-karar oto">otomatikleştir</span></div>
+      <div class="ok-row"><span>Randevusuna gelmeyen hastalar</span><span class="ok-etiket">bilinmiyor · ölçülecek</span><span class="ok-karar duzelt">önce ölç</span></div>
+      <div class="ok-row"><span>Randevu defteri elle tutuluyor</span><span class="ok-etiket">tahminimiz</span><span class="ok-karar dokunma">dokunma</span></div>
+      <div class="ok-cozum"><strong>Bize para vermeden çözüm:</strong> WhatsApp Business'ın ücretsiz hazır yanıtıyla akşam gelen mesaja ilk cevabı bu akşam verebilirsiniz.</div>
     </div>
   </div>
 </section>
@@ -2711,7 +2802,7 @@ footer {
             <div class="check-icon">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#FF5733" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <span>Proje sonrası 7/24 destek — sorununuz bizim sorununuzdur</span>
+            <span>Kurulumdan sonra izleme ve destek — hata alarmı 7/24 çalışır, mesai içinde aynı gün dönüş</span>
           </li>
           <li>
             <div class="check-icon">
@@ -2724,6 +2815,7 @@ footer {
           Ücretsiz Keşif Görüşmesi
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+        <p class="founder-line">Kurucu · <strong>Cenk Alper Tantoğlu</strong> · İnşaat Mühendisi · 20 yıllık tecrübe</p>
       </div>
 
       <div class="value-image-wrap reveal reveal-delay-1">
@@ -2753,6 +2845,24 @@ footer {
           </div>
         </button>
         <div class="faq-a"><div class="faq-a-inner">E-ticaret, perakende, sağlık, eğitim, konaklama, profesyonel hizmetler ve daha fazlası. Tekrarlayan süreçleri olan ve büyümek isteyen her işletmeyle çalışabiliriz. Sektörünüzün kendine özgü ihtiyaçlarını anlayarak çözüm üretiyoruz.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>İlk okuma nedir, ücretli mi?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Keşif görüşmesinden sonraki gün gönderdiğimiz tek sayfalık değerlendirmedir ve ücretsizdir. İçinde duyduğumuz dert, en fazla üç kayıp noktası, her biri için kararımız (otomatikleştir, önce ölç ya da dokunma) ve bize para vermeden yapabileceğiniz çözüm yazar. Birden fazla süreç iç içeyse ve neyin ne kadar kaybettirdiği belli değilse ücretli bir derin teşhis öneririz; kapsamı ve ücreti görüşmede yazılı olarak verilir, kurulum alırsanız ücreti kurulumdan düşülür.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Her işi otomatikleştirmeyi mi önerirsiniz?</span>
+          <div class="faq-chevron">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Hayır. Bazen doğru karar bir süreci olduğu gibi bırakmak ya da önce elle düzeltmektir. Her ilk okumada, bizimle çalışmadan uygulayabileceğiniz bir çözümü de yazarız; ihtiyacınız hazır bir araçla çözülüyorsa bunu açıkça söyleriz.</div></div>
       </div>
       <div class="faq-item reveal reveal-delay-1">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -2889,11 +2999,11 @@ footer {
         </li>
         <li>
           <span class="cs-num">2</span>
-          <span><strong>Biz yol haritası çıkarırız.</strong> Neyin otomatikleşebileceğini, hangi sırayla yapılacağını ve kapsamı yazılı olarak paylaşırız.</span>
+          <span><strong>Ertesi gün ilk okumayı göndeririz.</strong> Tek sayfa: neyi kaybettiğinizi, hangisinin otomatikleşmeye değdiğini, hangisine dokunmamanız gerektiğini ve bize para vermeden ne yapabileceğinizi yazarız.</span>
         </li>
         <li>
           <span class="cs-num">3</span>
-          <span><strong>Siz karar verirsiniz.</strong> Teklif netleşene kadar hiçbir ödeme yok. Devam etmemeye karar verirseniz yol haritası yine sizde kalır.</span>
+          <span><strong>Siz karar verirsiniz.</strong> Teklif netleşene kadar hiçbir ödeme yok. Devam etmemeye karar verirseniz ilk okuma yine sizde kalır.</span>
         </li>
       </ul>
 
@@ -2947,6 +3057,7 @@ footer {
             <option value="filo">Araç filosu ve sevkiyat planlama</option>
             <option value="raporlama">Raporlama ve veri analizi</option>
             <option value="randevu">Randevu ve takvim yönetimi</option>
+            <option value="bilmiyorum">Nereden başlayacağımı bilmiyorum</option>
             <option value="diger">Diğer</option>
           </select>
         </div>
