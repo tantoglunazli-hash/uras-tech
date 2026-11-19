@@ -1,0 +1,36 @@
+# Uras Tech
+
+> Uras Tech, Tekirdağ merkezli bir yazılım ekibidir. İşletmelere özel otomasyon sistemleri, web sitesi ve web uygulaması geliştirme ve 7/24 yapay zekâ asistanı kurulumu yapar. Kendi SaaS ürünleri olan Velocost ve Premisey'i de geliştirir. Türkiye genelinde hizmet verir; keşif görüşmesi ve ilk okuma ücretsizdir.
+
+## Hizmetler
+
+- Şirkete özel otomasyon: tekrarlayan işleri (teklif, takip, raporlama, veri girişi) işletmenin kendi sürecine göre otomatikleştirme.
+- Web sitesi ve dijital altyapı: kurumsal site, web uygulaması, entegrasyonlar.
+- 7/24 yapay zekâ asistanı: web sitesi ve mesaj kanallarında müşteri sorularını yanıtlayan asistan.
+- Reklam görseli ve video üretimi.
+
+## Çalışma şekli
+
+1. Keşif görüşmesi (ücretsiz).
+2. İlk okuma: görüşmeden sonraki gün gönderilen tek sayfalık değerlendirme (ücretsiz). En fazla üç kayıp noktası, her biri için karar (otomatikleştir, önce ölç ya da dokunma) ve Uras Tech'e para vermeden uygulanabilecek bir çözüm içerir.
+3. Kurulum ve entegrasyon: kapsam ve fiyat baştan yazılı verilir. Basit bir asistan kurulumu 5–7 iş günü, kapsamlı otomasyon projeleri 3–6 hafta sürer.
+4. İzleme ve destek: sistem işletmenin adına kurulur, teslimden sonra destek verilir.
+
+## Ürünler
+
+- [Velocost](https://velocost.app): yolculuk ve filo maliyet zekâsı. Yakıt, geçiş ve vinyet dahil gerçek yolculuk maliyetini hesaplar; Velocost Filo paketinde araç–sürücü takibi, bütçe aşım uyarısı ve araç başına gerçek maliyet (TCO) sunar.
+- [Premisey](https://premisey.com): iş fikri ve başvuru doğrulama platformu. Pazar, rekabet ve fizibiliteyi kaynaklı biçimde değerlendirir; her rakamı gerçek, tahmini veya bilinmiyor olarak işaretler.
+
+## Sayfalar
+
+- [Ana sayfa](https://urastech.com/): hizmetler, çalışma şekli, sık sorulan sorular, iletişim.
+- [Blog](https://urastech.com/blog/): operasyon, otomasyon ve filo yönetimi yazıları.
+- [Cevapsız kalan müşteri sorularının maliyeti](https://urastech.com/blog/musteri-sorularini-kacirmanin-gizli-maliyeti.html)
+- [Google yorumları erken uyarı sistemi](https://urastech.com/blog/google-yorumlari-erken-uyari-sistemi.html)
+- [Filo maliyetlerinin gizli kaynağı](https://urastech.com/blog/filo-maliyetlerinin-gizli-kaynagi.html)
+
+## İletişim
+
+- E-posta: info@urastech.com
+- Telefon: +90 506 358 30 35
+- Konum: Tekirdağ, Türkiye
