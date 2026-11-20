@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Müşteri Sipariş Takip Programı Excel'de Nasıl Kurulur?</title>
+<meta name="description" content="Excel'de ücretsiz müşteri sipariş takip tablosu: sütunlar, durum listesi, geciken siparişi işaretleyen formül ve Excel'in yetmediği yer.">
+<meta property="og:title" content="Müşteri Sipariş Takip Programı Excel'de Nasıl Kurulur?">
+<meta property="og:description" content="Excel'de ücretsiz müşteri sipariş takip tablosu: sütunlar, durum listesi, geciken siparişi işaretleyen formül ve Excel'in yetmediği yer.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://urastech.com/blog/musteri-siparis-takip-programi-excel.html">
+<meta property="og:image" content="https://urastech.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://urastech.com/assets/og.png">
+<meta name="twitter:title" content="Müşteri Sipariş Takip Programı Excel'de Nasıl Kurulur?">
+<meta name="twitter:description" content="Excel'de ücretsiz müşteri sipariş takip tablosu: sütunlar, durum listesi, geciken siparişi işaretleyen formül ve Excel'in yetmediği yer.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://urastech.com/blog/musteri-siparis-takip-programi-excel.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Müşteri Sipariş Takip Programı Excel'de Nasıl Kurulur?",
+  "description": "Excel'de ücretsiz müşteri sipariş takip tablosu: sütunlar, durum listesi, geciken siparişi işaretleyen formül ve Excel'in yetmediği yer.",
+  "image": "https://urastech.com/assets/og.png",
+  "datePublished": "2026-11-21",
+  "dateModified": "2026-11-21",
+  "inLanguage": "tr-TR",
+  "url": "https://urastech.com/blog/musteri-siparis-takip-programi-excel.html",
+  "author": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://urastech.com/assets/og.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://urastech.com/blog/musteri-siparis-takip-programi-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://urastech.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://urastech.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Müşteri Sipariş Takip Programı Excel'de Nasıl Kurulur?",
+      "item": "https://urastech.com/blog/musteri-siparis-takip-programi-excel.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Excel'de sipariş takibi için hazır şablon var mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "İnternette hazır şablonlar bulabilirsiniz, ama yukarıdaki yedi adımla kendi işinize uyan bir şablonu yarım saatte kurabilirsiniz. Kendi kurduğunuz şablonda sütunlar tam sizin sipariş akışınızı yansıtır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Excel'de geciken siparişi nasıl görürüm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sipariş tarihine göre gün sayan bir EĞER formülüyle \"Gecikti\" sütunu ekleyip Koşullu Biçimlendirme ile bu hücreleri renklendirirsiniz. Tabloyu açtığınızda geciken siparişler kırmızı görünür."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sipariş takibi için Excel mi yoksa program mı kullanmalıyım?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Günde birkaç sipariş alan ve dosyayı tek kişinin doldurduğu bir işletmeye Excel yeter. Sipariş, fatura ve kargo bilgisini her gün birkaç kez farklı ekranlara elle taşıyorsanız bu adımları birbirine bağlayan bir akış daha az hata ve daha az zaman demektir."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/cagri.css">
+<link rel="stylesheet" href="/assets/uras-asistan.css">
+</head>
+<body class="serit-var">
+
+<!-- ====== KAYAN ŞERİT ====== -->
+<div class="serit serit--sabit" role="region" aria-label="Duyurular">
+  <div class="serit-iz">
+    <ul class="serit-grup"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a></li></ul>
+    <ul class="serit-grup" aria-hidden="true"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html" tabindex="-1">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer" tabindex="-1">WhatsApp'tan yazın</a></li></ul>
+  </div>
+</div>
+
+<nav class="blog-nav" data-cg-gizle>
+  <a href="/" class="blog-nav-logo">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><path d="M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>URAS <span class="logo-tech">Tech</span></span>
+  </a>
+  <ul class="blog-nav-links">
+    <li><a href="/#hizmetler">Hizmetler</a></li>
+    <li><a href="/#platformlar">Ürünlerimiz</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+  </ul>
+  <a href="/#iletisim" class="blog-nav-cta">Ücretsiz Görüşme</a>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="breadcrumb"><a href="/blog/">Blog</a> / Otomasyon</div>
+    <h1>Müşteri Sipariş Takip Programı Excel&#x27;de Nasıl Kurulur?</h1>
+    <div class="article-meta">
+      <span>21 Kasım 2026</span>
+      <span>·</span>
+      <span>5 dk okuma</span>
+      <span>·</span>
+      <span>Otomasyon</span>
+    </div>
+  </div>
+</header>
+
+<main class="blog-main">
+  <article class="article-body">
+
+    <div class="callout">
+      <span class="callout-label">Kısa cevap</span>
+      <p>Müşteri sipariş takip programı için önce Excel yeter: her siparişe bir satır açan bir tablo kurarsınız, durumu açılır listeden seçersiniz ve geciken siparişi bir formülle işaretlersiniz. Bunun için ücretli bir program gerekmez; aşağıdaki adımlarla yarım saatte çalışan bir şablon kurabilirsiniz. Excel, sipariş sayısı arttığında ve sipariş, fatura ve kargo bilgisi üç ayrı yerde elle taşınmaya başladığında zorlanır; o noktada bu adımları birbirine bağlayan bir akış işinizi görür.</p>
+    </div>
+    <p>Siparişi WhatsApp&#x27;tan ya da telefonla alıp bir deftere, sonra Excel&#x27;e, sonra fatura programına, en sonda da kargo firmasının ekranına yazan işletme sahibi bu yazının kendisidir. Her aşamada aynı müşteri adını ve adresini yeniden yazarsınız ve bir yerde bir harf kayarsa kargo yanlış adrese gider. Önce bu dağınıklığı tek bir Excel tablosunda toplamak, sonra hangi adımın elle yapılmaya değmediğine karar vermek en sağlıklı yoldur.</p>
+    <h2>Adım adım: Excel&#x27;de sipariş takip şablonu</h2>
+    <p>Aşağıdaki menü adları Windows&#x27;taki Excel&#x27;e göredir; Mac ve web sürümünde yerleri biraz farklı olabilir.</p>
+    <ol>
+      <li>Boş bir çalışma kitabının ilk satırına şu başlıkları yazın: Sipariş no, Sipariş tarihi, Müşteri, Telefon, Ürün, Adet, Tutar, Durum, Fatura no, Kargo takip no, Teslim tarihi, Not.</li>
+      <li>Başlıklarla birlikte bu aralıktan bir hücre seçin, «Giriş» sekmesinde «Tablosu Olarak Biçimlendir»i açın, bir stil seçin ve açılan pencerede üst bilgi satırı olduğunu belirten kutuyu işaretleyip «Tamam»a basın. Artık her yeni satır tablonun formül ve biçimini kendiliğinden alır.</li>
+      <li>Ayrı bir sayfaya durumları alt alta yazın: Yeni, Hazırlanıyor, Faturalandı, Kargoya verildi, Teslim edildi, İptal. Böylece herkes aynı kelimeleri kullanır ve sayım şaşmaz.</li>
+      <li>Durum sütununu seçin, «Veri» sekmesinde «Veri Doğrulama»yı açın, «İzin Ver» kutusundan «Liste»yi seçin ve «Kaynak» kutusuna durum listesinin bulunduğu aralığı gösterin. «Hata Uyarısı» sekmesinde «Stil» olarak «Durdur» seçerseniz listede olmayan bir durum yazılamaz.</li>
+      <li>Tablonun sağına &quot;Gecikme&quot; adlı bir sütun ekleyip ilk satırına şu formülü yazın: <code>=EĞER(VE([@Durum]&lt;&gt;&quot;Teslim edildi&quot;;[@Durum]&lt;&gt;&quot;İptal&quot;;BUGÜN()-[@[Sipariş tarihi]]&gt;3);&quot;Gecikti&quot;;&quot;&quot;)</code>. Formül, üç günden eski olup hâlâ teslim edilmemiş siparişin yanına &quot;Gecikti&quot; yazar; gün sayısını kendi işinize göre değiştirin.</li>
+      <li>Gecikme sütununu seçip «Giriş» sekmesindeki «Koşullu Biçimlendirme» menüsünden &quot;Gecikti&quot; yazan hücreleri kırmızıya boyayan bir kural ekleyin. Sabah tabloyu açtığınızda önce kırmızı satırlara bakarsınız.</li>
+      <li>Ayrı bir özet sayfasında her durumdan kaç sipariş olduğunu sayın: <code>=ÇOKEĞERSAY(Tablo1[Durum];&quot;Kargoya verildi&quot;)</code>. Tablonuzun adı farklıysa «Tablo Tasarımı» sekmesinden adına bakıp formüldeki &quot;Tablo1&quot; yerine onu yazın.</li>
+    </ol>
+    <p>Excel sürümünüz İngilizceyse formüllerde EĞER yerine IF, VE yerine AND, BUGÜN yerine TODAY, ÇOKEĞERSAY yerine COUNTIFS ve noktalı virgül yerine virgül kullanılır.</p>
+    <h2>Şablonu bozmadan kullanmak için üç alışkanlık</h2>
+    <p>Bir şablon ancak herkes aynı şekilde doldurduğunda işe yarar. Her siparişe bir satır açın ve sipariş iptal olsa bile satırı silmeyin, durumunu &quot;İptal&quot; yapın; böylece geçmiş kaybolmaz. Fatura numarasını ve kargo takip numarasını o işi yaptığınız anda yazın, akşama bırakırsanız unutulan satırlar birikir. Dosyayı da tek bir yerde tutun: bulutta paylaşılan tek bir dosya, masaüstlerinde dolaşan üç kopyadan her zaman iyidir.</p>
+    <h2>Bunun yetmediği yer</h2>
+    <p>Excel siparişi tutar ama siparişi yürütmez. Sipariş geldiğinde faturayı yine siz kesersiniz, kargo kaydını yine siz açarsınız ve her birinde müşteri bilgisini başka bir ekrana yeniden yazarsınız. Tablo yalnızca bu işlerin yapıldığını not ettiğiniz yer olur.</p>
+<p>Çok kişinin aynı dosyada çalıştığı durumda da sınır çıkar. Microsoft&#x27;un kendi karşılaştırma sayfası, birbirine bağlı birden fazla tabloyla ve birden çok kullanıcıyla çalışan veriler için Excel yerine bir veritabanı programını önerir; Excel&#x27;de veri girişini sınırlamanın yolu çoğunlukla Veri Doğrulama ile kalır. Biri durumu yanlış seçtiğinde, bir satırı yanlışlıkla sildiğinde ya da iki kişi aynı siparişi farklı yazdığında bunu fark eden bir mekanizma yoktur.</p>
+<p>Üçüncü sınır müşteriyle ilgilidir. &quot;Siparişim nerede?&quot; diye yazan müşteriye cevap vermek için tabloyu açar, kargo numarasını bulur, kargo firmasının sayfasına bakar ve sonra cevap yazarsınız. Sipariş sayısı arttıkça bu soru gün içinde en çok vakit alan işlerden biri olur.</p>
+    <h2>Kendi işletmenizde nasıl test edersiniz</h2>
+    <p>Bir hafta boyunca her siparişte elle yaptığınız adımları sayın ve her birinin aşağı yukarı kaç dakika sürdüğünü not edin. Aşağıdaki tablo bir örnek hesaptır; sayılar aşağıdaki varsayımlardan türetildi ve sizin işletmenizin gerçek değerleri farklı olacaktır.</p>
+<p><strong>Örnek hesap.</strong> Varsayımlar: günde 15 sipariş geliyor; her siparişte bilgiyi Excel&#x27;e, fatura programına ve kargo ekranına yazmak toplam 4 dakika sürüyor; ayrıca günde 5 müşteri &quot;siparişim nerede&quot; diye soruyor ve her cevap 2 dakika alıyor.</p>
+<table><tr><th>Kalem</th><th>Hesap</th><th>Günlük süre</th></tr><tr><td>Sipariş bilgisini üç yere yazmak</td><td>15 sipariş × 4 dakika</td><td>60 dakika</td></tr><tr><td>&quot;Siparişim nerede&quot; cevapları</td><td>5 soru × 2 dakika</td><td>10 dakika</td></tr><tr><td>Toplam</td><td></td><td>70 dakika</td></tr></table>
+<p>Bu varsayımlarla günde bir saatten fazla zaman yalnızca aynı bilgiyi taşımaya gidiyor. Sizin sayılarınız daha düşük çıkıyorsa Excel şablonu büyük ihtimalle yeter; daha yüksek çıkıyorsa elle taşınan adımları azaltmayı düşünmenin zamanı gelmiştir.</p>
+    <div class="solution-card">
+      <span class="solution-tag">Bu sorunu çözen bir sistem</span>
+      <h3>Şirkete özel otomasyon</h3>
+      <p>Kurduğumuz otomasyonda sipariş bir kez kaydedilir ve kullandığınız programlar izin verdiği ölçüde fatura ve kargo adımları o kayıttan kendi kendine başlar. Örneğin sipariş girildiğinde fatura taslağı hazırlanır, kargo kaydı açılır, takip numarası siparişin satırına yazılır ve müşteriye bilgi mesajı gider. Shopify, WooCommerce, IdeaSoft ya da Google E-Tablolar gibi kullandığınız programlara bağlanırız; fatura ve kargo programınızın dışarıya bağlantı imkânı olup olmadığına keşif görüşmesinde birlikte bakarız. Tek bir süreci otomatikleştiren Başlangıç paketinde kurulum tek sefer 349 $&#x27;dan, aylık destek 69 $/ay; KDV ve üçüncü taraf ücretleri hariçtir (<a href="https://urastech.com/fiyatlar.html">fiyatlar</a>).</p>
+      <a href="/#iletisim" class="solution-cta">
+        Ücretsiz görüşme
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <h2>Sık Sorulan Sorular</h2>
+    <div class="faq-item">
+      <h3>Excel&#x27;de sipariş takibi için hazır şablon var mı?</h3>
+      <p>İnternette hazır şablonlar bulabilirsiniz, ama yukarıdaki yedi adımla kendi işinize uyan bir şablonu yarım saatte kurabilirsiniz. Kendi kurduğunuz şablonda sütunlar tam sizin sipariş akışınızı yansıtır.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Excel&#x27;de geciken siparişi nasıl görürüm?</h3>
+      <p>Sipariş tarihine göre gün sayan bir EĞER formülüyle &quot;Gecikti&quot; sütunu ekleyip Koşullu Biçimlendirme ile bu hücreleri renklendirirsiniz. Tabloyu açtığınızda geciken siparişler kırmızı görünür.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Sipariş takibi için Excel mi yoksa program mı kullanmalıyım?</h3>
+      <p>Günde birkaç sipariş alan ve dosyayı tek kişinin doldurduğu bir işletmeye Excel yeter. Sipariş, fatura ve kargo bilgisini her gün birkaç kez farklı ekranlara elle taşıyorsanız bu adımları birbirine bağlayan bir akış daha az hata ve daha az zaman demektir.</p>
+    </div>
+    <div class="related-box">
+      <h4>Kaynaklar</h4>
+      <ul>
+        <li><a href="https://support.microsoft.com/tr-tr/office/excel-tablosu-oluşturma-ve-biçimlendirme-e81aa349-b006-4f8a-9806-5af9df0ac664">Microsoft Destek: Tablo oluşturma ve tabloları biçimlendirme</a> ✅ 2026-11-20</li>
+        <li><a href="https://support.microsoft.com/tr-tr/office/hücreye-açılan-liste-oluşturma-7693307a-59ef-400a-b769-c5402dce407b">Microsoft Destek: Açılan liste oluşturun</a> ✅ 2026-11-20</li>
+        <li><a href="https://support.microsoft.com/tr-tr/Excel/using-access-or-excel-to-manage-your-data">Microsoft Destek: Verileri yönetmek için Access&#x27;i veya Excel&#x27;i kullanma</a> ✅ 2026-11-20</li>
+        <li><a href="https://urastech.com/fiyatlar.html">UrasTech fiyatlar</a> ✅ 2026-11-20</li>
+      </ul>
+    </div>
+
+    <a href="/blog/" class="back-link">← Tüm yazılara dön</a>
+  </article>
+</main>
+
+<footer class="blog-footer">
+  <div class="blog-footer-links">
+    <a href="/kvkk.html">KVKK Aydınlatma Metni</a>
+    <a href="/gizlilik.html">Gizlilik Politikası</a>
+    <a href="/cerez-politikasi.html">Çerez Politikası</a>
+  </div>
+  <p>© 2026 Uras Tech · <a href="/">urastech.com</a> · <a href="mailto:info@urastech.com">info@urastech.com</a></p>
+</footer>
+
+<script src="/assets/cagri.js" defer></script>
+<script src="/assets/uras-maskot.js" defer></script>
+<script src="/assets/uras-bilgi.js" defer></script>
+<script src="/assets/uras-asistan.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
+</body>
+</html>
