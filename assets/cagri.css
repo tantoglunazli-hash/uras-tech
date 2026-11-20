@@ -65,6 +65,8 @@ body.serit-var [id] { scroll-margin-top: calc(72px + var(--serit-h)); }
   font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 .cg.cg-acik { opacity: 1; visibility: visible; transform: none; }
+.cg-grup { display: flex; align-items: center; gap: 10px; }
+.cg { gap: 14px; }
 .cg a, .cg button { -webkit-tap-highlight-color: transparent; }
 .cg-yuvarlak {
   width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%;
@@ -109,14 +111,20 @@ body.serit-var [id] { scroll-margin-top: calc(72px + var(--serit-h)); }
 }
 
 @media (max-width: 900px) {
-  /* left:50% genişliği yarı ekrana sıkıştırır; tam genişlik + ortalama, boşluklar tıklamayı geçirir */
-  .cg { left: 0; right: 0; justify-content: center; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); pointer-events: none; }
-  .cg > * { pointer-events: auto; }
-  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  /* tam genişlik şerit: görüşme grubu kalan alanda ortalanır, Uras sağ uçta.
+     Boşluklar tıklamayı geçirir. */
+  .cg { left: 12px; right: 12px; gap: 8px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); pointer-events: none; }
+  .cg-grup { flex: 1 1 auto; min-width: 0; justify-content: center; gap: 8px; pointer-events: none; }
+  .cg-grup > *, .cg > :not(.cg-grup) { pointer-events: auto; }
+  body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
 }
-@media (max-width: 360px) {
-  .cg { gap: 8px; }
+@media (max-width: 440px) {
   .cg-hap { padding: 0 18px; font-size: .9rem; }
+  .cg-hap svg { display: none; }
+}
+@media (max-width: 380px) {
+  /* 360px'te dört düğme sığmaz: "başa dön" telefonda zaten durum çubuğuyla yapılır */
+  .cg-yukari { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

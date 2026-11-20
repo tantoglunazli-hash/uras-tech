@@ -17,7 +17,8 @@
   var kutu = document.createElement('div');
   kutu.className = 'cg';
   kutu.id = 'cagri';
-  kutu.innerHTML =
+  /* .cg-grup: yukarı + WhatsApp + hap. Uras başlatıcısı (uras-asistan.js) grubun yanına, sağ uca eklenir. */
+  kutu.innerHTML = '<div class="cg-grup">' +
     '<button type="button" class="cg-yuvarlak cg-yukari" aria-label="Sayfanın başına dön">' +
       '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
     '</button>' +
@@ -28,7 +29,7 @@
       '<span class="cg-isik" aria-hidden="true"></span>' +
       '<span>Ücretsiz Görüşme</span>' +
       '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-    '</a>';
+    '</a></div>';
   document.body.appendChild(kutu);
 
   kutu.querySelector('.cg-yukari').addEventListener('click', function () {
