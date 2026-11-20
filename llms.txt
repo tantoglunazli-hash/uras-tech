@@ -29,6 +29,7 @@
 - [Google yorumları erken uyarı sistemi](https://urastech.com/blog/google-yorumlari-erken-uyari-sistemi.html)
 - [Filo maliyetlerinin gizli kaynağı](https://urastech.com/blog/filo-maliyetlerinin-gizli-kaynagi.html)
 - [Excel'de Müşteri Takip Programı Nasıl Yapılır? Adım Adım](https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html)
+- [WhatsApp Otomatik Mesaj Nasıl Yapılır? Ücretsiz Üç Ayar](https://urastech.com/blog/whatsapp-otomatik-mesaj-nasil-yapilir.html)
 
 ## İletişim
 
