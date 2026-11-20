@@ -14,9 +14,15 @@
   </url>
   <url>
     <loc>https://urastech.com/blog/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://urastech.com/blog/musteri-sorularini-kacirmanin-gizli-maliyeti.html</loc>

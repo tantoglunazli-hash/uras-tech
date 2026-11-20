@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Excel'de Müşteri Takip Programı Nasıl Yapılır? Adım Adım</title>
+<meta name="description" content="Excel'de ücretsiz müşteri takip tablosu: sütunlar, açılır liste, takip tarihini renklendiren kural; Excel'in yetmediği yer ve sonraki adım.">
+<meta property="og:title" content="Excel'de Müşteri Takip Programı Nasıl Yapılır? Adım Adım">
+<meta property="og:description" content="Excel'de ücretsiz müşteri takip tablosu: sütunlar, açılır liste, takip tarihini renklendiren kural; Excel'in yetmediği yer ve sonraki adım.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html">
+<meta property="og:image" content="https://urastech.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://urastech.com/assets/og.png">
+<meta name="twitter:title" content="Excel'de Müşteri Takip Programı Nasıl Yapılır? Adım Adım">
+<meta name="twitter:description" content="Excel'de ücretsiz müşteri takip tablosu: sütunlar, açılır liste, takip tarihini renklendiren kural; Excel'in yetmediği yer ve sonraki adım.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Excel'de Müşteri Takip Programı Nasıl Yapılır? Adım Adım",
+  "description": "Excel'de ücretsiz müşteri takip tablosu: sütunlar, açılır liste, takip tarihini renklendiren kural; Excel'in yetmediği yer ve sonraki adım.",
+  "image": "https://urastech.com/assets/og.png",
+  "datePublished": "2026-11-21",
+  "dateModified": "2026-11-21",
+  "inLanguage": "tr-TR",
+  "url": "https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html",
+  "author": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://urastech.com/assets/og.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://urastech.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://urastech.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Excel'de Müşteri Takip Programı Nasıl Yapılır? Adım Adım",
+      "item": "https://urastech.com/blog/excelde-musteri-takip-programi-nasil-yapilir.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Excel'de müşteri takip programı ücretsiz yapılabilir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Bilgisayarınızda Excel varsa tablo, açılır liste ve koşullu biçimlendirme için ek bir program ya da ücret gerekmez. Yukarıdaki adımların hepsi Excel'in kendi özellikleriyle yapılır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Excel'de müşteri takibi için hangi sütunlar olmalı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En az müşteri adı, iletişim bilgisi, müşterinin nereden geldiği, durum, son görüşme tarihi ve sonraki takip tarihi olmalı. Birden çok kişi takip ediyorsa bir de Sorumlu sütunu ekleyin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Excel takip tarihi gelince hatırlatma gönderir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır. Koşullu biçimlendirme takip tarihi gelen satırı renklendirir, ama dosyayı açtığınızda görürsünüz. Telefonunuza ya da e-postanıza hatırlatma gelmesi için Excel'in dışında bir bağlantı kurmak gerekir."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/cagri.css">
+<link rel="stylesheet" href="/assets/uras-asistan.css">
+</head>
+<body class="serit-var">
+
+<!-- ====== KAYAN ŞERİT ====== -->
+<div class="serit serit--sabit" role="region" aria-label="Duyurular">
+  <div class="serit-iz">
+    <ul class="serit-grup"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a></li></ul>
+    <ul class="serit-grup" aria-hidden="true"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html" tabindex="-1">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer" tabindex="-1">WhatsApp'tan yazın</a></li></ul>
+  </div>
+</div>
+
+<nav class="blog-nav" data-cg-gizle>
+  <a href="/" class="blog-nav-logo">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><path d="M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>URAS <span class="logo-tech">Tech</span></span>
+  </a>
+  <ul class="blog-nav-links">
+    <li><a href="/#hizmetler">Hizmetler</a></li>
+    <li><a href="/#platformlar">Ürünlerimiz</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+  </ul>
+  <a href="/#iletisim" class="blog-nav-cta">Ücretsiz Görüşme</a>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="breadcrumb"><a href="/blog/">Blog</a> / Müşteri Yönetimi</div>
+    <h1>Excel&#x27;de Müşteri Takip Programı Nasıl Yapılır? Adım Adım</h1>
+    <div class="article-meta">
+      <span>21 Kasım 2026</span>
+      <span>·</span>
+      <span>5 dk okuma</span>
+      <span>·</span>
+      <span>Müşteri Yönetimi</span>
+    </div>
+  </div>
+</header>
+
+<main class="blog-main">
+  <article class="article-body">
+
+    <div class="callout">
+      <span class="callout-label">Kısa cevap</span>
+      <p>Excel&#x27;de müşteri takip programı, tek bir tabloyla yapılır: her satır bir müşteri, her sütun o müşteriyle ilgili bir bilgidir. Veriyi <strong>Tablo Olarak Biçimlendir</strong> ile tabloya çevirir, durum sütununa <strong>Veri Doğrulama</strong> ile açılır liste koyar, takip tarihi gelen satırları <strong>Koşullu Biçimlendirme</strong> ile renklendirirsiniz. Excel&#x27;iniz varsa bunun için ek bir program ya da ücret gerekmez.</p>
+    </div>
+    <p>Birçok işletmede müşteri bilgisi bugün üç yerde duruyor: WhatsApp sohbetlerinde, bir defterde ve birinin aklında. &quot;Geçen ay fiyat soran kişiye döndük mü?&quot; sorusunun cevabı da bu yüzden çoğu zaman &quot;bilmiyorum&quot; oluyor. Aşağıdaki tablo bu bilgiyi tek yere toplar ve bir öğleden sonranızı alır.</p>
+    <h2>Adım adım: ücretsiz Excel müşteri takip tablosu</h2>
+    <p>Menü adları Microsoft&#x27;un destek sayfalarındaki adımlara göre yazıldı. Excel&#x27;in sürümüne ve diline göre küçük farklar görebilirsiniz.</p>
+    <ol>
+      <li><strong>Sütunları belirleyin.</strong> Boş bir sayfanın ilk satırına şu başlıkları yazın: Müşteri, Telefon, Nereden geldi, Durum, Son görüşme, Sonraki takip, Sorumlu, Not. Her müşteri bundan sonra tek bir satır olacak, aynı müşteriyi ikinci kez yazmayacaksınız.</li>
+      <li><strong>Veriyi tabloya çevirin.</strong> Başlık satırıyla birlikte hücreleri seçin, Giriş sekmesinde Tablo Olarak Biçimlendir&#x27;e tıklayın ya da Ctrl+T&#x27;ye basın. Açılan pencerede &quot;Tablom üst bilgi içeriyor&quot; kutusunu işaretleyin. Tabloya çevrilen aralığa yeni satır eklediğinizde biçim ve formüller kendiliğinden aşağı uzar, başlıklarda da süzme okları belirir.</li>
+      <li><strong>Durum listesini ayrı bir sayfaya yazın.</strong> Yeni bir sayfa açın, adını &quot;Listeler&quot; koyun ve alt alta şu durumları yazın: Yeni, Teklif verildi, Takipte, Kazanıldı, Kaybedildi. Bu listeyi de Ctrl+T ile tabloya çevirin. Microsoft&#x27;un rehberine göre liste bir tablodaysa, listeye eklediğiniz yeni durum açılır menülere kendiliğinden yansır.</li>
+      <li><strong>Durum sütununa açılır liste koyun.</strong> Müşteri tablosunda Durum sütununu seçin, Veri sekmesinde Veri Doğrulama&#x27;ya girin. İzin Verilen kutusunda Liste&#x27;yi seçin, Kaynak kutusuna Listeler sayfasındaki durumları gösterin ve &quot;Hücre içi açılan liste&quot; kutusunun işaretli kaldığından emin olun. Artık herkes aynı kelimeyi seçer; &quot;teklif gitti&quot;, &quot;teklif verildi&quot; ve &quot;tklf&quot; diye üç ayrı yazım oluşmaz.</li>
+      <li><strong>Takip günü gelen satırları renklendirin.</strong> Sonraki takip sütununu seçin, Giriş sekmesinde Koşullu Biçimlendirme&#x27;ye tıklayın. Hazır tarih kurallarıyla (dün, bugün, gelecek hafta gibi) renk verebilir ya da Yeni Kural&#x27;da &quot;Biçimlendirilecek hücreleri belirlemek için formül kullan&quot; seçeneğiyle kendi kuralınızı yazabilirsiniz. Örneğin takip tarihi bugün ya da geçmişte kalmış satırlar için formül <code>=VE($F2&lt;&gt;&quot;&quot;;$F2&lt;=BUGÜN())</code> olur (F sütunu Sonraki takip ise). Formül eşittir işaretiyle başlamalı ve DOĞRU ya da YANLIŞ sonuç vermelidir.</li>
+      <li><strong>Her sabah tek bakışta listeyi görün.</strong> Sonraki takip sütununun başlığındaki oka tıklayıp en eskiden en yeniye sıralayın; renklenen satırlar bugün aramanız ya da yazmanız gereken müşterilerdir. Durum sütununda &quot;Takipte&quot; süzgeciyle yalnız açık işleri de görebilirsiniz.</li>
+      <li><strong>Küçük bir özet ekleyin.</strong> Tablonun yanına her durumdan kaç müşteri olduğunu sayan bir kutu koyun: <code>=EĞERSAY(Tablo1[Durum];&quot;Kazanıldı&quot;)</code> gibi. Tablonuzun adı farklıysa Tablo1 yerine kendi tablo adınızı yazın.</li>
+    </ol>
+    <p>&quot;Müşteri takip programı ücretsiz excel&quot; diye arayanlar için bir not: hazır şablon indirmek de bir yol, ama yukarıdaki yedi adımla kurduğunuz tablo tam sizin işinize göre olur ve içinde anlamadığınız bir formül kalmaz.</p>
+    <h2>Bunun yetmediği yer</h2>
+    <p>Excel&#x27;le kurulan bu tablo, müşterisi az olan ve tek kişinin takip ettiği bir işletmeye uzun süre yeter. Zorlandığı yerler de şunlardır:</p>
+<div class="checklist">
+      <ul>
+<li><strong>Veri kendiliğinden gelmez.</strong> Sitenizdeki formu dolduran ya da WhatsApp&#x27;tan yazan müşteri tabloya kendi kendine düşmez. Birinin onu elle yazması gerekir ve yoğun günde ilk atlanan iş budur.</li>
+<li><strong>Excel size haber vermez.</strong> Koşullu biçimlendirme takip günü gelen satırı renklendirir, ama dosyayı açmazsanız bunu görmezsiniz. Telefonunuza &quot;bugün üç müşteriyi aramalısınız&quot; diye bir mesaj gelmez.</li>
+<li><strong>Birden çok kişi aynı anda çalışınca karışır.</strong> Microsoft&#x27;un kendi rehberi, Excel&#x27;in birlikte yazmayı desteklediğini ama ortak bir çalışma kitabında en iyi sonucun kullanıcılar aynı veri üzerinde farklı zamanlarda çalıştığında alındığını yazıyor. Dosyanın e-postayla dolaşan kopyaları da işin içine girince hangi sürümün güncel olduğu belirsizleşir.</li>
+<li><strong>İlişkili bilgi tek tabloya sığmaz.</strong> Aynı rehber Excel&#x27;in tek tabloya sığan düz veride iyi olduğunu, bir müşterinin birden çok teklifi, siparişi ya da adresi gibi ilişkili verilerde zorlandığını söylüyor.</li>
+</ul>
+    </div>
+    <h2>Kendi işletmenizde nasıl test edersiniz</h2>
+    <p>Bir hafta boyunca size yeni ulaşan her müşteriyi kâğıda ya da telefonunuzun not uygulamasına kısaca not edin. Hafta sonunda bu notları Excel tablonuzla karşılaştırın. Tabloya hiç girmemiş müşteri ve takip günü geçtiği hâlde kimsenin dönmediği satır sayısı sıfıra yakınsa, Excel size yetiyor demektir. Bu iki sayı büyüyorsa eksik olan şey, veriyi tabloya taşıyan ve zamanı gelince size hatırlatan bir el demektir.</p>
+    <div class="solution-card">
+      <span class="solution-tag">Bu sorunu çözen bir sistem</span>
+      <h3>Şirkete özel otomasyon</h3>
+      <p>Excel&#x27;deki düzeninizi bozmadan, sitenizdeki formu dolduran müşterinin listeye kendiliğinden düşmesini, takip günü gelen müşterinin sabah size WhatsApp ya da e-postayla bildirilmesini ve haftanın özetinin pazartesi hazır olmasını kuruyoruz. Kullandığınız programlara bağlanırız, yeni bir düzen öğretmeye çalışmayız; hazır bir program işinizi daha iyi görecekse bunu da açıkça söyleriz. Fiyatlar sayfamızda form bilgisini müşteri listesine bağlayan modülün kurulumu 129 $&#x27;dan başlıyor; fiyatlar USD, KDV ve üçüncü taraf ücretleri hariçtir (<a href="https://urastech.com/fiyatlar.html">urastech.com/fiyatlar.html</a>).</p>
+      <a href="/#iletisim" class="solution-cta">
+        Ücretsiz görüşme
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <h2>Sık Sorulan Sorular</h2>
+    <div class="faq-item">
+      <h3>Excel&#x27;de müşteri takip programı ücretsiz yapılabilir mi?</h3>
+      <p>Evet. Bilgisayarınızda Excel varsa tablo, açılır liste ve koşullu biçimlendirme için ek bir program ya da ücret gerekmez. Yukarıdaki adımların hepsi Excel&#x27;in kendi özellikleriyle yapılır.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Excel&#x27;de müşteri takibi için hangi sütunlar olmalı?</h3>
+      <p>En az müşteri adı, iletişim bilgisi, müşterinin nereden geldiği, durum, son görüşme tarihi ve sonraki takip tarihi olmalı. Birden çok kişi takip ediyorsa bir de Sorumlu sütunu ekleyin.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Excel takip tarihi gelince hatırlatma gönderir mi?</h3>
+      <p>Hayır. Koşullu biçimlendirme takip tarihi gelen satırı renklendirir, ama dosyayı açtığınızda görürsünüz. Telefonunuza ya da e-postanıza hatırlatma gelmesi için Excel&#x27;in dışında bir bağlantı kurmak gerekir.</p>
+    </div>
+    <div class="related-box">
+      <h4>Kaynaklar</h4>
+      <ul>
+        <li><a href="https://support.microsoft.com/en-us/excel/get-started/create-and-format-tables">Microsoft Destek: Create and format tables (tablo oluşturma ve biçimlendirme)</a> ✅ 2026-11-20</li>
+        <li><a href="https://support.microsoft.com/en-us/excel/get-started/create-a-drop-down-list">Microsoft Destek: Create a drop-down list (açılır liste oluşturma)</a> ✅ 2026-11-20</li>
+        <li><a href="https://support.microsoft.com/en-us/office/use-conditional-formatting-to-highlight-information-in-excel-fed60dfa-1d3f-4e13-9ecb-f1951ff89d7f">Microsoft Destek: Use conditional formatting to highlight information (koşullu biçimlendirme)</a> ✅ 2026-11-20</li>
+        <li><a href="https://support.microsoft.com/tr-tr/Excel/using-access-or-excel-to-manage-your-data">Microsoft Destek: Verileri yönetmek için Access&#x27;i veya Excel&#x27;i kullanma</a> ✅ 2026-11-20</li>
+        <li><a href="https://urastech.com/fiyatlar.html">Uras Tech fiyatlar sayfası</a> ✅ 2026-11-20</li>
+      </ul>
+    </div>
+
+    <a href="/blog/" class="back-link">← Tüm yazılara dön</a>
+  </article>
+</main>
+
+<footer class="blog-footer">
+  <div class="blog-footer-links">
+    <a href="/kvkk.html">KVKK Aydınlatma Metni</a>
+    <a href="/gizlilik.html">Gizlilik Politikası</a>
+    <a href="/cerez-politikasi.html">Çerez Politikası</a>
+  </div>
+  <p>© 2026 Uras Tech · <a href="/">urastech.com</a> · <a href="mailto:info@urastech.com">info@urastech.com</a></p>
+</footer>
+
+<script src="/assets/cagri.js" defer></script>
+<script src="/assets/uras-maskot.js" defer></script>
+<script src="/assets/uras-bilgi.js" defer></script>
+<script src="/assets/uras-asistan.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
+</body>
+</html>
