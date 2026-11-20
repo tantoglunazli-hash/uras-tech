@@ -10,7 +10,7 @@
   'use strict';
   if (document.getElementById('cagri')) return;
 
-  var WA = 'https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum.';
+  var WA = 'https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum.';
   var hedef = document.getElementById('iletisim') ? '#iletisim' : '/#iletisim';
   var azHareket = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
