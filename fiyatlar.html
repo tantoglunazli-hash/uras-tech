@@ -347,8 +347,17 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--l-d); }
   .hero-cta .btn, .final-cta .btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
+<link rel="stylesheet" href="/assets/cagri.css">
 </head>
-<body>
+<body class="serit-var">
+
+<!-- ====== KAYAN ŞERİT ====== -->
+<div class="serit serit--sabit" role="region" aria-label="Duyurular">
+  <div class="serit-iz">
+    <ul class="serit-grup"><li>Keşif görüşmesi ücretsiz</li><li><a href="#paketler">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a></li></ul>
+    <ul class="serit-grup" aria-hidden="true"><li>Keşif görüşmesi ücretsiz</li><li><a href="#paketler" tabindex="-1">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer" tabindex="-1">WhatsApp'tan yazın</a></li></ul>
+  </div>
+</div>
 
 <!-- ====== NAV ====== -->
 <header id="nav">
@@ -387,7 +396,7 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--l-d); }
     <div class="hero-meta"><span><a href="/">Ana Sayfa</a> / <b>Fiyatlar</b></span><span>Fiyat cetveli · Rev. 2026-11</span></div>
     <h1 class="hero-h">Fiyatlar</h1>
     <p class="hero-sub">Kapsam ve fiyat baştan yazılı; sürpriz kalem çıkmaz. <b>Keşif görüşmesi ücretsiz.</b></p>
-    <div class="hero-cta">
+    <div class="hero-cta" data-cg-gizle>
       <a href="#paketler" class="btn btn-sig">Paketleri görün <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="/#iletisim" class="btn btn-line">Ücretsiz Keşif Görüşmesi</a>
     </div>
@@ -625,7 +634,7 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--l-d); }
 </section>
 
 <!-- ====== SON ÇAĞRI ====== -->
-<section id="gorusme" class="dark final">
+<section id="gorusme" class="dark final" data-cg-gizle>
   <div class="wrap">
     <div class="sheet-tag"><span>Detay 05</span><span class="rule"></span><span class="dim">Keşif görüşmesi</span></div>
     <h2 class="h">Hangi basamaktan başlayacağınızı<br><span class="hl">birlikte bulalım.</span></h2>
@@ -695,6 +704,7 @@ function toggleFaq(btn) {
   if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
 }
 </script>
+<script src="/assets/cagri.js" defer></script>
 <script src="/cookie-consent.js" defer></script>
 </body>
 </html>

@@ -347,7 +347,7 @@ h2.h { font-size: clamp(2rem, 4.4vw, 3.4rem); }
 .mnav .btn { margin-top: 20px; justify-content: center; }
 
 /* ---- HERO ---- */
-#hero { min-height: 100vh; min-height: 100svh; padding: 112px 0 64px; display: flex; align-items: center; overflow: hidden; }
+#hero { min-height: 100vh; min-height: calc(100svh - var(--serit-h, 0px)); padding: 112px 0 64px; display: flex; align-items: center; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 5.6fr) minmax(0, 6.4fr); gap: 48px; align-items: center; width: 100%; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-d); margin-bottom: 28px; }
 .hero-meta b { color: var(--sig); font-weight: 500; }
@@ -624,24 +624,13 @@ footer { padding: 72px 0 32px; }
 .modal-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 24px; border-top: 1px solid var(--l-l); background: var(--paper-2); }
 .modal-footer p { color: var(--m-l); font-size: .9rem; }
 
-/* yapışkan CTA (telefon) */
-.sticky {
-  position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 40;
-  display: none; align-items: center; justify-content: space-between; gap: 10px;
-  background: var(--ink); color: var(--t-d); border: 1px solid var(--l-d); border-radius: 10px; padding: 10px 10px 10px 14px;
-  transform: translateY(140%); transition: transform .4s var(--ease);
-}
-.sticky.show { transform: none; }
-.sticky-text { font-size: .82rem; line-height: 1.3; min-width: 0; }
-.sticky-acts { display: flex; gap: 8px; flex: 0 0 auto; }
-.sticky .btn { padding: 10px 14px; font-size: .85rem; }
-.to-top {
-  position: absolute; right: 0; top: -12px; transform: translateY(-100%);
-  width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
-  background: var(--ink); color: var(--t-d); border: 1px solid var(--l-d);
-  box-shadow: 0 8px 20px -10px rgba(0,0,0,.5);
-}
-.to-top:hover { border-color: var(--sig); color: var(--sig); }
+/* bölüm sonu çağrısı: okuyan bir sonraki adımı görsün */
+.sec-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: clamp(32px, 5vw, 48px); }
+.sec-cta p { flex: 1 1 100%; color: var(--m-l); font-size: .95rem; }
+.dark .sec-cta p { color: var(--m-d); }
+.sec-cta p b { color: var(--t-l); font-weight: 600; }
+.dark .sec-cta p b { color: var(--t-d); }
+.faq + .sec-cta { max-width: 860px; margin-left: auto; margin-right: auto; }
 
 /* hareket: Motion yüklenince başlangıç durumları */
 html.motion [data-in] { opacity: 0; transform: translateY(24px); }
@@ -675,14 +664,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   .title-block { grid-template-columns: 1fr 1fr; }
   .title-block > div:nth-child(2) { border-right: 0; }
   .title-block > div:nth-child(-n+2) { border-bottom: 1px solid var(--l-d); }
-  .sticky { display: flex; }
-  body { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
 }
-@media (max-width: 420px) {
-  .sticky-text { display: none; }
-  .sticky-acts { flex: 1; }
-  .sticky-acts .btn { flex: 1; justify-content: center; }
-  .sticky { padding: 8px; }
 }
 @media (max-width: 760px) {
   .sim-grid { grid-template-columns: minmax(0, 1fr); }
@@ -706,11 +688,20 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
   .modal-stats div:last-child { border-bottom: 0; }
   .scene-cap span:nth-child(2) { display: none; }
   .card { padding: 22px; }
-  .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+  .hero-cta .btn, .sec-cta .btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
+<link rel="stylesheet" href="/assets/cagri.css">
 </head>
-<body>
+<body class="serit-var">
+
+<!-- ====== KAYAN ŞERİT ====== -->
+<div class="serit serit--sabit" role="region" aria-label="Duyurular">
+  <div class="serit-iz">
+    <ul class="serit-grup"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a></li></ul>
+    <ul class="serit-grup" aria-hidden="true"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html" tabindex="-1">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer" tabindex="-1">WhatsApp'tan yazın</a></li></ul>
+  </div>
+</div>
 
 <!-- ====== NAV ====== -->
 <header id="nav">
@@ -755,7 +746,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         <span class="w">Tanışın.</span>
       </h1>
       <p class="hero-sub" data-in>Rutin operasyonların içinde boğulmayın. Şirketinize özel otomasyon sistemleri, web altyapısı ve yapay zekâ çözümleri kuruyoruz. Siz stratejinize odaklanın, arka planı biz işletelim.</p>
-      <div class="hero-cta" data-in>
+      <div class="hero-cta" data-in data-cg-gizle>
         <a href="#iletisim" class="btn btn-sig">Ücretsiz Keşif Görüşmesi <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="#platformlar" class="btn btn-line">Ürünlerimizi Görün</a>
       </div>
@@ -815,6 +806,11 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         <p>Kurduğumuz sistem müşteriyi karşılıyor. Reklam görseli o müşteriyi kapıya getiriyor.</p>
         <button class="more" onclick="openModal('video')">Keşfet →</button>
       </article>
+    </div>
+    <div class="sec-cta" data-in>
+      <p><b>Hangisinin size uyduğundan emin değil misiniz?</b> İlk görüşmede birlikte bakalım; paketlerin fiyatı baştan yazılı.</p>
+      <a href="#iletisim" class="btn btn-sig">Ücretsiz görüşme alın <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/fiyatlar.html" class="btn btn-line">Fiyatları görün</a>
     </div>
   </div>
 </section>
@@ -906,6 +902,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
       </article>
     </div>
     <p class="note" data-in><b>Sizin de böyle bir ürününüz olabilir.</b> Aklınızdaki yazılımı sıfırdan kurup yayına almak istiyorsanız, bu iki ürünü ayağa kaldıran ekip aynı işi sizin için de yapar.</p>
+    <div class="sec-cta" data-in><a href="#iletisim" class="btn btn-line">Ürün fikrinizi anlatın →</a></div>
   </div>
 </section>
 
@@ -1003,6 +1000,11 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         </ul>
       </div>
     </div>
+    <div class="sec-cta" data-in>
+      <p><b>Kendi rakamlarınızla bakmak ister misiniz?</b> Görüşmede sürecinizi dinleriz, ertesi gün ilk okuma sizde olur.</p>
+      <a href="#iletisim" class="btn btn-sig">Ücretsiz keşif görüşmesi <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/fiyatlar.html" class="btn btn-line">Fiyatları görün</a>
+    </div>
   </div>
 </section>
 
@@ -1061,7 +1063,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-05</span><span>Fiyatlandırma nasıl işliyor?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div><p>Paketlerin başlangıç fiyatları fiyatlar sayfasında yazılı; paket dışı işler için ihtiyacınıza özel teklif hazırlıyoruz. Keşif görüşmesi tamamen ücretsizdir. Görüşmenin ardından kapsamı, bütçeyi ve beklentileri birlikte netleştiriyoruz.</p></div></div>
+        <div class="faq-a"><div><p>Paketlerin başlangıç fiyatları <a href="/fiyatlar.html" style="text-decoration:underline">fiyatlar sayfasında</a> yazılı; paket dışı işler için ihtiyacınıza özel teklif hazırlıyoruz. Keşif görüşmesi tamamen ücretsizdir. Görüşmenin ardından kapsamı, bütçeyi ve beklentileri birlikte netleştiriyoruz.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-06</span><span>Kurulum sonrası destek alabilir miyim?</span><span class="plus" aria-hidden="true"></span></button>
@@ -1083,6 +1085,11 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-10</span><span>Teknik bilgim olmadan bunu yönetebilir miyim?</span><span class="plus" aria-hidden="true"></span></button>
         <div class="faq-a"><div><p>Evet. Kurduğumuz sistemler, teknik bilgi gerektirmeden yönetilebilecek şekilde tasarlanır. Ayrıca size özel kullanım rehberleri hazırlıyor ve ekibinizi eğitiyoruz. Herhangi bir sorun çıktığında sadece bize mesaj atmanız yeterli.</p></div></div>
       </div>
+    </div>
+    <div class="sec-cta" data-in>
+      <p><b>Sorunuz burada yok mu?</b> Doğrudan sorun; 24 saat içinde dönüş yapıyoruz.</p>
+      <a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." class="btn btn-ink" target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a>
+      <a href="#iletisim" class="btn btn-line">Ücretsiz görüşme alın</a>
     </div>
   </div>
 </section>
@@ -1108,7 +1115,7 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 </section>
 
 <!-- ====== İLETİŞİM ====== -->
-<section id="iletisim" class="light alt">
+<section id="iletisim" class="light alt" data-cg-gizle>
   <div class="wrap contact-grid">
     <div>
       <div class="sheet-tag" data-in><span>Detay 07</span><span class="rule"></span><span class="dim">İletişim</span></div>
@@ -1377,12 +1384,6 @@ html.motion .hero-h .w { opacity: 0; transform: translateY(40%); }
 </div>
 
 
-<!-- ====== YAPIŞKAN CTA ====== -->
-<div class="sticky" id="stickyCta" aria-hidden="true">
-  <button class="to-top" type="button" aria-label="Sayfanın başına dön" onclick="scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <span class="sticky-text"><b>Ücretsiz keşif görüşmesi.</b> 24 saat içinde dönüş.</span>
-  <span class="sticky-acts"><a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." class="btn btn-line" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="#iletisim" class="btn btn-sig">Görüşme alın</a></span>
-</div>
 
 <script src="/assets/vendor/motion.js"></script>
 <script>
@@ -1438,14 +1439,12 @@ if (matchMedia('(pointer: fine)').matches) {
   });
 }
 
-/* ---- Okuma çubuğu, süreç hattı, yapışkan CTA (Motion'sız da çalışır) ---- */
+/* ---- Okuma çubuğu, süreç hattı (Motion'sız da çalışır) ---- */
 (function () {
   const prog = document.getElementById('progress');
   const rail = document.getElementById('rail');
   const steps = rail ? Array.from(rail.querySelectorAll('.step')) : [];
-  const bar = document.getElementById('stickyCta');
-  const contact = document.getElementById('iletisim');
-  let contactVisible = false, ticking = false;
+  let ticking = false;
   function railProgress() {
     if (!rail) return 0;
     const r = rail.getBoundingClientRect(), vh = innerHeight;
@@ -1459,18 +1458,10 @@ if (matchMedia('(pointer: fine)').matches) {
       rail.style.setProperty('--p', p.toFixed(4));
       steps.forEach((s, i) => s.classList.toggle('on', p >= i / steps.length + 0.02));
     }
-    if (bar) {
-      const blocked = !!document.querySelector('.uras-cerez') || mnav.classList.contains('open');
-      const show = scrollY > innerHeight * 0.85 && !contactVisible && !blocked;
-      bar.classList.toggle('show', show);
-      bar.setAttribute('aria-hidden', String(!show));
-    }
     ticking = false;
   }
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }, { passive: true });
   addEventListener('resize', tick, { passive: true });
-  if (contact) new IntersectionObserver(e => { contactVisible = e[0].isIntersecting; tick(); }, { threshold: 0.12 }).observe(contact);
-  new MutationObserver(tick).observe(document.body, { childList: true });
   tick();
 })();
 
@@ -1711,6 +1702,7 @@ async function handleSubmit(e) {
   }
 }
 </script>
+<script src="/assets/cagri.js" defer></script>
 <script src="/cookie-consent.js" defer></script>
 </body>
 </html>
