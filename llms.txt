@@ -33,6 +33,7 @@
 - [Randevu Hatırlatma Nasıl Yapılır? Ücretsiz Yol ve Sınırı](https://urastech.com/blog/randevu-hatirlatma-nasil-yapilir.html)
 - [Google Yorumlarına Nasıl Cevap Verilir? Adım Adım Rehber](https://urastech.com/blog/google-yorumlarina-nasil-cevap-verilir.html)
 - [Müşteri Sipariş Takip Programı Excel'de Nasıl Kurulur?](https://urastech.com/blog/musteri-siparis-takip-programi-excel.html)
+- [Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi](https://urastech.com/blog/claude-code-ile-uygulama-gelistirme.html)
 
 ## İletişim
 

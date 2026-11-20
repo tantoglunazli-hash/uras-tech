@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi</title>
+<meta name="description" content="Claude Code ile uygulama geliştirme ve yapma: ne olduğu, resmî kurulum adımları, güvenlik ve bakım sınırları, işi ne zaman bir geliştiriciye vermeli.">
+<meta property="og:title" content="Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi">
+<meta property="og:description" content="Claude Code ile uygulama geliştirme ve yapma: ne olduğu, resmî kurulum adımları, güvenlik ve bakım sınırları, işi ne zaman bir geliştiriciye vermeli.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://urastech.com/blog/claude-code-ile-uygulama-gelistirme.html">
+<meta property="og:image" content="https://urastech.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://urastech.com/assets/og.png">
+<meta name="twitter:title" content="Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi">
+<meta name="twitter:description" content="Claude Code ile uygulama geliştirme ve yapma: ne olduğu, resmî kurulum adımları, güvenlik ve bakım sınırları, işi ne zaman bir geliştiriciye vermeli.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://urastech.com/blog/claude-code-ile-uygulama-gelistirme.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi",
+  "description": "Claude Code ile uygulama geliştirme ve yapma: ne olduğu, resmî kurulum adımları, güvenlik ve bakım sınırları, işi ne zaman bir geliştiriciye vermeli.",
+  "image": "https://urastech.com/assets/og.png",
+  "datePublished": "2026-11-21",
+  "dateModified": "2026-11-21",
+  "inLanguage": "tr-TR",
+  "url": "https://urastech.com/blog/claude-code-ile-uygulama-gelistirme.html",
+  "author": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Uras Tech",
+    "url": "https://urastech.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://urastech.com/assets/og.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://urastech.com/blog/claude-code-ile-uygulama-gelistirme.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://urastech.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://urastech.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi",
+      "item": "https://urastech.com/blog/claude-code-ile-uygulama-gelistirme.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Claude Code ile uygulama yapmak için kod bilmek gerekir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basit bir iç kullanım aracı için gerekmez; isteğinizi sade bir dille anlatırsınız. Ancak aracın önerdiği komutları ve değişiklikleri onaylarken ne yaptıklarını anlamanız gerekir, bu yüzden temel bir bilgi işinizi çok kolaylaştırır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude Code ücretsiz mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anthropic'in belgelerine göre çoğu kullanım yolu bir Claude aboneliği ya da Anthropic Console hesabı ister, masaüstü uygulaması da ücretli abonelik gerektirir. Güncel fiyatlar Claude'un kendi fiyat sayfasında yazar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude Code ile yapılan uygulama güvenli mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Araç izin sistemi ve korumalar sunar, ama Anthropic önerilen kodu ve komutları kontrol etmenin kullanıcının sorumluluğunda olduğunu yazıyor. Müşteri verisi ya da ödeme içeren bir uygulamada bir geliştiricinin kodu gözden geçirmesi gerekir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude Code ile mobil uygulama yapılabilir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Code kod yazan bir araç olduğu için farklı türde projelerde kullanılabilir. Bir uygulamayı mağazaya çıkarmak ise ayrıca mağaza hesabı, inceleme süreci ve güncelleme işi demektir; ilk deneme için tarayıcıda açılan küçük bir uygulama daha kolay bir başlangıçtır."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/cagri.css">
+<link rel="stylesheet" href="/assets/uras-asistan.css">
+</head>
+<body class="serit-var">
+
+<!-- ====== KAYAN ŞERİT ====== -->
+<div class="serit serit--sabit" role="region" aria-label="Duyurular">
+  <div class="serit-iz">
+    <ul class="serit-grup"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a></li></ul>
+    <ul class="serit-grup" aria-hidden="true"><li>Keşif görüşmesi ücretsiz</li><li><a href="/fiyatlar.html" tabindex="-1">Fiyatlar baştan yazılı — Başlangıç 349 $'dan (KDV hariç)</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer" tabindex="-1">WhatsApp'tan yazın</a></li></ul>
+  </div>
+</div>
+
+<nav class="blog-nav" data-cg-gizle>
+  <a href="/" class="blog-nav-logo">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><path d="M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>URAS <span class="logo-tech">Tech</span></span>
+  </a>
+  <ul class="blog-nav-links">
+    <li><a href="/#hizmetler">Hizmetler</a></li>
+    <li><a href="/#platformlar">Ürünlerimiz</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+  </ul>
+  <a href="/#iletisim" class="blog-nav-cta">Ücretsiz Görüşme</a>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="breadcrumb"><a href="/blog/">Blog</a> / Web Sitesi</div>
+    <h1>Claude Code ile Uygulama Geliştirme: Başlangıç Rehberi</h1>
+    <div class="article-meta">
+      <span>21 Kasım 2026</span>
+      <span>·</span>
+      <span>6 dk okuma</span>
+      <span>·</span>
+      <span>Web Sitesi</span>
+    </div>
+  </div>
+</header>
+
+<main class="blog-main">
+  <article class="article-body">
+
+    <div class="callout">
+      <span class="callout-label">Kısa cevap</span>
+      <p>Claude Code, Anthropic&#x27;in kod yazan yapay zekâ aracıdır: ona ne istediğinizi Türkçe anlatırsınız, o da proje klasörünüzdeki dosyaları okur, kod yazar ve komut çalıştırır. Claude Code ile uygulama geliştirme için bir Claude aboneliği ya da Anthropic Console hesabı açar, aracı terminale, VS Code&#x27;a veya masaüstü uygulamasına kurar ve boş bir klasörde küçük bir uygulama yapma işiyle başlarsınız. İç kullanım için basit bir araç yapmak mümkündür; müşteri verisi tutan, ödeme alan ya da sürekli açık kalması gereken bir uygulamada ise güvenlik ve bakım sorumluluğu sizde kalır.</p>
+    </div>
+    <p>Bir işletme sahibi olarak &quot;şu küçük işi yapan bir program olsa&quot; diye düşündüğünüz bir an mutlaka olmuştur: stok sayımı için basit bir ekran, çalışanların izin günlerini tutan bir form ya da her akşam aynı raporu hazırlayan bir tablo. Bugün bu tür bir şeyi kodlama bilmeden denemek mümkün. Bu yazı Claude Code&#x27;un ne işe yaradığını ve nerede sizi yarı yolda bırakabileceğini dürüstçe anlatıyor.</p>
+    <h2>Claude Code tam olarak ne yapar</h2>
+    <p>Anthropic&#x27;in resmî belgelerine göre Claude Code, kod tabanınızı okuyan, dosyaları düzenleyen, komut çalıştıran ve geliştirme araçlarınızla birlikte çalışan bir kodlama aracıdır. Terminalde, VS Code ve JetBrains gibi kod editörlerinde, masaüstü uygulamasında ve tarayıcıda (claude.ai/code) çalışır. Ona sade bir dille &quot;müşteri adlarını ve sipariş tarihlerini tutan bir sayfa yap&quot; dediğinizde yaklaşımı planlar, gereken dosyaları yazar ve çalışıp çalışmadığını kontrol etmeye çalışır.</p>
+<p>Sohbet penceresindeki bir yapay zekâ size kod önerir; Claude Code ise bilgisayarınızda dosyayı kendisi oluşturur ve komutu kendisi çalıştırır. Bu yüzden hem daha çok iş yapar hem de daha dikkatli kullanılması gerekir.</p>
+    <h2>Adım adım: ilk uygulamanızı yapmak</h2>
+    <p>Aşağıdaki adımlar Anthropic&#x27;in resmî başlangıç sayfasına dayanıyor. Komutlar ve menüler sürüme göre değişebilir, kurmadan önce resmî sayfaya bir kez bakmanızı öneririz.</p>
+    <ol>
+      <li>Bir hesap açın. Çoğu kullanım yolu bir Claude aboneliği ya da Anthropic Console hesabı ister; masaüstü uygulaması ücretli abonelik gerektirir. Güncel planları Claude&#x27;un kendi fiyat sayfasında görebilirsiniz.</li>
+      <li>Size en kolay geleni seçin. Terminal hiç kullanmadıysanız masaüstü uygulamasını indirip giriş yapın ve «Code» sekmesini açın; bu uygulama Claude Code&#x27;u kendi içinde getirir.</li>
+      <li>Terminali tercih ederseniz Windows&#x27;ta PowerShell&#x27;e <code>irm https://claude.ai/install.ps1 | iex</code>, macOS ve Linux&#x27;ta <code>curl -fsSL https://claude.ai/install.sh | bash</code> komutunu yapıştırın. Kurulum bitince yeni bir terminal penceresinde <code>claude --version</code> yazdığınızda bir sürüm numarası görmelisiniz.</li>
+      <li>Bilgisayarınızda yalnızca bu deneme için boş bir klasör açın, terminalde o klasöre geçin ve <code>claude</code> yazın. İlk açılışta giriş yapmanız istenir.</li>
+      <li>İsteğinizi tek ve küçük bir işle sınırlayın. Örneğin: &quot;Bu klasörde, tarayıcıda açılan tek sayfalık bir stok sayım listesi yap. Ürün adı ve adet girilsin, liste bilgisayarda kalsın.&quot; Ne istediğinizi ne kadar somut anlatırsanız sonuç o kadar işe yarar.</li>
+      <li>Claude Code bir dosyayı değiştirmeden ya da komut çalıştırmadan önce izin istediğinde ne yapacağını okuyun ve anlamadığınız bir komutu onaylamayın. Sonucu açıp deneyin, beğenmediğiniz yeri yine sade bir dille söyleyin.</li>
+      <li>Kalıcı kurallarınızı proje klasörüne <code>CLAUDE.md</code> adlı bir dosyaya yazın (&quot;arayüz Türkçe olsun&quot;, &quot;müşteri verisi bu bilgisayardan çıkmasın&quot; gibi). Araç her oturumun başında bu dosyayı okur.</li>
+    </ol>
+    <p>Anthropic&#x27;in Claude Academy sitesinde ücretsiz «Claude Code 101» kursu da var; komutları ezberlemeden mantığını anlamak için iyi bir başlangıç.</p>
+    <h2>Gerçekçi sınırlar: güvenlik ve bakım</h2>
+    <p>Anthropic&#x27;in güvenlik sayfası açıkça şunu söylüyor: önerilen kodu ve komutları onaylamadan önce güvenli olup olmadıklarını kontrol etmek kullanıcının sorumluluğundadır. Kod okumayı bilmeyen biri için bu cümle ciddi bir sınırdır. Araç izin isterken &quot;evet&quot; demek kolaydır, ama neye evet dediğinizi bilmeniz gerekir.</p>
+<p>Güvenlik tarafında en sık karşılaşılan tuzaklar şunlardır. Uygulama internete açıldığında giriş ekranı, parolaların saklanması ve kimin hangi veriyi görebileceği doğru kurulmazsa müşteri bilgileri başkalarının eline geçebilir. API anahtarı gibi gizli bilgiler yanlışlıkla koda yazılıp paylaşılabilir. Anthropic aynı sayfada, güvenmediğiniz içerikleri (bir web sayfası, başkasının gönderdiği dosya) araca doğrudan vermemeyi ve önemli dosyalardaki değişiklikleri kontrol etmeyi öneriyor.</p>
+<p>Bakım tarafı daha az konuşulur ama en çok zaman alan kısımdır. Uygulama yayına çıktıktan sonra kullandığı kütüphaneler güncellenir, tarayıcılar değişir, veri büyür ve bir gün bir şey bozulur. O gün hatayı anlamanız, yedekten geri dönebilmeniz ve bozulan yeri düzeltebilmeniz gerekir. Claude Code bu işlerde de yardım eder, ama neyin bozulduğunu fark etmek ve sonucu doğrulamak yine sizin işinizdir.</p>
+<p>Kendi ürünlerimiz Velocost ve Premisey&#x27;i de bu tür yapay zekâ kodlama araçlarıyla geliştiriyoruz. Bu süreçte aracın kod yazmayı hızlandırdığını gördük; neyin güvenli olduğuna, verinin nerede durduğuna ve bir hatanın ne zaman canlıya çıkacağına ise yine biz karar veriyoruz.</p>
+    <h2>Ne zaman kendiniz yaparsınız, ne zaman bir geliştiriciye verirsiniz</h2>
+    <table><tr><th>Durum</th><th>Kendiniz deneyebilirsiniz</th><th>Bir geliştiriciyle konuşun</th></tr><tr><td>Kim kullanacak</td><td>Yalnız siz ya da ofisteki birkaç kişi</td><td>Müşterileriniz, internetteki herkes</td></tr><tr><td>Hangi veri</td><td>Ürün listesi, iç notlar</td><td>Müşteri adı, telefon, sağlık ya da ödeme bilgisi</td></tr><tr><td>Bozulursa ne olur</td><td>Bir gün elle devam edersiniz</td><td>Satış durur, müşteri mağdur olur</td></tr><tr><td>Başka programa bağlanıyor mu</td><td>Hayır</td><td>Muhasebe, e-ticaret, WhatsApp gibi sistemlere bağlanıyor</td></tr></table>
+<p>Tablonun sağ sütununa düşen bir uygulamada Claude Code yine işe yarar, ama tek başına yeterli olmaz. Müşteri verisi işleyen bir sistemde KVKK yükümlülükleri, yedekleme ve erişim izinleri gibi konular kod yazmaktan önce düşünülmesi gereken konulardır.</p>
+    <div class="solution-card">
+      <span class="solution-tag">Bu sorunu çözen bir sistem</span>
+      <h3>Web sitesi &amp; dijital altyapı</h3>
+      <p>Denediğiniz fikir iç kullanım sınırını aşıp müşteriye açılacaksa, onu sizin için güvenli biçimde kurup yayında tutabiliriz. Panel, üyelik ya da ödeme içeren web uygulamasını sizin sürecinize göre yazıyor, alan adını, sunucuyu ve hesapları sizin adınıza açıyor, kurulumdan sonra izlemeye devam ediyoruz. Elinizde Claude Code ile yaptığınız bir deneme varsa onu da görüşmeye getirin; neyin korunup neyin yeniden yazılması gerektiğini açıkça söyleriz. Paketler ve başlangıç fiyatları <a href="https://urastech.com/fiyatlar.html">fiyatlar sayfamızda</a> yazılıdır.</p>
+      <a href="/#iletisim" class="solution-cta">
+        Ücretsiz görüşme
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <h2>Sık Sorulan Sorular</h2>
+    <div class="faq-item">
+      <h3>Claude Code ile uygulama yapmak için kod bilmek gerekir mi?</h3>
+      <p>Basit bir iç kullanım aracı için gerekmez; isteğinizi sade bir dille anlatırsınız. Ancak aracın önerdiği komutları ve değişiklikleri onaylarken ne yaptıklarını anlamanız gerekir, bu yüzden temel bir bilgi işinizi çok kolaylaştırır.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Claude Code ücretsiz mi?</h3>
+      <p>Anthropic&#x27;in belgelerine göre çoğu kullanım yolu bir Claude aboneliği ya da Anthropic Console hesabı ister, masaüstü uygulaması da ücretli abonelik gerektirir. Güncel fiyatlar Claude&#x27;un kendi fiyat sayfasında yazar.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Claude Code ile yapılan uygulama güvenli mi?</h3>
+      <p>Araç izin sistemi ve korumalar sunar, ama Anthropic önerilen kodu ve komutları kontrol etmenin kullanıcının sorumluluğunda olduğunu yazıyor. Müşteri verisi ya da ödeme içeren bir uygulamada bir geliştiricinin kodu gözden geçirmesi gerekir.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Claude Code ile mobil uygulama yapılabilir mi?</h3>
+      <p>Claude Code kod yazan bir araç olduğu için farklı türde projelerde kullanılabilir. Bir uygulamayı mağazaya çıkarmak ise ayrıca mağaza hesabı, inceleme süreci ve güncelleme işi demektir; ilk deneme için tarayıcıda açılan küçük bir uygulama daha kolay bir başlangıçtır.</p>
+    </div>
+    <div class="related-box">
+      <h4>Kaynaklar</h4>
+      <ul>
+        <li><a href="https://code.claude.com/docs/en/overview">Claude Code Docs: Overview</a> ✅ 2026-11-20</li>
+        <li><a href="https://code.claude.com/docs/en/security">Claude Code Docs: Security</a> ✅ 2026-11-20</li>
+        <li><a href="https://academy.claude.com/courses/claude-code-101">Claude Academy: Claude Code 101</a> 🟡 2026-11-20 (resmî belgedeki bağlantı, sayfa ayrıca açılmadı)</li>
+        <li><a href="https://claude.com/pricing">Claude fiyatları</a> 🟡 2026-11-20 (resmî belgedeki bağlantı, fiyat yazıya alınmadı)</li>
+      </ul>
+    </div>
+
+    <a href="/blog/" class="back-link">← Tüm yazılara dön</a>
+  </article>
+</main>
+
+<footer class="blog-footer">
+  <div class="blog-footer-links">
+    <a href="/kvkk.html">KVKK Aydınlatma Metni</a>
+    <a href="/gizlilik.html">Gizlilik Politikası</a>
+    <a href="/cerez-politikasi.html">Çerez Politikası</a>
+  </div>
+  <p>© 2026 Uras Tech · <a href="/">urastech.com</a> · <a href="mailto:info@urastech.com">info@urastech.com</a></p>
+</footer>
+
+<script src="/assets/cagri.js" defer></script>
+<script src="/assets/uras-maskot.js" defer></script>
+<script src="/assets/uras-bilgi.js" defer></script>
+<script src="/assets/uras-asistan.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
+</body>
+</html>
