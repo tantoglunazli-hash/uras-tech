@@ -34,3 +34,11 @@
 - E-posta: info@urastech.com
 - Telefon: +90 506 358 30 35
 - Konum: Tekirdağ, Türkiye
+
+## Fiyatlar (USD, KDV ve üçüncü taraf ücretleri hariç; ayrıntı: https://urastech.com/fiyatlar.html)
+- Başlangıç: kurulum 349 $'dan, aylık destek 69 $ — tek süreç ya da tek kanallı yapay zekâ asistanı.
+- Büyüme: kurulum 690 $'dan, aylık destek 139 $ — çok adımlı otomasyon, iki kanallı asistan, form → CRM.
+- Çok şubeli / ajans: kurulum 1.390 $'dan, aylık destek 229 $.
+- Size özel: yazılı teklifle.
+- Ek modüller: kurulum 129 $'dan (WhatsApp ve web sitesi asistanı 199 $'dan); reklam görsel & video aylık paketi teklifle.
+- Meta mesaj ücretleri, yapay zekâ kullanımı ve sunucu bedeli müşterinin kendi hesabından ödenir. Keşif görüşmesi ücretsiz.
