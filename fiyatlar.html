@@ -1,0 +1,700 @@
+<!-- TASLAK: fiyatlar patron onayıyla doldurulacak, sirket-ozel/FIYATLAR.md -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fiyatlar: Otomasyon, Asistan ve Web Paketleri | Uras Tech</title>
+<meta name="description" content="Uras Tech paketleri: otomasyon, 7/24 yapay zekâ asistanı ve iş akışlı web altyapısı. Tek seferlik kurulum + aylık destek, fiyat baştan yazılı.">
+<meta property="og:title" content="Fiyatlar | Uras Tech">
+<meta property="og:description" content="Başlangıç, Büyüme ve Çok şubeli paketler, ek modüller. Kapsam ve fiyat baştan yazılı; keşif görüşmesi ücretsiz.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://urastech.com/fiyatlar.html">
+<meta property="og:image" content="https://urastech.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fiyatlar | Uras Tech">
+<meta name="twitter:description" content="Başlangıç, Büyüme ve Çok şubeli paketler, ek modüller. Kapsam ve fiyat baştan yazılı; keşif görüşmesi ücretsiz.">
+<meta name="twitter:image" content="https://urastech.com/assets/og.png">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://urastech.com/fiyatlar.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://urastech.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Fiyatlar", "item": "https://urastech.com/fiyatlar.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Fiyatlara KDV dahil mi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Bu sayfadaki ve tekliflerimizdeki fiyatlar KDV hariç yazılır." }
+    },
+    {
+      "@type": "Question",
+      "name": "Sözleşme süresi var mı, aylık desteği bırakabilir miyim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Süre ve iptal koşulları kapsamla birlikte teklifte yazılır. Teklifte yazmayan bir koşul sonradan çıkmaz. Sistem sizin adınıza kurulduğu için, yolumuz ayrılsa bile sistem sizde kalır." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ödemeyi nasıl yapıyorum?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ödeme biçimi ve takvimi teklifte yazılır. Teklif netleşene kadar hiçbir ödeme yok." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kampanya ya da indirim var mı?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hayır. İndirim ve kampanya yapmıyoruz; fiyat herkese aynı. Bugün soran da bir ay sonra soran da aynı kapsam için aynı fiyatı görür." }
+    },
+    {
+      "@type": "Question",
+      "name": "Hangi paketin bana uyduğunu nasıl bilirim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Keşif görüşmesinde dinleriz, ertesi gün gönderdiğimiz ilk okumada hangi basamağın yeteceğini yazarız. İhtiyacınız hazır bir araçla çözülüyorsa bunu da açıkça söyleriz." }
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A192F'/%3E%3Cpath d='M7 7L7 18Q7 25 16 25Q25 25 25 18L25 7M25 7L28.5 10.5' stroke='%23FF5733' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0B1220">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   URASTECH — Fiyatlar (taslak). Ana sayfanın "dijital pafta"
+   sisteminin bu sayfada kullanılan parçaları + fiyat kartları.
+   ========================================================= */
+:root {
+  --ink: #0B1220;
+  --ink-2: #111A2C;
+  --ink-3: #18233A;
+  --paper: #F4F2EC;
+  --paper-2: #ECE8DF;
+  --sig: #FF5733;
+  --sig-soft: rgba(255, 87, 51, 0.12);
+  --ok: #16A34A;
+  --ok-soft: rgba(22, 163, 74, 0.12);
+
+  --t-d: #E7EBF3;
+  --m-d: #8E9AB0;
+  --l-d: rgba(148, 163, 184, 0.16);
+  --l-d2: rgba(148, 163, 184, 0.07);
+  --t-l: #0B1220;
+  --m-l: #5A6273;
+  --l-l: rgba(11, 18, 32, 0.12);
+  --l-l2: rgba(11, 18, 32, 0.05);
+
+  --f-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --r: 10px;
+  --pad: clamp(16px, 4vw, 48px);
+  --max: 1200px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--f-sans);
+  background: var(--paper);
+  color: var(--t-l);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--sig); color: #fff; }
+:focus-visible { outline: 2px solid var(--sig); outline-offset: 3px; border-radius: 4px; }
+
+.mono { font-family: var(--f-mono); font-feature-settings: "zero" 1; letter-spacing: 0.02em; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+/* ---- zeminler ---- */
+.dark {
+  background-color: var(--ink);
+  color: var(--t-d);
+  background-image:
+    linear-gradient(var(--l-d2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--l-d2) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.light {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--l-l2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--l-l2) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.light.alt { background-color: var(--paper-2); }
+section { position: relative; padding: clamp(64px, 9vw, 112px) 0; scroll-margin-top: 64px; }
+
+/* ---- bölüm başlığı: pafta etiketi ---- */
+.sheet-tag {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sig); margin-bottom: 20px;
+}
+.sheet-tag .rule { flex: 0 0 48px; height: 1px; background: currentColor; opacity: 0.5; }
+.sheet-tag .dim { color: var(--m-l); }
+.dark .sheet-tag .dim { color: var(--m-d); }
+.head-row { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+h2.h { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+.sub { color: var(--m-l); font-size: 1.05rem; max-width: 52ch; }
+.dark .sub { color: var(--m-d); }
+.hl { color: var(--sig); }
+
+/* ---- köşe işaretleri ---- */
+.ticks { position: relative; }
+.ticks::before, .ticks::after {
+  content: ''; position: absolute; width: 10px; height: 10px; pointer-events: none;
+  border-color: var(--sig); border-style: solid; opacity: 0.8;
+}
+.ticks::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.ticks::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+/* ---- butonlar ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+  transition: transform .25s var(--ease), background .25s, border-color .25s, color .25s;
+  white-space: nowrap;
+}
+.btn svg { transition: transform .25s var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+.btn-sig { background: var(--sig); color: #fff; }
+.btn-sig:hover { background: #F04A27; transform: translateY(-1px); }
+.btn-line { border: 1px solid var(--l-d); color: var(--t-d); }
+.btn-line:hover { border-color: var(--sig); color: #fff; }
+.light .btn-line { border-color: var(--l-l); color: var(--t-l); }
+.light .btn-line:hover { border-color: var(--sig); color: var(--sig); }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-ink:hover { background: var(--ink-3); transform: translateY(-1px); }
+
+/* ---- NAV ---- */
+#nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  background: rgba(11, 18, 32, 0.78);
+  backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--l-d);
+  color: var(--t-d);
+}
+.nav-in { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.01em; }
+.logo small { font-weight: 400; color: var(--m-d); }
+.nav-links { display: flex; gap: 28px; list-style: none; font-size: 0.9rem; color: var(--m-d); }
+.nav-links a { transition: color .2s; }
+.nav-links a:hover { color: #fff; }
+.nav-links .mono { color: var(--sig); opacity: .8; font-size: .7rem; margin-right: 6px; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-right .btn { padding: 10px 16px; font-size: .88rem; }
+.burger { display: none; width: 40px; height: 40px; border: 1px solid var(--l-d); border-radius: 8px; position: relative; }
+.burger span { position: absolute; left: 11px; right: 11px; height: 1.5px; background: var(--t-d); transition: transform .3s var(--ease), opacity .2s; }
+.burger span:nth-child(1) { top: 14px; } .burger span:nth-child(2) { top: 19px; } .burger span:nth-child(3) { top: 24px; }
+.burger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+.mnav {
+  position: fixed; inset: 64px 0 0 0; z-index: 49; background: var(--ink); color: var(--t-d);
+  display: flex; flex-direction: column; padding: 24px var(--pad); gap: 4px;
+  transform: translateY(-8px); opacity: 0; visibility: hidden; transition: opacity .3s, transform .3s var(--ease), visibility .3s;
+}
+.mnav.open { opacity: 1; transform: none; visibility: visible; }
+.mnav a:not(.btn) { padding: 14px 0; border-bottom: 1px solid var(--l-d); font-size: 1.15rem; display: flex; justify-content: space-between; }
+.mnav a .mono { color: var(--sig); font-size: .75rem; }
+.mnav .btn { margin-top: 20px; justify-content: center; }
+
+/* ---- HERO (alt sayfa) ---- */
+#hero { padding: clamp(120px, 14vw, 168px) 0 clamp(56px, 8vw, 88px); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-d); margin-bottom: 24px; }
+.hero-meta b { color: var(--sig); font-weight: 500; }
+.hero-meta a:hover { color: var(--t-d); }
+.hero-h { font-size: clamp(2.7rem, 6.2vw, 5.2rem); line-height: .98; letter-spacing: -0.045em; font-weight: 600; }
+.hero-sub { margin-top: 22px; color: var(--m-d); font-size: 1.1rem; max-width: 52ch; }
+.hero-sub b { color: var(--t-d); font-weight: 600; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+/* ---- kartlar ---- */
+.card {
+  position: relative; border-radius: var(--r); border: 1px solid var(--l-l); background: rgba(255, 255, 255, 0.55);
+  padding: 28px; transition: border-color .3s;
+}
+.card:hover { border-color: rgba(255, 87, 51, .45); }
+.dark .card { background: rgba(17, 26, 44, 0.72); border-color: var(--l-d); }
+.card-id { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; color: var(--sig); display: flex; justify-content: space-between; gap: 12px; }
+.card-id span:last-child { color: var(--m-l); }
+.dark .card-id span:last-child { color: var(--m-d); }
+
+/* ---- basamak şeridi ---- */
+.ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: end; margin-bottom: 16px; }
+.ladder div { border-top: 1px solid var(--sig); border-left: 1px solid var(--l-l); height: var(--h); padding: 8px 0 0 10px; font-family: var(--f-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
+.ladder div b { color: var(--sig); font-weight: 500; margin-right: 6px; }
+
+/* ---- paket kartları ---- */
+.plan-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.plan { display: flex; flex-direction: column; background: #fff; }
+.plan.rec { border-color: var(--sig); box-shadow: 0 30px 60px -44px rgba(255, 87, 51, .55); }
+.plan-badge { position: absolute; top: -11px; right: 20px; font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; background: var(--sig); color: #fff; border-radius: 4px; padding: 3px 8px; }
+.plan h3 { font-size: 1.45rem; margin: 22px 0 10px; }
+.plan-out { font-size: 1rem; font-weight: 500; color: var(--t-l); line-height: 1.45; }
+.plan-for { margin-top: 10px; font-size: .88rem; color: var(--m-l); }
+.plan-for b { font-family: var(--f-mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--t-l); font-weight: 500; display: block; margin-bottom: 2px; }
+.plan-sec { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--l-l); font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
+.plan ul { list-style: none; display: grid; gap: 9px; margin-top: 10px; flex: 1; align-content: start; }
+.plan li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: .9rem; color: var(--m-l); }
+.plan li::before { content: ''; margin-top: 8px; width: 8px; height: 8px; border: 1.5px solid var(--sig); border-radius: 2px; }
+.plan li b { color: var(--t-l); font-weight: 600; }
+
+.price { margin-top: 22px; border: 1px solid var(--l-l); border-radius: 8px; background: var(--paper); }
+.price-head { padding: 9px 14px; border-bottom: 1px solid var(--l-l); font-family: var(--f-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
+.price-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; padding: 10px 14px; border-bottom: 1px dashed var(--l-l); }
+.price-row:last-of-type { border-bottom: 0; }
+.price-k { font-size: .84rem; color: var(--m-l); }
+.fiyat { font-family: var(--f-mono); font-size: 1.15rem; font-weight: 500; letter-spacing: -0.01em; color: var(--t-l); white-space: nowrap; }
+.fiyat-not { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-top: 1px solid var(--l-l); font-family: var(--f-mono); font-size: .62rem; letter-spacing: .05em; text-transform: uppercase; color: var(--sig); }
+.fiyat-not::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.price-custom { padding: 12px 14px; font-size: .88rem; color: var(--m-l); }
+.plan .btn { margin-top: 16px; justify-content: center; }
+.plans-note { margin-top: 28px; color: var(--m-l); max-width: 72ch; font-size: .95rem; }
+.plans-note b { color: var(--t-l); font-weight: 600; }
+
+/* ---- ek modüller ---- */
+.mod-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mod { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; align-items: center; padding: 20px 22px; }
+.mod .card-id { grid-column: 1 / -1; }
+.mod h3 { font-size: 1.08rem; letter-spacing: -0.02em; line-height: 1.25; }
+.mod p { font-size: .88rem; color: var(--m-d); margin-top: 4px; }
+.mod-price { text-align: right; }
+.mod-price .fiyat { color: var(--t-d); }
+.mod-price small { display: block; font-family: var(--f-mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sig); margin-top: 2px; }
+
+/* ---- kurulum nasıl fiyatlanır ---- */
+.commit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.commit h3 { font-size: 1.12rem; margin: 18px 0 10px; }
+.commit p { color: var(--m-l); font-size: .92rem; }
+
+/* ---- SSS ---- */
+.faq { max-width: 860px; margin: 0 auto; border-top: 1px solid var(--l-l); }
+.faq-item { border-bottom: 1px solid var(--l-l); }
+.faq-q { width: 100%; display: grid; grid-template-columns: 52px 1fr 24px; align-items: center; gap: 8px; text-align: left; padding: 22px 0; font-size: 1.05rem; font-weight: 500; }
+.faq-q .mono { font-size: .72rem; color: var(--sig); }
+.faq-q .plus { width: 24px; height: 24px; position: relative; }
+.faq-q .plus::before, .faq-q .plus::after { content: ''; position: absolute; left: 5px; right: 5px; top: 11px; height: 1.5px; background: var(--t-l); transition: transform .3s var(--ease); }
+.faq-q .plus::after { transform: rotate(90deg); }
+.faq-item.open .plus::after { transform: rotate(0); }
+.faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s var(--ease); }
+.faq-a > div { overflow: hidden; }
+.faq-a p { padding: 0 32px 24px 60px; color: var(--m-l); }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+
+/* ---- son çağrı ---- */
+.final { text-align: left; }
+.final .h { max-width: 18ch; }
+.final .sub { margin-top: 20px; }
+.final-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.reply { margin-top: 18px; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--m-d); display: flex; align-items: center; gap: 8px; }
+.reply::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
+
+/* ---- footer ---- */
+footer { padding: 56px 0 32px; border-top: 1px solid var(--l-d); }
+.foot-grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 32px; }
+.foot-grid h4 { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-d); font-weight: 500; margin-bottom: 14px; }
+.foot-grid ul { list-style: none; display: grid; gap: 8px; font-size: .9rem; color: var(--t-d); }
+.foot-grid a:hover { color: var(--sig); }
+.foot-brand p { color: var(--m-d); font-size: .9rem; margin: 14px 0 0; }
+.foot-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--l-d); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .8rem; color: var(--m-d); }
+.foot-bottom nav { display: flex; gap: 16px; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* ---- duyarlı ---- */
+@media (max-width: 1080px) {
+  .plan-grid, .commit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan-grid { row-gap: 28px; }
+  .ladder { display: none; }
+  .nav-links { gap: 18px; }
+  .foot-grid { grid-template-columns: repeat(3, 1fr); }
+  .foot-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  .nav-links, .nav-right .btn { display: none; }
+  .burger { display: block; }
+  .head-row, .mod-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .plan-grid, .commit-grid { grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 22px; }
+  .mod { padding: 18px; grid-template-columns: minmax(0, 1fr); }
+  .mod-price { text-align: left; display: flex; align-items: baseline; gap: 12px; margin-top: 6px; }
+  .mod-price small { margin-top: 0; }
+  .faq-q { grid-template-columns: 36px 1fr 24px; font-size: 1rem; }
+  .faq-a p { padding: 0 8px 22px 44px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .hero-cta .btn, .final-cta .btn { flex: 1 1 auto; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<header id="nav">
+  <div class="nav-in">
+    <a href="/" class="logo" aria-label="Uras Tech ana sayfa">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="31" height="31" rx="6" stroke="rgba(148,163,184,.35)"/><path d="M8 8V18Q8 24.5 16 24.5Q24 24.5 24 18V8M24 8L27 11" stroke="#FF5733" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>URAS <small>Tech</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#hizmetler"><span class="mono">01</span>Hizmetler</a></li>
+      <li><a href="/#platformlar"><span class="mono">02</span>Ürünlerimiz</a></li>
+      <li><a href="/#nasil-calisir"><span class="mono">03</span>Nasıl Çalışır</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/#iletisim" class="btn btn-sig">Ücretsiz Görüşme</a>
+      <button class="burger" id="burger" aria-label="Menü" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobil menü">
+  <a href="/#hizmetler">Hizmetler <span class="mono">01</span></a>
+  <a href="/#platformlar">Ürünlerimiz <span class="mono">02</span></a>
+  <a href="/#nasil-calisir">Nasıl Çalışır <span class="mono">03</span></a>
+  <a href="/#sss">SSS <span class="mono">04</span></a>
+  <a href="/blog/">Blog <span class="mono">↗</span></a>
+  <a href="/#iletisim" class="btn btn-sig">Ücretsiz Görüşme</a>
+</nav>
+
+<main>
+<!-- ====== HERO ====== -->
+<section id="hero" class="dark">
+  <div class="wrap">
+    <div class="hero-meta"><span><a href="/">Ana Sayfa</a> / <b>Fiyatlar</b></span><span>Fiyat cetveli · Rev. 2026-11</span></div>
+    <h1 class="hero-h">Fiyatlar</h1>
+    <p class="hero-sub">Kapsam ve fiyat baştan yazılı; sürpriz kalem çıkmaz. <b>Keşif görüşmesi ücretsiz.</b></p>
+    <div class="hero-cta">
+      <a href="#paketler" class="btn btn-sig">Paketleri görün <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/#iletisim" class="btn btn-line">Ücretsiz Keşif Görüşmesi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PAKETLER ====== -->
+<section id="paketler" class="light">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="sheet-tag"><span>Detay 01</span><span class="rule"></span><span class="dim">Paketler</span></div>
+        <h2 class="h">Küçük başlayın,<br><span class="hl">ihtiyaç büyüdükçe çıkın.</span></h2>
+      </div>
+      <p class="sub">Her paket bir basamak. Bir üstüne geçtiğinizde kurulu sistem yerinde kalır, üzerine eklenir. Her pakette kurulum tek sefer ödenir, aylık destek ayrıca yazılır.</p>
+    </div>
+
+    <div class="ladder" aria-hidden="true">
+      <div style="--h:14px"><b>01</b>Başlangıç</div>
+      <div style="--h:28px"><b>02</b>Büyüme</div>
+      <div style="--h:42px"><b>03</b>Çok şubeli</div>
+      <div style="--h:56px"><b>04</b>Size özel</div>
+    </div>
+
+    <div class="plan-grid">
+      <!-- P-01 Başlangıç -->
+      <article class="card plan ticks">
+        <div class="card-id"><span>P-01</span><span>Basamak 1/4</span></div>
+        <h3>Başlangıç</h3>
+        <p class="plan-out">Sizi en çok yoran tek iş kendi kendine yürür.</p>
+        <p class="plan-for"><b>Kimin için</b>Tek bir süreçte tıkanan küçük işletmeler.</p>
+        <div class="plan-sec">Pakette neler var</div>
+        <ul>
+          <li><span>Şunlardan biri: <b>tek süreç otomasyonu</b> ya da <b>7/24 yapay zekâ asistanı</b></span></li>
+          <li><span>Asistan seçilirse tek kanal: WhatsApp ya da web sitesi</span></li>
+          <li><span>Kullandığınız programlara bağlantı</span></li>
+          <li><span>Kullanım rehberi ve kısa ekip eğitimi</span></li>
+          <li><span>Kurulum sonrası izleme ve destek</span></li>
+        </ul>
+        <div class="price">
+          <div class="price-head">Kurulum (tek sefer) + aylık destek</div>
+          <div class="price-row"><span class="price-k">Kurulum, tek sefer</span><span class="fiyat" data-fiyat="baslangic-kurulum">₺ —</span></div>
+          <div class="price-row"><span class="price-k">Aylık destek</span><span class="fiyat" data-fiyat="baslangic-aylik">₺ —</span></div>
+          <p class="fiyat-not">Fiyat yakında · KDV hariç</p>
+        </div>
+      </article>
+
+      <!-- P-02 Büyüme -->
+      <article class="card plan rec ticks">
+        <span class="plan-badge">Önerilen</span>
+        <div class="card-id"><span>P-02</span><span>Basamak 2/4</span></div>
+        <h3>Büyüme</h3>
+        <p class="plan-out">Müşterinin ilk mesajından randevusuna kadar her adım tek akışta.</p>
+        <p class="plan-for"><b>Kimin için</b>Müşterisi artan, elle takibin artık yetişmediği büyüyen işletmeler.</p>
+        <div class="plan-sec">Pakette neler var</div>
+        <ul>
+          <li><span><b>Çok adımlı otomasyon:</b> birbirine bağlı işler tek akışta</span></li>
+          <li><span><b>7/24 yapay zekâ asistanı,</b> iki kanalda (ör. WhatsApp + web sitesi)</span></li>
+          <li><span><b>İş akışlı web sitesi altyapısı:</b> form → CRM → takvim</span></li>
+          <li><span>Kullanım rehberi ve ekip eğitimi</span></li>
+          <li><span>Kurulum sonrası izleme ve destek</span></li>
+        </ul>
+        <div class="price">
+          <div class="price-head">Kurulum (tek sefer) + aylık destek</div>
+          <div class="price-row"><span class="price-k">Kurulum, tek sefer</span><span class="fiyat" data-fiyat="buyume-kurulum">₺ —</span></div>
+          <div class="price-row"><span class="price-k">Aylık destek</span><span class="fiyat" data-fiyat="buyume-aylik">₺ —</span></div>
+          <p class="fiyat-not">Fiyat yakında · KDV hariç</p>
+        </div>
+      </article>
+
+      <!-- P-03 Çok şubeli / ajans -->
+      <article class="card plan ticks">
+        <div class="card-id"><span>P-03</span><span>Basamak 3/4</span></div>
+        <h3>Çok şubeli / ajans</h3>
+        <p class="plan-out">Bütün şube ve markalarınızı tek yerden görür, haftayı tek raporla kapatırsınız.</p>
+        <p class="plan-for"><b>Kimin için</b>Birden fazla şubesi olan işletmeler ve birden fazla markayı yöneten ajanslar.</p>
+        <div class="plan-sec">Pakette neler var</div>
+        <ul>
+          <li><span>Büyüme paketindeki kurulum, <b>birden fazla şube ya da marka</b> için</span></li>
+          <li><span><b>Ekip kullanıcıları:</b> her çalışan kendi hesabıyla, kendi yetkisiyle</span></li>
+          <li><span><b>Haftalık rapor:</b> şube ve marka bazında tek e-postada</span></li>
+          <li><span>Kullanım rehberi ve ekip eğitimi</span></li>
+          <li><span>Kurulum sonrası izleme ve destek</span></li>
+        </ul>
+        <div class="price">
+          <div class="price-head">Kurulum (tek sefer) + aylık destek</div>
+          <div class="price-row"><span class="price-k">Kurulum, tek sefer</span><span class="fiyat" data-fiyat="cok-subeli-kurulum">₺ —</span></div>
+          <div class="price-row"><span class="price-k">Aylık destek</span><span class="fiyat" data-fiyat="cok-subeli-aylik">₺ —</span></div>
+          <p class="fiyat-not">Fiyat yakında · KDV hariç</p>
+        </div>
+      </article>
+
+      <!-- P-04 Size özel -->
+      <article class="card plan ticks">
+        <div class="card-id"><span>P-04</span><span>Basamak 4/4</span></div>
+        <h3>Size özel</h3>
+        <p class="plan-out">Basamaklara sığmayan işiniz için, tam sizin akışınıza göre yazılan sistem.</p>
+        <p class="plan-for"><b>Kimin için</b>Kendine özgü iş akışı, özel entegrasyon ya da web uygulaması ihtiyacı olan şirketler.</p>
+        <div class="plan-sec">Nasıl ilerler</div>
+        <ul>
+          <li><span>Ücretsiz keşif görüşmesinde sürecinizi dinleriz</span></li>
+          <li><span>Ertesi gün tek sayfalık <b>ilk okuma</b> gelir</span></li>
+          <li><span>Kapsam ve fiyat yazılı teklifle netleşir</span></li>
+          <li><span>Kurulum sonrası izleme ve destek</span></li>
+        </ul>
+        <div class="price">
+          <div class="price-head">Kurulum (tek sefer) + aylık destek</div>
+          <p class="price-custom">Kapsama göre yazılı teklifle belirlenir.</p>
+        </div>
+        <a href="/#iletisim" class="btn btn-ink">Bize ulaşın <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+    </div>
+
+    <p class="plans-note"><b>Paket size tam uymuyor mu?</b> Bir pakete ek modül eklenebilir. Hangi basamağın yeteceğini keşif görüşmesinden sonraki ilk okumada açıkça yazarız; gerek yoksa bir üst pakete geçmenizi önermeyiz.</p>
+  </div>
+</section>
+
+<!-- ====== EK MODÜLLER ====== -->
+<section id="ek-moduller" class="dark">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="sheet-tag"><span>Detay 02</span><span class="rule"></span><span class="dim">Ek modüller</span></div>
+        <h2 class="h">İhtiyacınız olanı<br><span class="hl">tek tek ekleyin.</span></h2>
+      </div>
+      <p class="sub">Her modül bir pakete eklenebilir. Hangi modülün işinize yarayacağını görüşmede birlikte seçeriz; yaramayacaksa bunu da söyleriz.</p>
+    </div>
+    <div class="mod-grid">
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-01</span><span>Asistan</span></div>
+        <div><h3>WhatsApp asistanı</h3><p>WhatsApp'tan gelen sorulara gece gündüz doğal Türkçeyle cevap verir.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-whatsapp-asistani">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-02</span><span>Sosyal medya</span></div>
+        <div><h3>Instagram yorum → DM otomatik cevap</h3><p>Gönderinize yorum yazan kişiye istediği bilgi DM olarak kendiliğinden gider.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-instagram-yorum-dm">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-03</span><span>Asistan</span></div>
+        <div><h3>Web sitesi asistanı</h3><p>Sitenizdeki ziyaretçiyi karşılar, soruyu cevaplar, gerekirse sizi bilgilendirir.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-web-asistani">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-04</span><span>Takvim</span></div>
+        <div><h3>Online randevu + hatırlatma</h3><p>Müşteri boş saati kendisi seçer, randevudan önce hatırlatma mesajı alır.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-randevu-hatirlatma">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-05</span><span>İtibar</span></div>
+        <div><h3>Google yorumlarını sitede gösterme ve yorum takibi</h3><p>Yorumlarınız sitenizde görünür; yeni yorum geldiğinde haberiniz olur.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-google-yorumlari">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-06</span><span>Satış</span></div>
+        <div><h3>Form → CRM bağlantısı</h3><p>Sitenizdeki formu dolduran kişi, elle aktarım olmadan müşteri listenize düşer.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-form-crm">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-07</span><span>Mesajlar</span></div>
+        <div><h3>Sosyal medya mesaj kutusu (tek ekranda)</h3><p>Instagram, Facebook ve WhatsApp mesajlarını tek ekrandan okur, cevaplarsınız.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-tek-mesaj-kutusu">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-08</span><span>Rapor</span></div>
+        <div><h3>Haftalık rapor e-postası</h3><p>Haftanın mesaj, randevu ve form sayıları her pazartesi e-postanızda.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-haftalik-rapor">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-09</span><span>Uyum</span></div>
+        <div><h3>KVKK hazırlık kontrolü</h3><p>Formlarınız, çerez onayınız ve aydınlatma metniniz bir kontrol listesinden geçer.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-kvkk-kontrol">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+      <article class="card mod ticks">
+        <div class="card-id"><span>M-10</span><span>İçerik</span></div>
+        <div><h3>Reklam görsel &amp; video paketi (aylık)</h3><p>Reklam ve sosyal medya için her ay hazırlanan görsel ve kısa videolar.</p></div>
+        <div class="mod-price"><span class="fiyat" data-fiyat="modul-reklam-gorsel-video-aylik">₺ —</span><small>Fiyat yakında</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== KURULUM NASIL FİYATLANIR ====== -->
+<section id="kurulum" class="light alt">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="sheet-tag"><span>Detay 03</span><span class="rule"></span><span class="dim">Kurulum nasıl fiyatlanır</span></div>
+        <h2 class="h">Bir kez kurulum,<br><span class="hl">sonra aylık destek.</span></h2>
+      </div>
+      <p class="sub">Fiyatın iki kalemi var ve ikisi de teklifte baştan yazılır. Proje ortasında "bu ekstra" denmez.</p>
+    </div>
+    <div class="commit-grid">
+      <div class="card commit ticks"><div class="card-id"><span>K-01</span><span>Kurulum</span></div><h3>Kurulum tek sefer ödenir</h3><p>Sistemin yazılması, kullandığınız programlara bağlanması ve devreye alınması. Bir kez ödenir, her ay tekrar etmez.</p></div>
+      <div class="card commit ticks"><div class="card-id"><span>K-02</span><span>Destek</span></div><h3>Aylık destek: izleme ve bakım</h3><p>Sistem çalışmaya başladıktan sonra izliyor, güncelliyor ve gerektiğinde müdahale ediyoruz. Bir sorun olduğunda tek yapmanız gereken mesaj atmak.</p></div>
+      <div class="card commit ticks"><div class="card-id"><span>K-03</span><span>Teşhis</span></div><h3>Derin teşhis ücreti kurulumdan düşülür</h3><p>Birden fazla süreç iç içeyse ücretli bir derin teşhis öneririz; kapsamı ve ücreti görüşmede yazılı verilir. Kurulum alırsanız bu ücret kurulumdan düşülür.</p></div>
+      <div class="card commit ticks"><div class="card-id"><span>K-04</span><span>Sahiplik</span></div><h3>Sistem sizin adınıza kurulur</h3><p>Alan adı, hesaplar, veri ve erişim sizin adınıza açılır. Yarın yolumuz ayrılsa bile sistem sizde kalır. Kimseye bağımlı olmazsınız.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SSS ====== -->
+<section id="sss" class="light">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="sheet-tag"><span>Detay 04</span><span class="rule"></span><span class="dim">Fiyatla ilgili sorular</span></div>
+        <h2 class="h">Aklınızdaki Sorular</h2>
+      </div>
+      <p class="sub">Cevap bulamadığınız bir soru varsa, doğrudan bize ulaşın.</p>
+    </div>
+    <div class="faq" id="faq">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-01</span><span>Fiyatlara KDV dahil mi?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Hayır. Bu sayfadaki ve tekliflerimizdeki fiyatlar KDV hariç yazılır.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-02</span><span>Sözleşme süresi var mı, aylık desteği bırakabilir miyim?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Süre ve iptal koşulları kapsamla birlikte teklifte yazılır. Teklifte yazmayan bir koşul sonradan çıkmaz. Sistem sizin adınıza kurulduğu için, yolumuz ayrılsa bile sistem sizde kalır.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-03</span><span>Ödemeyi nasıl yapıyorum?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Ödeme biçimi ve takvimi teklifte yazılır. Teklif netleşene kadar hiçbir ödeme yok.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-04</span><span>Kampanya ya da indirim var mı?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Hayır. İndirim ve kampanya yapmıyoruz; fiyat herkese aynı. Bugün soran da bir ay sonra soran da aynı kapsam için aynı fiyatı görür.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span class="mono">S-05</span><span>Hangi paketin bana uyduğunu nasıl bilirim?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Keşif görüşmesinde dinleriz, ertesi gün gönderdiğimiz ilk okumada hangi basamağın yeteceğini yazarız. İhtiyacınız hazır bir araçla çözülüyorsa bunu da açıkça söyleriz.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SON ÇAĞRI ====== -->
+<section id="gorusme" class="dark final">
+  <div class="wrap">
+    <div class="sheet-tag"><span>Detay 05</span><span class="rule"></span><span class="dim">Keşif görüşmesi</span></div>
+    <h2 class="h">Hangi basamaktan başlayacağınızı<br><span class="hl">birlikte bulalım.</span></h2>
+    <p class="sub">20-30 dakikalık ücretsiz bir görüşme. Hazırlık yapmanıza gerek yok. Ertesi gün tek sayfalık ilk okumayı göndeririz; teklif netleşene kadar hiçbir ödeme yok.</p>
+    <div class="final-cta">
+      <a href="/#iletisim" class="btn btn-sig">Ücretsiz keşif görüşmesi alın →</a>
+      <a href="https://wa.me/905063583035?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." class="btn btn-line" target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a>
+    </div>
+    <p class="reply">Mesajınıza 24 saat içinde dönüş yapıyoruz</p>
+  </div>
+</section>
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="logo"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 8V18Q8 24.5 16 24.5Q24 24.5 24 18V8M24 8L27 11" stroke="#FF5733" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>URAS <small>Tech</small></span></a>
+        <p>Kendi ürünlerini yazan yazılım ekibi.<br>Şirketinize özel otomasyon, web ve yapay zekâ.</p>
+      </div>
+      <div><h4>Hizmetler</h4><ul>
+        <li><a href="/#hizmetler">Şirkete Özel Otomasyon</a></li>
+        <li><a href="/#hizmetler">Web Sitesi &amp; Dijital Altyapı</a></li>
+        <li><a href="/#hizmetler">7/24 Yapay Zekâ Asistanı</a></li>
+        <li><a href="/#hizmetler">Reklam Görsel &amp; Video</a></li>
+      </ul></div>
+      <div><h4>Şirket</h4><ul>
+        <li><a href="/#taahhut">Taahhüdümüz</a></li>
+        <li><a href="/#nasil-calisir">Nasıl Çalışır</a></li>
+        <li><a href="/#sss">SSS</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul></div>
+      <div><h4>Hukuki · İletişim</h4><ul>
+        <li><a href="/kvkk.html">KVKK Aydınlatma Metni</a></li>
+        <li><a href="/gizlilik.html">Gizlilik Politikası</a></li>
+        <li><a href="/cerez-politikasi.html">Çerez Politikası</a></li>
+        <li><a href="mailto:info@urastech.com">info@urastech.com</a></li>
+        <li><a href="tel:+905063583035">0506 358 30 35</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Uras Tech. Tüm hakları saklıdır.</span>
+      <nav aria-label="Hukuki"><a href="/kvkk.html">KVKK</a><a href="/gizlilik.html">Gizlilik</a><a href="/cerez-politikasi.html">Çerezler</a><a href="mailto:info@urastech.com">info@urastech.com</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- Mobil menü ---- */
+const burger = document.getElementById('burger');
+const mnav = document.getElementById('mnav');
+function setMenu(open) {
+  burger.classList.toggle('open', open);
+  mnav.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', () => setMenu(!mnav.classList.contains('open')));
+mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+/* ---- SSS ---- */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded', 'false'); });
+  if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+}
+</script>
+<script src="/cookie-consent.js" defer></script>
+</body>
+</html>
