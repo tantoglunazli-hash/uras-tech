@@ -24,6 +24,7 @@
 ## Sayfalar
 
 - [Ana sayfa](https://urastech.com/): hizmetler, çalışma şekli, sık sorulan sorular, iletişim.
+- [KOSGEB Yeşil Sanayi projelerinde yazılım ortaklığı](https://urastech.com/kosgeb-yesil-sanayi-yazilim.html): Sanayide Temiz ve Döngüsel Ekonomi çağrısında yazılım kalemi (enerji, su, hammadde ve fire kayıtlarını toplayan ve raporlayan sistem). Teşvik dosyası yazılmaz; dosya danışmanda kalır.
 - [Blog](https://urastech.com/blog/): operasyon, otomasyon ve filo yönetimi yazıları.
 - [Cevapsız kalan müşteri sorularının maliyeti](https://urastech.com/blog/musteri-sorularini-kacirmanin-gizli-maliyeti.html)
 - [Google yorumları erken uyarı sistemi](https://urastech.com/blog/google-yorumlari-erken-uyari-sistemi.html)
