@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ürün Başına Tüketim Tablosu (Ücretsiz) | Uras Tech</title>
+<meta name="description" content="Vardiya sonunda iki dakikada doldurulan ücretsiz tablo: bir ürünün ne kadar elektrik, su ve hammadde yediğini kendiliğinden hesaplar. Excel ve Google E-Tablolar ile açılır.">
+<meta property="og:title" content="Ürün başına tüketim tablosu (ücretsiz) | Uras Tech">
+<meta property="og:description" content="Vardiya sonunda iki rakam yaz, bir ürünün kaç kWh elektrik, kaç litre su yediğini gör. Ücretsiz indir.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://urastech.com/tablo.html">
+<meta property="og:image" content="https://urastech.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ürün başına tüketim tablosu (ücretsiz) | Uras Tech">
+<meta name="twitter:description" content="Vardiya sonunda iki rakam yaz, bir ürünün kaç kWh elektrik, kaç litre su yediğini gör. Ücretsiz indir.">
+<meta name="twitter:image" content="https://urastech.com/assets/og.png">
+<link rel="canonical" href="https://urastech.com/tablo.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://urastech.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Ürün başına tüketim tablosu", "item": "https://urastech.com/tablo.html" }
+  ]
+}
+</script>
+<style>
+/* =========================================================
+   URASTECH — KOSGEB Yeşil Sanayi sayfası (fiyatlar sayfasının stili). Ana sayfanın "dijital pafta"
+   sisteminin bu sayfada kullanılan parçaları + fiyat kartları.
+   ========================================================= */
+:root {
+  --ink: #0B1220;
+  --ink-2: #111A2C;
+  --ink-3: #18233A;
+  --paper: #F4F2EC;
+  --paper-2: #ECE8DF;
+  --sig: #FF5733;
+  --sig-soft: rgba(255, 87, 51, 0.12);
+  --ok: #16A34A;
+  --ok-soft: rgba(22, 163, 74, 0.12);
+
+  --t-d: #E7EBF3;
+  --m-d: #8E9AB0;
+  --l-d: rgba(148, 163, 184, 0.16);
+  --l-d2: rgba(148, 163, 184, 0.07);
+  --t-l: #0B1220;
+  --m-l: #5A6273;
+  --l-l: rgba(11, 18, 32, 0.12);
+  --l-l2: rgba(11, 18, 32, 0.05);
+
+  --f-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --r: 10px;
+  --pad: clamp(16px, 4vw, 48px);
+  --max: 1200px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--f-sans);
+  background: var(--paper);
+  color: var(--t-l);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--sig); color: #fff; }
+:focus-visible { outline: 2px solid var(--sig); outline-offset: 3px; border-radius: 4px; }
+
+.mono { font-family: var(--f-mono); font-feature-settings: "zero" 1; letter-spacing: 0.02em; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+/* ---- zeminler ---- */
+.dark {
+  background-color: var(--ink);
+  color: var(--t-d);
+  background-image:
+    linear-gradient(var(--l-d2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--l-d2) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.light {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--l-l2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--l-l2) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.light.alt { background-color: var(--paper-2); }
+section { position: relative; padding: clamp(64px, 9vw, 112px) 0; scroll-margin-top: 64px; }
+
+/* ---- bölüm başlığı: pafta etiketi ---- */
+.sheet-tag {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sig); margin-bottom: 20px;
+}
+.sheet-tag .rule { flex: 0 0 48px; height: 1px; background: currentColor; opacity: 0.5; }
+.sheet-tag .dim { color: var(--m-l); }
+.dark .sheet-tag .dim { color: var(--m-d); }
+.head-row { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+h2.h { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+.sub { color: var(--m-l); font-size: 1.05rem; max-width: 52ch; }
+.dark .sub { color: var(--m-d); }
+.hl { color: var(--sig); }
+
+/* ---- köşe işaretleri ---- */
+.ticks { position: relative; }
+.ticks::before, .ticks::after {
+  content: ''; position: absolute; width: 10px; height: 10px; pointer-events: none;
+  border-color: var(--sig); border-style: solid; opacity: 0.8;
+}
+.ticks::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.ticks::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+/* ---- butonlar ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+  transition: transform .25s var(--ease), background .25s, border-color .25s, color .25s;
+  white-space: nowrap;
+}
+.btn svg { transition: transform .25s var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+.btn-sig { background: var(--sig); color: #fff; }
+.btn-sig:hover { background: #F04A27; transform: translateY(-1px); }
+.btn-line { border: 1px solid var(--l-d); color: var(--t-d); }
+.btn-line:hover { border-color: var(--sig); color: #fff; }
+.light .btn-line { border-color: var(--l-l); color: var(--t-l); }
+.light .btn-line:hover { border-color: var(--sig); color: var(--sig); }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-ink:hover { background: var(--ink-3); transform: translateY(-1px); }
+
+/* ---- NAV ---- */
+#nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  background: rgba(11, 18, 32, 0.78);
+  backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--l-d);
+  color: var(--t-d);
+}
+.nav-in { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.01em; }
+.logo small { font-weight: 400; color: var(--m-d); }
+.nav-links { display: flex; gap: 28px; list-style: none; font-size: 0.9rem; color: var(--m-d); }
+.nav-links a { transition: color .2s; }
+.nav-links a:hover { color: #fff; }
+.nav-links .mono { color: var(--sig); opacity: .8; font-size: .7rem; margin-right: 6px; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-right .btn { padding: 10px 16px; font-size: .88rem; }
+.burger { display: none; width: 40px; height: 40px; border: 1px solid var(--l-d); border-radius: 8px; position: relative; }
+.burger span { position: absolute; left: 11px; right: 11px; height: 1.5px; background: var(--t-d); transition: transform .3s var(--ease), opacity .2s; }
+.burger span:nth-child(1) { top: 14px; } .burger span:nth-child(2) { top: 19px; } .burger span:nth-child(3) { top: 24px; }
+.burger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+.mnav {
+  position: fixed; inset: 64px 0 0 0; z-index: 49; background: var(--ink); color: var(--t-d);
+  display: flex; flex-direction: column; padding: 24px var(--pad); gap: 4px;
+  transform: translateY(-8px); opacity: 0; visibility: hidden; transition: opacity .3s, transform .3s var(--ease), visibility .3s;
+}
+.mnav.open { opacity: 1; transform: none; visibility: visible; }
+.mnav a:not(.btn) { padding: 14px 0; border-bottom: 1px solid var(--l-d); font-size: 1.15rem; display: flex; justify-content: space-between; }
+.mnav a .mono { color: var(--sig); font-size: .75rem; }
+.mnav .btn { margin-top: 20px; justify-content: center; }
+
+/* ---- HERO (alt sayfa) ---- */
+#hero { padding: clamp(120px, 14vw, 168px) 0 clamp(56px, 8vw, 88px); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-d); margin-bottom: 24px; }
+.hero-meta b { color: var(--sig); font-weight: 500; }
+.hero-meta a:hover { color: var(--t-d); }
+.hero-h { font-size: clamp(2.7rem, 6.2vw, 5.2rem); line-height: .98; letter-spacing: -0.045em; font-weight: 600; }
+.hero-sub { margin-top: 22px; color: var(--m-d); font-size: 1.1rem; max-width: 52ch; }
+.hero-sub b { color: var(--t-d); font-weight: 600; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+/* ---- kartlar ---- */
+.card {
+  position: relative; border-radius: var(--r); border: 1px solid var(--l-l); background: rgba(255, 255, 255, 0.55);
+  padding: 28px; transition: border-color .3s;
+}
+.card:hover { border-color: rgba(255, 87, 51, .45); }
+.dark .card { background: rgba(17, 26, 44, 0.72); border-color: var(--l-d); }
+.card-id { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; color: var(--sig); display: flex; justify-content: space-between; gap: 12px; }
+.card-id span:last-child { color: var(--m-l); }
+.dark .card-id span:last-child { color: var(--m-d); }
+
+/* ---- basamak şeridi ---- */
+.ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: end; margin-bottom: 16px; }
+.ladder div { border-top: 1px solid var(--sig); border-left: 1px solid var(--l-l); height: var(--h); padding: 8px 0 0 10px; font-family: var(--f-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
+.ladder div b { color: var(--sig); font-weight: 500; margin-right: 6px; }
+
+/* ---- paket kartları ---- */
+.plan-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.plan { display: flex; flex-direction: column; background: #fff; }
+.plan.rec { border-color: var(--sig); box-shadow: 0 30px 60px -44px rgba(255, 87, 51, .55); }
+.plan-badge { position: absolute; top: -11px; right: 20px; font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; background: var(--sig); color: #fff; border-radius: 4px; padding: 3px 8px; }
+.plan h3 { font-size: 1.45rem; margin: 22px 0 10px; }
+.plan-out { font-size: 1rem; font-weight: 500; color: var(--t-l); line-height: 1.45; }
+.plan-for { margin-top: 10px; font-size: .88rem; color: var(--m-l); }
+.plan-for b { font-family: var(--f-mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--t-l); font-weight: 500; display: block; margin-bottom: 2px; }
+.plan-sec { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--l-l); font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
+.plan ul { list-style: none; display: grid; gap: 9px; margin-top: 10px; flex: 1; align-content: start; }
+.plan li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: .9rem; color: var(--m-l); }
+.plan li::before { content: ''; margin-top: 8px; width: 8px; height: 8px; border: 1.5px solid var(--sig); border-radius: 2px; }
+.plan li b { color: var(--t-l); font-weight: 600; }
+
+.price { margin-top: 22px; border: 1px solid var(--l-l); border-radius: 8px; background: var(--paper); }
+.price-head { padding: 9px 14px; border-bottom: 1px solid var(--l-l); font-family: var(--f-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-l); }
+.price-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; padding: 10px 14px; border-bottom: 1px dashed var(--l-l); }
+.price-row:last-of-type { border-bottom: 0; }
+.price-k { font-size: .84rem; color: var(--m-l); }
+.fiyat { font-family: var(--f-mono); font-size: 1.15rem; font-weight: 500; letter-spacing: -0.01em; color: var(--t-l); white-space: nowrap; }
+.fiyat-not { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-top: 1px solid var(--l-l); font-family: var(--f-mono); font-size: .62rem; letter-spacing: .05em; text-transform: uppercase; color: var(--sig); }
+.fiyat-not::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.price-custom { padding: 12px 14px; font-size: .88rem; color: var(--m-l); }
+.plan .btn { margin-top: 16px; justify-content: center; }
+.plans-note { margin-top: 28px; color: var(--m-l); max-width: 72ch; font-size: .95rem; }
+.plans-note b { color: var(--t-l); font-weight: 600; }
+
+/* ---- ek modüller ---- */
+.mod-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mod { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; align-items: center; padding: 20px 22px; }
+.mod .card-id { grid-column: 1 / -1; }
+.mod h3 { font-size: 1.08rem; letter-spacing: -0.02em; line-height: 1.25; }
+.mod p { font-size: .88rem; color: var(--m-d); margin-top: 4px; }
+.mod-price { text-align: right; }
+.mod-price .fiyat { color: var(--t-d); }
+.mod-price small { display: block; font-family: var(--f-mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sig); margin-top: 2px; }
+
+/* ---- kurulum nasıl fiyatlanır ---- */
+.commit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.commit h3 { font-size: 1.12rem; margin: 18px 0 10px; }
+.commit p { color: var(--m-l); font-size: .92rem; }
+.dark .commit p { color: var(--m-d); }
+.dark .commit h3 { color: var(--t-d); }
+
+/* ---- SSS ---- */
+.faq { max-width: 860px; margin: 0 auto; border-top: 1px solid var(--l-l); }
+.faq-item { border-bottom: 1px solid var(--l-l); }
+.faq-q { width: 100%; display: grid; grid-template-columns: 52px 1fr 24px; align-items: center; gap: 8px; text-align: left; padding: 22px 0; font-size: 1.05rem; font-weight: 500; }
+.faq-q .mono { font-size: .72rem; color: var(--sig); }
+.faq-q .plus { width: 24px; height: 24px; position: relative; }
+.faq-q .plus::before, .faq-q .plus::after { content: ''; position: absolute; left: 5px; right: 5px; top: 11px; height: 1.5px; background: var(--t-l); transition: transform .3s var(--ease); }
+.faq-q .plus::after { transform: rotate(90deg); }
+.faq-item.open .plus::after { transform: rotate(0); }
+.faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s var(--ease); }
+.faq-a > div { overflow: hidden; }
+.faq-a p { padding: 0 32px 24px 60px; color: var(--m-l); }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+
+/* ---- son çağrı ---- */
+.final { text-align: left; }
+.final .h { max-width: 18ch; }
+.final .sub { margin-top: 20px; }
+.final-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.reply { margin-top: 18px; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--m-d); display: flex; align-items: center; gap: 8px; }
+.reply::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
+
+/* ---- footer ---- */
+footer { padding: 56px 0 32px; border-top: 1px solid var(--l-d); }
+.foot-grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 32px; }
+.foot-grid h4 { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--m-d); font-weight: 500; margin-bottom: 14px; }
+.foot-grid ul { list-style: none; display: grid; gap: 8px; font-size: .9rem; color: var(--t-d); }
+.foot-grid a:hover { color: var(--sig); }
+.foot-brand p { color: var(--m-d); font-size: .9rem; margin: 14px 0 0; }
+.foot-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--l-d); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .8rem; color: var(--m-d); }
+.foot-bottom nav { display: flex; gap: 16px; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* ---- duyarlı ---- */
+@media (max-width: 1080px) {
+  .plan-grid, .commit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan-grid { row-gap: 28px; }
+  .ladder { display: none; }
+  .nav-links { gap: 18px; }
+  .foot-grid { grid-template-columns: repeat(3, 1fr); }
+  .foot-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  .nav-links, .nav-right .btn { display: none; }
+  .burger { display: block; }
+  .head-row, .mod-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .plan-grid, .commit-grid { grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 22px; }
+  .mod { padding: 18px; grid-template-columns: minmax(0, 1fr); }
+  .mod-price { text-align: left; display: flex; align-items: baseline; gap: 12px; margin-top: 6px; }
+  .mod-price small { margin-top: 0; }
+  .faq-q { grid-template-columns: 36px 1fr 24px; font-size: 1rem; }
+  .faq-a p { padding: 0 8px 22px 44px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .hero-cta .btn, .final-cta .btn { flex: 1 1 auto; justify-content: center; }
+}
+</style>
+<link rel="stylesheet" href="/assets/cagri.css">
+<link rel="stylesheet" href="/assets/uras-asistan.css">
+<style>
+.tb{max-width:760px;margin:0 auto;padding:120px var(--pad) 72px}
+.tb .etiket{display:inline-block;background:var(--sig);color:#fff;font:700 13px/1 var(--f-mono);letter-spacing:.08em;padding:8px 12px;border-radius:6px}
+.tb h1{font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 14px}
+.tb h1 em{font-style:normal;background:#FFD400;padding:0 .12em;border-radius:.1em}
+.tb .giris{font-size:19px;color:var(--m-l);margin-bottom:28px}
+.tb .indir{display:grid;gap:12px;margin:0 0 40px}
+.tb .indir a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 22px;border-radius:14px;font-weight:700;font-size:19px;border:2px solid var(--ink)}
+.tb .indir a.ana{background:var(--sig);border-color:var(--sig);color:#fff}
+.tb .indir small{font:500 13px var(--f-mono);opacity:.8}
+.tb h2{font-size:26px;margin:40px 0 14px;letter-spacing:-.01em}
+.tb ol,.tb ul{padding-left:22px}
+.tb li{margin:0 0 12px;font-size:17px}
+.tb .not{background:#fff;border:1px solid var(--l-l);border-radius:12px;padding:18px 20px;font-size:16px;color:var(--m-l)}
+.tb .son{margin-top:44px;background:var(--ink);color:#E7EBF3;border-radius:16px;padding:26px 24px}
+.tb .son p{margin-bottom:16px}
+.tb .son a{display:inline-block;background:var(--sig);color:#fff;font-weight:700;padding:14px 20px;border-radius:10px}
+</style>
+</head>
+<body class="serit-var">
+
+<!-- ====== KAYAN ŞERİT ====== -->
+<div class="serit serit--sabit" role="region" aria-label="Duyurular">
+  <div class="serit-iz">
+    <ul class="serit-grup"><li>Keşif görüşmesi ücretsiz</li><li><a href="/kosgeb-yesil-sanayi-yazilim.html#takvim">KOSGEB ön başvurusu 9 Aralık 2026 son gün</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer">WhatsApp'tan yazın</a></li></ul>
+    <ul class="serit-grup" aria-hidden="true"><li>Keşif görüşmesi ücretsiz</li><li><a href="/kosgeb-yesil-sanayi-yazilim.html#takvim" tabindex="-1">KOSGEB ön başvurusu 9 Aralık 2026 son gün</a></li><li>24 saat içinde dönüş</li><li>Sistem sizin adınıza kurulur, hesaplar sizin</li><li><a href="https://wa.me/905063026474?text=Merhaba%2C%20Uras%20Tech%20ile%20bir%20ke%C5%9Fif%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener noreferrer" tabindex="-1">WhatsApp'tan yazın</a></li></ul>
+  </div>
+</div>
+
+<!-- ====== NAV ====== -->
+<header id="nav">
+  <div class="nav-in">
+    <a href="/" class="logo" aria-label="Uras Tech ana sayfa">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="31" height="31" rx="6" stroke="rgba(148,163,184,.35)"/><path d="M8 8V18Q8 24.5 16 24.5Q24 24.5 24 18V8M24 8L27 11" stroke="#FF5733" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>URAS <small>Tech</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#hizmetler"><span class="mono">01</span>Hizmetler</a></li>
+      <li><a href="/#platformlar"><span class="mono">02</span>Ürünlerimiz</a></li>
+      <li><a href="/#nasil-calisir"><span class="mono">03</span>Nasıl Çalışır</a></li>
+      <li><a href="/fiyatlar.html">Fiyatlar</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/#iletisim" class="btn btn-sig">Ücretsiz Görüşme</a>
+      <button class="burger" id="burger" aria-label="Menü" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobil menü">
+  <a href="/#hizmetler">Hizmetler <span class="mono">01</span></a>
+  <a href="/#platformlar">Ürünlerimiz <span class="mono">02</span></a>
+  <a href="/#nasil-calisir">Nasıl Çalışır <span class="mono">03</span></a>
+  <a href="/#sss">SSS <span class="mono">04</span></a>
+  <a href="/fiyatlar.html">Fiyatlar <span class="mono">↗</span></a>
+  <a href="/blog/">Blog <span class="mono">↗</span></a>
+  <a href="/#iletisim" class="btn btn-sig">Ücretsiz Görüşme</a>
+</nav>
+<main class="tb">
+  <span class="etiket">ÜCRETSİZ · KOSGEB YEŞİL SANAYİ</span>
+  <h1>Ürün başına <em>tüketim</em> tablosu</h1>
+  <p class="giris">Vardiya sonunda iki dakikada doldurursun. Tablo bir ürünün ne kadar elektrik, su ve hammadde yediğini kendiliğinden hesaplar. Yeni cihaz gerekmez, mevcut sayaçların yeter.</p>
+
+  <div class="indir">
+    <a class="ana" href="/assets/indir/urun-basina-tuketim-tablosu.xlsx" download>Tabloyu indir <small>EXCEL · 40 KB</small></a>
+    <a href="/assets/indir/urun-basina-tuketim-rehberi.pdf" download>Kısa rehberi indir <small>PDF · 3 sayfa</small></a>
+  </div>
+
+  <h2>Neden?</h2>
+  <p>Birçok fabrika elektrik ve suyu ay sonunda faturadan öğrenir, fireyi bir deftere yazar. Fatura toplam bir rakam söyler; hangi gün, hangi ürün fazla yaktı sorusunun cevabı kaybolur. Bir şeyi azaltmak ve azalttığını göstermek için önce bugün ne harcadığını bilmen gerekir. KOSGEB Yeşil Sanayi başvurusunda da azalmayı sayıyla anlatmak ancak böyle bir kayıtla mümkün olur.</p>
+
+  <h2>Nasıl kullanılır?</h2>
+  <ol>
+    <li><b>Dosyayı aç.</b> Bilgisayarda Excel ile açılır. Telefonda Google E-Tablolar uygulamasıyla açabilirsin.</li>
+    <li><b>Sayaç çarpanını gir.</b> «Nasıl kullanılır» sekmesindeki sarı hücreye elektrik sayacının çarpanını yaz. Sayacında çarpan yazmıyorsa 1 bırak.</li>
+    <li><b>Her vardiya sonunda bir satır doldur.</b> «Günlük giriş» sekmesine elektrik ve su sayacının ilk ve son değerini, sağlam ürün adedini ve fireyi yaz. Gri sütunlar kendiliğinden dolar.</li>
+    <li><b>Bir hafta sonra «Ürün başına» sekmesine bak.</b> Bir ürünün kaç kWh elektrik, kaç litre su yediğini ve fire oranını görürsün. Tek güne değil haftalık ortalamaya bak.</li>
+    <li><b>Bir iyileştirme yaptığında «Önce-Sonra» sekmesini kullan.</b> İyileştirme gününü sarı hücreye yaz; tablo öncesini ve sonrasını yan yana koyar.</li>
+  </ol>
+
+  <h2>Sık yapılan hatalar</h2>
+  <ul>
+    <li>Sayacı her gün farklı saatte okumak. Hep vardiya başı ve sonunda oku.</li>
+    <li>Akım trafolu sayaçta çarpanı unutmak. Tüketim olduğundan çok küçük görünür.</li>
+    <li>Fireyi bazen adet bazen kilo yazmak. Bir birim seç, hep onu kullan.</li>
+  </ul>
+
+  <p class="not">Destek koşulları ve uygun giderler KOSGEB çağrı yönergesinde yazar. Bu tablo bir kayıt aracıdır; başvurunun kabul edileceği anlamına gelmez.</p>
+
+  <div class="son">
+    <p><b>Vaktin yoksa:</b> bu kaydı her gün kendiliğinden tutan, fark büyüyünce haber veren ve raporu tek seferde çıkaran yazılımı biz kuruyoruz.</p>
+    <a href="https://wa.me/905063026474?text=Merhaba%2C%20t%C3%BCketim%20tablosu%20i%C3%A7in%20yaz%C4%B1yorum.%20Bakal%C4%B1m." target="_blank" rel="noopener noreferrer">WhatsApp'tan «bakalım» yaz</a>
+  </div>
+</main>
+<footer class="dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="logo"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 8V18Q8 24.5 16 24.5Q24 24.5 24 18V8M24 8L27 11" stroke="#FF5733" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>URAS <small>Tech</small></span></a>
+        <p>Kendi ürünlerini yazan yazılım ekibi.<br>Şirketinize özel otomasyon, web ve yapay zekâ.</p>
+      </div>
+      <div><h4>Hizmetler</h4><ul>
+        <li><a href="/#hizmetler">Şirkete Özel Otomasyon</a></li>
+        <li><a href="/#hizmetler">Web Sitesi &amp; Dijital Altyapı</a></li>
+        <li><a href="/#hizmetler">7/24 Yapay Zekâ Asistanı</a></li>
+        <li><a href="/#hizmetler">Reklam Görsel &amp; Video</a></li>
+        <li><a href="/kosgeb-yesil-sanayi-yazilim.html">KOSGEB Yeşil Sanayi Yazılımı</a></li>
+      </ul></div>
+      <div><h4>Şirket</h4><ul>
+        <li><a href="/#taahhut">Taahhüdümüz</a></li>
+        <li><a href="/#nasil-calisir">Nasıl Çalışır</a></li>
+        <li><a href="/#sss">SSS</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul></div>
+      <div><h4>Hukuki · İletişim</h4><ul>
+        <li><a href="/kvkk.html">KVKK Aydınlatma Metni</a></li>
+        <li><a href="/gizlilik.html">Gizlilik Politikası</a></li>
+        <li><a href="/cerez-politikasi.html">Çerez Politikası</a></li>
+        <li><a href="mailto:info@urastech.com">info@urastech.com</a></li>
+        <li><a href="tel:+905063026474">0506 302 64 74</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Uras Tech. Tüm hakları saklıdır.</span>
+      <nav aria-label="Hukuki"><a href="/kvkk.html">KVKK</a><a href="/gizlilik.html">Gizlilik</a><a href="/cerez-politikasi.html">Çerezler</a><a href="mailto:info@urastech.com">info@urastech.com</a></nav>
+    </div>
+  </div>
+</footer>
+<script src="/assets/cagri.js" defer></script>
+<script src="/assets/uras-maskot.js" defer></script>
+<script src="/assets/uras-bilgi.js" defer></script>
+<script src="/assets/uras-asistan.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
+</body>
+</html>
